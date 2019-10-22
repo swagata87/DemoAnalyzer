@@ -44,6 +44,12 @@ void RedefSieie::Loop()
 
   TProfile* prof_cmssw_eleSigmaIetaIeta_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_signal_barrel_vs_pt","cmssw_sieie_signal_barrel_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_signal_barrel_vs_pt = new TProfile("prof_my_sieie_signal_barrel_vs_pt","my_sieie_signal_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p6_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p6_signal_barrel_vs_pt","cmssw_sieie_w4p6_signal_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p5_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p5_signal_barrel_vs_pt","cmssw_sieie_w4p5_signal_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p4_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p4_signal_barrel_vs_pt","cmssw_sieie_w4p4_signal_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p3_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p3_signal_barrel_vs_pt","cmssw_sieie_w4p3_signal_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p2_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p2_signal_barrel_vs_pt","cmssw_sieie_w4p2_signal_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p1_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p1_signal_barrel_vs_pt","cmssw_sieie_w4p1_signal_barrel_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w4p0_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p0_signal_barrel_vs_pt","cmssw_sieie_w4p0_signal_barrel_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p5_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w3p5_signal_barrel_vs_pt","cmssw_sieie_w3p5_signal_barrel_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p0_signal_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w3p0_signal_barrel_vs_pt","cmssw_sieie_w3p0_signal_barrel_vs_pt", 20,0,100,0,0.15);
@@ -61,6 +67,12 @@ void RedefSieie::Loop()
 
   TProfile* prof_cmssw_eleSigmaIetaIeta_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_bkg_barrel_vs_pt","cmssw_sieie_bkg_barrel_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_bkg_barrel_vs_pt = new TProfile("prof_my_sieie_bkg_barrel_vs_pt","my_sieie_bkg_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p6_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p6_bkg_barrel_vs_pt","cmssw_sieie_w4p6_bkg_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p5_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p5_bkg_barrel_vs_pt","cmssw_sieie_w4p5_bkg_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p4_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p4_bkg_barrel_vs_pt","cmssw_sieie_w4p4_bkg_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p3_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p3_bkg_barrel_vs_pt","cmssw_sieie_w4p3_bkg_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p2_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p2_bkg_barrel_vs_pt","cmssw_sieie_w4p2_bkg_barrel_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p1_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p1_bkg_barrel_vs_pt","cmssw_sieie_w4p1_bkg_barrel_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w4p0_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w4p0_bkg_barrel_vs_pt","cmssw_sieie_w4p0_bkg_barrel_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p5_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w3p5_bkg_barrel_vs_pt","cmssw_sieie_w3p5_bkg_barrel_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p0_bkg_barrel_vs_pt = new TProfile("prof_cmssw_sieie_w3p0_bkg_barrel_vs_pt","cmssw_sieie_w3p0_bkg_barrel_vs_pt", 20,0,100,0,0.15);
@@ -78,6 +90,12 @@ void RedefSieie::Loop()
 
   TProfile* prof_cmssw_eleSigmaIetaIeta_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_signal_endcap_vs_pt","cmssw_sieie_signal_endcap_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_signal_endcap_vs_pt = new TProfile("prof_my_sieie_signal_endcap_vs_pt","my_sieie_signal_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p6_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p6_signal_endcap_vs_pt","cmssw_sieie_w4p6_signal_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p5_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p5_signal_endcap_vs_pt","cmssw_sieie_w4p5_signal_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p4_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p4_signal_endcap_vs_pt","cmssw_sieie_w4p4_signal_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p3_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p3_signal_endcap_vs_pt","cmssw_sieie_w4p3_signal_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p2_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p2_signal_endcap_vs_pt","cmssw_sieie_w4p2_signal_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p1_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p1_signal_endcap_vs_pt","cmssw_sieie_w4p1_signal_endcap_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w4p0_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p0_signal_endcap_vs_pt","cmssw_sieie_w4p0_signal_endcap_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p5_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w3p5_signal_endcap_vs_pt","cmssw_sieie_w3p5_signal_endcap_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p0_signal_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w3p0_signal_endcap_vs_pt","cmssw_sieie_w3p0_signal_endcap_vs_pt", 20,0,100,0,0.15);
@@ -95,6 +113,12 @@ void RedefSieie::Loop()
 
   TProfile* prof_cmssw_eleSigmaIetaIeta_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_bkg_endcap_vs_pt","cmssw_sieie_bkg_endcap_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_bkg_endcap_vs_pt = new TProfile("prof_my_sieie_bkg_endcap_vs_pt","my_sieie_bkg_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p6_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p6_bkg_endcap_vs_pt","cmssw_sieie_w4p6_bkg_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p5_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p5_bkg_endcap_vs_pt","cmssw_sieie_w4p5_bkg_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p4_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p4_bkg_endcap_vs_pt","cmssw_sieie_w4p4_bkg_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p3_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p3_bkg_endcap_vs_pt","cmssw_sieie_w4p3_bkg_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p2_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p2_bkg_endcap_vs_pt","cmssw_sieie_w4p2_bkg_endcap_vs_pt", 20,0,100,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p1_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p1_bkg_endcap_vs_pt","cmssw_sieie_w4p1_bkg_endcap_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w4p0_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w4p0_bkg_endcap_vs_pt","cmssw_sieie_w4p0_bkg_endcap_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p5_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w3p5_bkg_endcap_vs_pt","cmssw_sieie_w3p5_bkg_endcap_vs_pt", 20,0,100,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p0_bkg_endcap_vs_pt = new TProfile("prof_cmssw_sieie_w3p0_bkg_endcap_vs_pt","cmssw_sieie_w3p0_bkg_endcap_vs_pt", 20,0,100,0,0.15);
@@ -113,6 +137,12 @@ void RedefSieie::Loop()
   ////PU
   TProfile* prof_cmssw_eleSigmaIetaIeta_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_signal_barrel_vs_PU","cmssw_sieie_signal_barrel_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_signal_barrel_vs_PU = new TProfile("prof_my_sieie_signal_barrel_vs_PU","my_sieie_signal_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p6_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p6_signal_barrel_vs_PU","cmssw_sieie_w4p6_signal_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p5_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p5_signal_barrel_vs_PU","cmssw_sieie_w4p5_signal_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p4_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p4_signal_barrel_vs_PU","cmssw_sieie_w4p4_signal_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p3_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p3_signal_barrel_vs_PU","cmssw_sieie_w4p3_signal_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p2_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p2_signal_barrel_vs_PU","cmssw_sieie_w4p2_signal_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p1_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p1_signal_barrel_vs_PU","cmssw_sieie_w4p1_signal_barrel_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w4p0_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p0_signal_barrel_vs_PU","cmssw_sieie_w4p0_signal_barrel_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p5_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w3p5_signal_barrel_vs_PU","cmssw_sieie_w3p5_signal_barrel_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p0_signal_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w3p0_signal_barrel_vs_PU","cmssw_sieie_w3p0_signal_barrel_vs_PU", 120,0,120,0,0.15);
@@ -130,6 +160,12 @@ void RedefSieie::Loop()
 
   TProfile* prof_cmssw_eleSigmaIetaIeta_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_bkg_barrel_vs_PU","cmssw_sieie_bkg_barrel_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_bkg_barrel_vs_PU = new TProfile("prof_my_sieie_bkg_barrel_vs_PU","my_sieie_bkg_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p6_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p6_bkg_barrel_vs_PU","cmssw_sieie_w4p6_bkg_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p5_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p5_bkg_barrel_vs_PU","cmssw_sieie_w4p5_bkg_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p4_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p4_bkg_barrel_vs_PU","cmssw_sieie_w4p4_bkg_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p3_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p3_bkg_barrel_vs_PU","cmssw_sieie_w4p3_bkg_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p2_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p2_bkg_barrel_vs_PU","cmssw_sieie_w4p2_bkg_barrel_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p1_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p1_bkg_barrel_vs_PU","cmssw_sieie_w4p1_bkg_barrel_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w4p0_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w4p0_bkg_barrel_vs_PU","cmssw_sieie_w4p0_bkg_barrel_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p5_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w3p5_bkg_barrel_vs_PU","cmssw_sieie_w3p5_bkg_barrel_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p0_bkg_barrel_vs_PU = new TProfile("prof_cmssw_sieie_w3p0_bkg_barrel_vs_PU","cmssw_sieie_w3p0_bkg_barrel_vs_PU", 120,0,120,0,0.15);
@@ -147,6 +183,12 @@ void RedefSieie::Loop()
 
   TProfile* prof_cmssw_eleSigmaIetaIeta_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_signal_endcap_vs_PU","cmssw_sieie_signal_endcap_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_signal_endcap_vs_PU = new TProfile("prof_my_sieie_signal_endcap_vs_PU","my_sieie_signal_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p6_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p6_signal_endcap_vs_PU","cmssw_sieie_w4p6_signal_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p5_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p5_signal_endcap_vs_PU","cmssw_sieie_w4p5_signal_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p4_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p4_signal_endcap_vs_PU","cmssw_sieie_w4p4_signal_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p3_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p3_signal_endcap_vs_PU","cmssw_sieie_w4p3_signal_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p2_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p2_signal_endcap_vs_PU","cmssw_sieie_w4p2_signal_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p1_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p1_signal_endcap_vs_PU","cmssw_sieie_w4p1_signal_endcap_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w4p0_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p0_signal_endcap_vs_PU","cmssw_sieie_w4p0_signal_endcap_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p5_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w3p5_signal_endcap_vs_PU","cmssw_sieie_w3p5_signal_endcap_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p0_signal_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w3p0_signal_endcap_vs_PU","cmssw_sieie_w3p0_signal_endcap_vs_PU", 120,0,120,0,0.15);
@@ -164,6 +206,12 @@ void RedefSieie::Loop()
 
   TProfile* prof_cmssw_eleSigmaIetaIeta_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_bkg_endcap_vs_PU","cmssw_sieie_bkg_endcap_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_bkg_endcap_vs_PU = new TProfile("prof_my_sieie_bkg_endcap_vs_PU","my_sieie_bkg_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p6_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p6_bkg_endcap_vs_PU","cmssw_sieie_w4p6_bkg_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p5_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p5_bkg_endcap_vs_PU","cmssw_sieie_w4p5_bkg_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p4_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p4_bkg_endcap_vs_PU","cmssw_sieie_w4p4_bkg_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p3_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p3_bkg_endcap_vs_PU","cmssw_sieie_w4p3_bkg_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p2_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p2_bkg_endcap_vs_PU","cmssw_sieie_w4p2_bkg_endcap_vs_PU", 120,0,120,0,0.15);
+  TProfile* prof_my_eleSigmaIetaIeta_w4p1_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p1_bkg_endcap_vs_PU","cmssw_sieie_w4p1_bkg_endcap_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w4p0_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w4p0_bkg_endcap_vs_PU","cmssw_sieie_w4p0_bkg_endcap_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p5_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w3p5_bkg_endcap_vs_PU","cmssw_sieie_w3p5_bkg_endcap_vs_PU", 120,0,120,0,0.15);
   TProfile* prof_my_eleSigmaIetaIeta_w3p0_bkg_endcap_vs_PU = new TProfile("prof_cmssw_sieie_w3p0_bkg_endcap_vs_PU","cmssw_sieie_w3p0_bkg_endcap_vs_PU", 120,0,120,0,0.15);
@@ -183,6 +231,12 @@ void RedefSieie::Loop()
 
   TH1D* h1_cmssw_eleSigmaIetaIeta_signal_barrel = new TH1D("h1_cmssw_SigmaIetaIeta_signal_barrel", "cmssw_SigmaIetaIeta_signal_barrel", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_signal_barrel", "my_SigmaIetaIeta_signal_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p6_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p6_signal_barrel", "my_SigmaIetaIeta_w4p6_signal_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p5_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p5_signal_barrel", "my_SigmaIetaIeta_w4p5_signal_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p4_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p4_signal_barrel", "my_SigmaIetaIeta_w4p4_signal_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p3_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p3_signal_barrel", "my_SigmaIetaIeta_w4p3_signal_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p2_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p2_signal_barrel", "my_SigmaIetaIeta_w4p2_signal_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p1_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p1_signal_barrel", "my_SigmaIetaIeta_w4p1_signal_barrel", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w4p0_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p0_signal_barrel", "my_SigmaIetaIeta_w4p0_signal_barrel", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w3p5_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w3p5_signal_barrel", "my_SigmaIetaIeta_w3p5_signal_barrel", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w3p0_signal_barrel = new TH1D("h1_my_SigmaIetaIeta_w3p0_signal_barrel", "my_SigmaIetaIeta_w3p0_signal_barrel", 200, 0, 0.1);
@@ -200,6 +254,12 @@ void RedefSieie::Loop()
 
   TH1D* h1_cmssw_eleSigmaIetaIeta_signal_endcap = new TH1D("h1_cmssw_SigmaIetaIeta_signal_endcap", "cmssw_SigmaIetaIeta_signal_endcap", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_signal_endcap", "my_SigmaIetaIeta_signal_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p6_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p6_signal_endcap", "my_SigmaIetaIeta_w4p6_signal_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p5_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p5_signal_endcap", "my_SigmaIetaIeta_w4p5_signal_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p4_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p4_signal_endcap", "my_SigmaIetaIeta_w4p4_signal_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p3_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p3_signal_endcap", "my_SigmaIetaIeta_w4p3_signal_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p2_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p2_signal_endcap", "my_SigmaIetaIeta_w4p2_signal_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p1_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p1_signal_endcap", "my_SigmaIetaIeta_w4p1_signal_endcap", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w4p0_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p0_signal_endcap", "my_SigmaIetaIeta_w4p0_signal_endcap", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w3p5_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w3p5_signal_endcap", "my_SigmaIetaIeta_w3p5_signal_endcap", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w3p0_signal_endcap = new TH1D("h1_my_SigmaIetaIeta_w3p0_signal_endcap", "my_SigmaIetaIeta_w3p0_signal_endcap", 200, 0, 0.1);
@@ -218,6 +278,12 @@ void RedefSieie::Loop()
   //
   TH1D* h1_cmssw_eleSigmaIetaIeta_bkg_barrel = new TH1D("h1_cmssw_SigmaIetaIeta_bkg_barrel", "cmssw_SigmaIetaIeta_bkg_barrel", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_bkg_barrel", "my_SigmaIetaIeta_bkg_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p6_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p6_bkg_barrel", "my_SigmaIetaIeta_w4p6_bkg_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p5_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p5_bkg_barrel", "my_SigmaIetaIeta_w4p5_bkg_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p4_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p4_bkg_barrel", "my_SigmaIetaIeta_w4p4_bkg_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p3_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p3_bkg_barrel", "my_SigmaIetaIeta_w4p3_bkg_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p2_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p2_bkg_barrel", "my_SigmaIetaIeta_w4p2_bkg_barrel", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p1_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p1_bkg_barrel", "my_SigmaIetaIeta_w4p1_bkg_barrel", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w4p0_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w4p0_bkg_barrel", "my_SigmaIetaIeta_w4p0_bkg_barrel", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w3p5_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w3p5_bkg_barrel", "my_SigmaIetaIeta_w3p5_bkg_barrel", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w3p0_bkg_barrel = new TH1D("h1_my_SigmaIetaIeta_w3p0_bkg_barrel", "my_SigmaIetaIeta_w3p0_bkg_barrel", 200, 0, 0.1);
@@ -235,6 +301,12 @@ void RedefSieie::Loop()
 
   TH1D* h1_cmssw_eleSigmaIetaIeta_bkg_endcap = new TH1D("h1_cmssw_SigmaIetaIeta_bkg_endcap", "cmssw_SigmaIetaIeta_bkg_endcap", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_bkg_endcap", "my_SigmaIetaIeta_bkg_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p6_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p6_bkg_endcap", "my_SigmaIetaIeta_w4p6_bkg_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p5_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p5_bkg_endcap", "my_SigmaIetaIeta_w4p5_bkg_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p4_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p4_bkg_endcap", "my_SigmaIetaIeta_w4p4_bkg_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p3_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p3_bkg_endcap", "my_SigmaIetaIeta_w4p3_bkg_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p2_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p2_bkg_endcap", "my_SigmaIetaIeta_w4p2_bkg_endcap", 200, 0, 0.1);
+  TH1D* h1_my_eleSigmaIetaIeta_w4p1_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p1_bkg_endcap", "my_SigmaIetaIeta_w4p1_bkg_endcap", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w4p0_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w4p0_bkg_endcap", "my_SigmaIetaIeta_w4p0_bkg_endcap", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w3p5_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w3p5_bkg_endcap", "my_SigmaIetaIeta_w3p5_bkg_endcap", 200, 0, 0.1);
   TH1D* h1_my_eleSigmaIetaIeta_w3p0_bkg_endcap = new TH1D("h1_my_SigmaIetaIeta_w3p0_bkg_endcap", "my_SigmaIetaIeta_w3p0_bkg_endcap", 200, 0, 0.1);
@@ -269,6 +341,12 @@ void RedefSieie::Loop()
 	  std::cout << "my_eleSigmaIetaIeta_ = " << my_eleSigmaIetaIeta_->at(iele) << std::endl;
 	  h1_my_eleSigmaIetaIeta_signal_barrel->Fill(my_eleSigmaIetaIeta_->at(iele));
 	  h1_cmssw_eleSigmaIetaIeta_signal_barrel->Fill(cmssw_eleSigmaIetaIeta_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p6_signal_barrel->Fill(my_eleSigmaIetaIeta_w4p6_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p5_signal_barrel->Fill(my_eleSigmaIetaIeta_w4p5_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p4_signal_barrel->Fill(my_eleSigmaIetaIeta_w4p4_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p3_signal_barrel->Fill(my_eleSigmaIetaIeta_w4p3_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p2_signal_barrel->Fill(my_eleSigmaIetaIeta_w4p2_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p1_signal_barrel->Fill(my_eleSigmaIetaIeta_w4p1_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w4p0_signal_barrel->Fill(my_eleSigmaIetaIeta_w4p0_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w3p5_signal_barrel->Fill(my_eleSigmaIetaIeta_w3p5_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w3p0_signal_barrel->Fill(my_eleSigmaIetaIeta_w3p0_->at(iele));
@@ -286,6 +364,12 @@ void RedefSieie::Loop()
 
 	  prof_cmssw_eleSigmaIetaIeta_signal_barrel_vs_pt->Fill(elePt_->at(iele),cmssw_eleSigmaIetaIeta_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p6_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p6_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p5_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p5_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p4_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p4_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p3_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p3_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p2_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p2_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p1_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p1_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w4p0_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p0_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p5_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w3p5_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p0_signal_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w3p0_->at(iele) );
@@ -303,6 +387,12 @@ void RedefSieie::Loop()
 
 	  prof_cmssw_eleSigmaIetaIeta_signal_barrel_vs_PU->Fill(puTrue_->at(0),cmssw_eleSigmaIetaIeta_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p6_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p6_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p5_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p5_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p4_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p4_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p3_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p3_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p2_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p2_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p1_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p1_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w4p0_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p0_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p5_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w3p5_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p0_signal_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w3p0_->at(iele) );
@@ -325,6 +415,12 @@ void RedefSieie::Loop()
 	  // std::cout << "\nmy_eleSigmaIetaIeta_ = " << my_eleSigmaIetaIeta_->at(iele) << std::endl;
 	  h1_my_eleSigmaIetaIeta_bkg_barrel->Fill(my_eleSigmaIetaIeta_->at(iele));
 	  h1_cmssw_eleSigmaIetaIeta_bkg_barrel->Fill(cmssw_eleSigmaIetaIeta_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p6_bkg_barrel->Fill(my_eleSigmaIetaIeta_w4p6_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p5_bkg_barrel->Fill(my_eleSigmaIetaIeta_w4p5_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p4_bkg_barrel->Fill(my_eleSigmaIetaIeta_w4p4_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p3_bkg_barrel->Fill(my_eleSigmaIetaIeta_w4p3_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p2_bkg_barrel->Fill(my_eleSigmaIetaIeta_w4p2_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p1_bkg_barrel->Fill(my_eleSigmaIetaIeta_w4p1_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w4p0_bkg_barrel->Fill(my_eleSigmaIetaIeta_w4p0_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w3p5_bkg_barrel->Fill(my_eleSigmaIetaIeta_w3p5_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w3p0_bkg_barrel->Fill(my_eleSigmaIetaIeta_w3p0_->at(iele));
@@ -342,6 +438,12 @@ void RedefSieie::Loop()
 
 	  prof_cmssw_eleSigmaIetaIeta_bkg_barrel_vs_pt->Fill(elePt_->at(iele),cmssw_eleSigmaIetaIeta_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p6_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p6_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p5_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p5_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p4_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p4_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p3_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p3_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p2_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p2_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p1_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p1_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w4p0_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p0_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p5_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w3p5_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p0_bkg_barrel_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w3p0_->at(iele) );
@@ -359,6 +461,12 @@ void RedefSieie::Loop()
 
 	  prof_cmssw_eleSigmaIetaIeta_bkg_barrel_vs_PU->Fill(puTrue_->at(0),cmssw_eleSigmaIetaIeta_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p6_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p6_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p5_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p5_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p4_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p4_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p3_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p3_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p2_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p2_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p1_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p1_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w4p0_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p0_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p5_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w3p5_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p0_bkg_barrel_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w3p0_->at(iele) );
@@ -383,6 +491,12 @@ void RedefSieie::Loop()
 	  std::cout << "my_eleSigmaIetaIeta_ = " << my_eleSigmaIetaIeta_->at(iele) << std::endl;
 	  h1_my_eleSigmaIetaIeta_signal_endcap->Fill(my_eleSigmaIetaIeta_->at(iele));
 	  h1_cmssw_eleSigmaIetaIeta_signal_endcap->Fill(cmssw_eleSigmaIetaIeta_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p6_signal_endcap->Fill(my_eleSigmaIetaIeta_w4p6_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p5_signal_endcap->Fill(my_eleSigmaIetaIeta_w4p5_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p4_signal_endcap->Fill(my_eleSigmaIetaIeta_w4p4_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p3_signal_endcap->Fill(my_eleSigmaIetaIeta_w4p3_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p2_signal_endcap->Fill(my_eleSigmaIetaIeta_w4p2_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p1_signal_endcap->Fill(my_eleSigmaIetaIeta_w4p1_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w4p0_signal_endcap->Fill(my_eleSigmaIetaIeta_w4p0_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w3p5_signal_endcap->Fill(my_eleSigmaIetaIeta_w3p5_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w3p0_signal_endcap->Fill(my_eleSigmaIetaIeta_w3p0_->at(iele));
@@ -400,6 +514,12 @@ void RedefSieie::Loop()
 
 	  prof_cmssw_eleSigmaIetaIeta_signal_endcap_vs_pt->Fill(elePt_->at(iele),cmssw_eleSigmaIetaIeta_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p6_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p6_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p5_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p5_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p4_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p4_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p3_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p3_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p2_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p2_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p1_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p1_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w4p0_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p0_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p5_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w3p5_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p0_signal_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w3p0_->at(iele) );
@@ -417,6 +537,12 @@ void RedefSieie::Loop()
 
 	  prof_cmssw_eleSigmaIetaIeta_signal_endcap_vs_PU->Fill(puTrue_->at(0),cmssw_eleSigmaIetaIeta_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p6_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p6_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p5_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p5_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p4_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p4_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p3_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p3_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p2_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p2_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p1_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p1_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w4p0_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p0_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p5_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w3p5_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p0_signal_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w3p0_->at(iele) );
@@ -439,6 +565,12 @@ void RedefSieie::Loop()
 	  std::cout << "my_eleSigmaIetaIeta_ = " << my_eleSigmaIetaIeta_->at(iele) << std::endl;
 	  h1_my_eleSigmaIetaIeta_bkg_endcap->Fill(my_eleSigmaIetaIeta_->at(iele));
 	  h1_cmssw_eleSigmaIetaIeta_bkg_endcap->Fill(cmssw_eleSigmaIetaIeta_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p6_bkg_endcap->Fill(my_eleSigmaIetaIeta_w4p6_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p5_bkg_endcap->Fill(my_eleSigmaIetaIeta_w4p5_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p4_bkg_endcap->Fill(my_eleSigmaIetaIeta_w4p4_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p3_bkg_endcap->Fill(my_eleSigmaIetaIeta_w4p3_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p2_bkg_endcap->Fill(my_eleSigmaIetaIeta_w4p2_->at(iele));
+	  h1_my_eleSigmaIetaIeta_w4p1_bkg_endcap->Fill(my_eleSigmaIetaIeta_w4p1_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w4p0_bkg_endcap->Fill(my_eleSigmaIetaIeta_w4p0_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w3p5_bkg_endcap->Fill(my_eleSigmaIetaIeta_w3p5_->at(iele));
 	  h1_my_eleSigmaIetaIeta_w3p0_bkg_endcap->Fill(my_eleSigmaIetaIeta_w3p0_->at(iele));
@@ -456,6 +588,12 @@ void RedefSieie::Loop()
 
 	  prof_cmssw_eleSigmaIetaIeta_bkg_endcap_vs_pt->Fill(elePt_->at(iele),cmssw_eleSigmaIetaIeta_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p6_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p6_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p5_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p5_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p4_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p4_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p3_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p3_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p2_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p2_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p1_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p1_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w4p0_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w4p0_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p5_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w3p5_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p0_bkg_endcap_vs_pt->Fill(elePt_->at(iele),my_eleSigmaIetaIeta_w3p0_->at(iele) );
@@ -473,6 +611,12 @@ void RedefSieie::Loop()
 
 	  prof_cmssw_eleSigmaIetaIeta_bkg_endcap_vs_PU->Fill(puTrue_->at(0),cmssw_eleSigmaIetaIeta_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p6_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p6_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p5_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p5_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p4_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p4_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p3_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p3_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p2_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p2_->at(iele) );
+	  prof_my_eleSigmaIetaIeta_w4p1_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p1_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w4p0_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w4p0_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p5_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w3p5_->at(iele) );
 	  prof_my_eleSigmaIetaIeta_w3p0_bkg_endcap_vs_PU->Fill(puTrue_->at(0),my_eleSigmaIetaIeta_w3p0_->at(iele) );
@@ -496,6 +640,12 @@ void RedefSieie::Loop()
 
    h1_my_eleSigmaIetaIeta_signal_barrel->Write();
    h1_cmssw_eleSigmaIetaIeta_signal_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p6_signal_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p5_signal_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p4_signal_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p3_signal_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p2_signal_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p1_signal_barrel->Write();
    h1_my_eleSigmaIetaIeta_w4p0_signal_barrel->Write();
    h1_my_eleSigmaIetaIeta_w3p5_signal_barrel->Write();
    h1_my_eleSigmaIetaIeta_w3p0_signal_barrel->Write();
@@ -513,6 +663,12 @@ void RedefSieie::Loop()
 
    h1_my_eleSigmaIetaIeta_signal_endcap->Write();
    h1_cmssw_eleSigmaIetaIeta_signal_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p6_signal_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p5_signal_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p4_signal_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p3_signal_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p2_signal_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p1_signal_endcap->Write();
    h1_my_eleSigmaIetaIeta_w4p0_signal_endcap->Write();
    h1_my_eleSigmaIetaIeta_w3p5_signal_endcap->Write();
    h1_my_eleSigmaIetaIeta_w3p0_signal_endcap->Write();
@@ -530,6 +686,12 @@ void RedefSieie::Loop()
 
    h1_my_eleSigmaIetaIeta_bkg_barrel->Write();
    h1_cmssw_eleSigmaIetaIeta_bkg_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p6_bkg_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p5_bkg_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p4_bkg_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p3_bkg_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p2_bkg_barrel->Write();
+   h1_my_eleSigmaIetaIeta_w4p1_bkg_barrel->Write();
    h1_my_eleSigmaIetaIeta_w4p0_bkg_barrel->Write();
    h1_my_eleSigmaIetaIeta_w3p5_bkg_barrel->Write();
    h1_my_eleSigmaIetaIeta_w3p0_bkg_barrel->Write();
@@ -547,6 +709,12 @@ void RedefSieie::Loop()
 
    h1_my_eleSigmaIetaIeta_bkg_endcap->Write();
    h1_cmssw_eleSigmaIetaIeta_bkg_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p6_bkg_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p5_bkg_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p4_bkg_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p3_bkg_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p2_bkg_endcap->Write();
+   h1_my_eleSigmaIetaIeta_w4p1_bkg_endcap->Write();
    h1_my_eleSigmaIetaIeta_w4p0_bkg_endcap->Write();
    h1_my_eleSigmaIetaIeta_w3p5_bkg_endcap->Write();
    h1_my_eleSigmaIetaIeta_w3p0_bkg_endcap->Write();
@@ -564,6 +732,12 @@ void RedefSieie::Loop()
 
    prof_cmssw_eleSigmaIetaIeta_signal_barrel_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_signal_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p6_signal_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p5_signal_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p4_signal_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p3_signal_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p2_signal_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p1_signal_barrel_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w4p0_signal_barrel_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w3p5_signal_barrel_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w3p0_signal_barrel_vs_pt->Write();
@@ -580,6 +754,12 @@ void RedefSieie::Loop()
    prof_my_eleSigmaIetaIeta_en_0p18_0p8_signal_barrel_vs_pt->Write();
    prof_cmssw_eleSigmaIetaIeta_signal_endcap_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_signal_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p6_signal_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p5_signal_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p4_signal_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p3_signal_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p2_signal_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p1_signal_endcap_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w4p0_signal_endcap_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w3p5_signal_endcap_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w3p0_signal_endcap_vs_pt->Write();
@@ -597,6 +777,12 @@ void RedefSieie::Loop()
 
    prof_cmssw_eleSigmaIetaIeta_bkg_barrel_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_bkg_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p6_bkg_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p5_bkg_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p4_bkg_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p3_bkg_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p2_bkg_barrel_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p1_bkg_barrel_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w4p0_bkg_barrel_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w3p5_bkg_barrel_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w3p0_bkg_barrel_vs_pt->Write();
@@ -613,6 +799,12 @@ void RedefSieie::Loop()
    prof_my_eleSigmaIetaIeta_en_0p18_0p8_bkg_barrel_vs_pt->Write();
    prof_cmssw_eleSigmaIetaIeta_bkg_endcap_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_bkg_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p6_bkg_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p5_bkg_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p4_bkg_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p3_bkg_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p2_bkg_endcap_vs_pt->Write();
+   prof_my_eleSigmaIetaIeta_w4p1_bkg_endcap_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w4p0_bkg_endcap_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w3p5_bkg_endcap_vs_pt->Write();
    prof_my_eleSigmaIetaIeta_w3p0_bkg_endcap_vs_pt->Write();
@@ -631,6 +823,12 @@ void RedefSieie::Loop()
 
    prof_cmssw_eleSigmaIetaIeta_signal_barrel_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_signal_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p6_signal_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p5_signal_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p4_signal_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p3_signal_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p2_signal_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p1_signal_barrel_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w4p0_signal_barrel_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w3p5_signal_barrel_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w3p0_signal_barrel_vs_PU->Write();
@@ -647,6 +845,12 @@ void RedefSieie::Loop()
    prof_my_eleSigmaIetaIeta_en_0p18_0p8_signal_barrel_vs_PU->Write();
    prof_cmssw_eleSigmaIetaIeta_signal_endcap_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_signal_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p6_signal_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p5_signal_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p4_signal_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p3_signal_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p2_signal_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p1_signal_endcap_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w4p0_signal_endcap_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w3p5_signal_endcap_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w3p0_signal_endcap_vs_PU->Write();
@@ -664,6 +868,12 @@ void RedefSieie::Loop()
 
    prof_cmssw_eleSigmaIetaIeta_bkg_barrel_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_bkg_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p6_bkg_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p5_bkg_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p4_bkg_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p3_bkg_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p2_bkg_barrel_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p1_bkg_barrel_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w4p0_bkg_barrel_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w3p5_bkg_barrel_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w3p0_bkg_barrel_vs_PU->Write();
@@ -680,6 +890,12 @@ void RedefSieie::Loop()
    prof_my_eleSigmaIetaIeta_en_0p18_0p8_bkg_barrel_vs_PU->Write();
    prof_cmssw_eleSigmaIetaIeta_bkg_endcap_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_bkg_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p6_bkg_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p5_bkg_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p4_bkg_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p3_bkg_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p2_bkg_endcap_vs_PU->Write();
+   prof_my_eleSigmaIetaIeta_w4p1_bkg_endcap_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w4p0_bkg_endcap_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w3p5_bkg_endcap_vs_PU->Write();
    prof_my_eleSigmaIetaIeta_w3p0_bkg_endcap_vs_PU->Write();

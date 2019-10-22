@@ -33,6 +33,12 @@ public :
    static constexpr Int_t kMaxelePt = 1;
    static constexpr Int_t kMaxpuTrue = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p6 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p5 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p4 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p3 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p2 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p1 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p0 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p5 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p0 = 1;
@@ -63,6 +69,12 @@ public :
    vector<float>   *puTrue_;
    vector<double>  *my_eleSigmaIetaIeta_;
 
+   vector<double>  *my_eleSigmaIetaIeta_w4p6_;
+   vector<double>  *my_eleSigmaIetaIeta_w4p5_;
+   vector<double>  *my_eleSigmaIetaIeta_w4p4_;
+   vector<double>  *my_eleSigmaIetaIeta_w4p3_;
+   vector<double>  *my_eleSigmaIetaIeta_w4p2_;
+   vector<double>  *my_eleSigmaIetaIeta_w4p1_;
    vector<double>  *my_eleSigmaIetaIeta_w4p0_;
    vector<double>  *my_eleSigmaIetaIeta_w3p5_;
    vector<double>  *my_eleSigmaIetaIeta_w3p0_;
@@ -94,6 +106,12 @@ public :
    TBranch        *b_elePt_;   //!
    TBranch        *b_puTrue_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_w4p6_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_w4p5_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_w4p4_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_w4p3_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_w4p2_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_w4p1_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w4p0_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w3p5_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w3p0_;   //!
@@ -188,6 +206,12 @@ void RedefSieie::Init(TTree *tree)
    elePt_ = 0;
    puTrue_ = 0;
    my_eleSigmaIetaIeta_ = 0;
+   my_eleSigmaIetaIeta_w4p6_ = 0;
+   my_eleSigmaIetaIeta_w4p5_ = 0;
+   my_eleSigmaIetaIeta_w4p4_ = 0;
+   my_eleSigmaIetaIeta_w4p3_ = 0;
+   my_eleSigmaIetaIeta_w4p2_ = 0;
+   my_eleSigmaIetaIeta_w4p1_ = 0;
    my_eleSigmaIetaIeta_w4p0_ = 0;
    my_eleSigmaIetaIeta_w3p5_ = 0;
    my_eleSigmaIetaIeta_w3p0_ = 0;
@@ -221,6 +245,12 @@ void RedefSieie::Init(TTree *tree)
    fChain->SetBranchAddress("elePt_", &elePt_, &b_elePt_);
    fChain->SetBranchAddress("puTrue_", &puTrue_, &b_puTrue_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_", &my_eleSigmaIetaIeta_, &b_my_eleSigmaIetaIeta_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p6_", &my_eleSigmaIetaIeta_w4p6_, &b_my_eleSigmaIetaIeta_w4p6_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p5_", &my_eleSigmaIetaIeta_w4p5_, &b_my_eleSigmaIetaIeta_w4p5_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p4_", &my_eleSigmaIetaIeta_w4p4_, &b_my_eleSigmaIetaIeta_w4p4_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p3_", &my_eleSigmaIetaIeta_w4p3_, &b_my_eleSigmaIetaIeta_w4p3_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p2_", &my_eleSigmaIetaIeta_w4p2_, &b_my_eleSigmaIetaIeta_w4p2_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p1_", &my_eleSigmaIetaIeta_w4p1_, &b_my_eleSigmaIetaIeta_w4p1_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p0_", &my_eleSigmaIetaIeta_w4p0_, &b_my_eleSigmaIetaIeta_w4p0_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p5_", &my_eleSigmaIetaIeta_w3p5_, &b_my_eleSigmaIetaIeta_w3p5_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p0_", &my_eleSigmaIetaIeta_w3p0_, &b_my_eleSigmaIetaIeta_w3p0_);

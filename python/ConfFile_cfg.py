@@ -38,9 +38,11 @@ process.source = cms.Source("PoolSource",
 #                                 '/store/mc/RunIIAutumn18DR/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/GEN-SIM-RECO/NoPUEcalAging2022_102X_upgrade2018_realistic_EcalAging_mid2022_315fb_v1-v1/100000/EED53B85-40EC-894B-901B-2A7C172033C9.root',
 #                                 '/store/mc/RunIIAutumn18DR/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/GEN-SIM-RECO/NoPUEcalAging2022_102X_upgrade2018_realistic_EcalAging_mid2022_315fb_v1-v1/100000/E80B9B74-265B-114C-8E02-30E09254612D.root'
 #2018
-#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/FE2EA85F-2F46-9B41-B6FF-E724174EE4CE.root',#2018 AOD
+                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/FE2EA85F-2F46-9B41-B6FF-E724174EE4CE.root',#2018 AOD
 #2023
-                '/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v2/260000/FFD71080-0F4A-1340-962F-D23AC2252C7C.root' #2023 AOD
+#                '/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v2/260000/FFD71080-0F4A-1340-962F-D23AC2252C7C.root' #2023 AOD
+#2021
+#                '/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2021Scenario_106X_mcRun3_2021_realistic_v3-v2/270000/FF3F1F82-05A1-5247-BF2D-10CC42EF827B.root'
                 )
                             )
 
@@ -60,6 +62,6 @@ process.demo = cms.EDAnalyzer('DemoAnalyzer',
        genParticleSrc       = cms.InputTag("genParticles"),
 
                               )
-process.TFileService = cms.Service("TFileService", fileName = cms.string('RedefNtup_AOD_2023.root'))
+process.TFileService = cms.Service("TFileService", fileName = cms.string('RedefNtup_AOD_2018.root'))
 
 process.p = cms.Path(process.demo)

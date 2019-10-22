@@ -90,6 +90,12 @@ public:
   std::vector<float>  elePt;
   std::vector<float>  puTrue;
   std::vector<double>  my_eleSigmaIetaIeta;
+  std::vector<double>  my_eleSigmaIetaIeta_w4p6;
+  std::vector<double>  my_eleSigmaIetaIeta_w4p5;
+  std::vector<double>  my_eleSigmaIetaIeta_w4p4;
+  std::vector<double>  my_eleSigmaIetaIeta_w4p3;
+  std::vector<double>  my_eleSigmaIetaIeta_w4p2;
+  std::vector<double>  my_eleSigmaIetaIeta_w4p1;
   std::vector<double>  my_eleSigmaIetaIeta_w4p0;
   std::vector<double>  my_eleSigmaIetaIeta_w3p5;
   std::vector<double>  my_eleSigmaIetaIeta_w3p0;
@@ -164,6 +170,12 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   tree->Branch("elePt_",&elePt);
   tree->Branch("puTrue_", &puTrue);
   tree->Branch("my_eleSigmaIetaIeta_",&my_eleSigmaIetaIeta);
+  tree->Branch("my_eleSigmaIetaIeta_w4p6_",&my_eleSigmaIetaIeta_w4p6);
+  tree->Branch("my_eleSigmaIetaIeta_w4p5_",&my_eleSigmaIetaIeta_w4p5);
+  tree->Branch("my_eleSigmaIetaIeta_w4p4_",&my_eleSigmaIetaIeta_w4p4);
+  tree->Branch("my_eleSigmaIetaIeta_w4p3_",&my_eleSigmaIetaIeta_w4p3);
+  tree->Branch("my_eleSigmaIetaIeta_w4p2_",&my_eleSigmaIetaIeta_w4p2);
+  tree->Branch("my_eleSigmaIetaIeta_w4p1_",&my_eleSigmaIetaIeta_w4p1);
   tree->Branch("my_eleSigmaIetaIeta_w4p0_",&my_eleSigmaIetaIeta_w4p0);
   tree->Branch("my_eleSigmaIetaIeta_w3p5_",&my_eleSigmaIetaIeta_w3p5);
   tree->Branch("my_eleSigmaIetaIeta_w3p0_",&my_eleSigmaIetaIeta_w3p0);
@@ -219,6 +231,12 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   eleScEn.clear();
   elePt.clear();
   my_eleSigmaIetaIeta.clear();
+  my_eleSigmaIetaIeta_w4p6.clear();
+  my_eleSigmaIetaIeta_w4p5.clear();
+  my_eleSigmaIetaIeta_w4p4.clear();
+  my_eleSigmaIetaIeta_w4p3.clear();
+  my_eleSigmaIetaIeta_w4p2.clear();
+  my_eleSigmaIetaIeta_w4p1.clear();
   my_eleSigmaIetaIeta_w4p0.clear();
   my_eleSigmaIetaIeta_w3p5.clear();
   my_eleSigmaIetaIeta_w3p0.clear();
@@ -313,6 +331,12 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     //    using ClusterTools = EcalClusterToolsT<true>;     
     using ClusterTools = noZS::EcalClusterTools;     
     std::vector<float> mylocalCovariances = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.7,0,0);
+    std::vector<float> mylocalCovariances_w4p6 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.6,0,0);
+    std::vector<float> mylocalCovariances_w4p5 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.5,0,0);
+    std::vector<float> mylocalCovariances_w4p4 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.4,0,0);
+    std::vector<float> mylocalCovariances_w4p3 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.3,0,0);
+    std::vector<float> mylocalCovariances_w4p2 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.2,0,0);
+    std::vector<float> mylocalCovariances_w4p1 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.1,0,0);
     std::vector<float> mylocalCovariances_w4p0 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.0,0,0);
     std::vector<float> mylocalCovariances_w3p5 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,3.5,0,0);
     std::vector<float> mylocalCovariances_w3p0 = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,3.0,0,0);
@@ -333,6 +357,24 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
     float sigmaIetaIeta = sqrt(mylocalCovariances[0]);
     my_eleSigmaIetaIeta.push_back(sigmaIetaIeta);
+
+    float sigmaIetaIeta_w4p6 = sqrt(mylocalCovariances_w4p6[0]);
+    my_eleSigmaIetaIeta_w4p6.push_back(sigmaIetaIeta_w4p6);
+
+    float sigmaIetaIeta_w4p5 = sqrt(mylocalCovariances_w4p5[0]);
+    my_eleSigmaIetaIeta_w4p5.push_back(sigmaIetaIeta_w4p5);
+
+    float sigmaIetaIeta_w4p4 = sqrt(mylocalCovariances_w4p4[0]);
+    my_eleSigmaIetaIeta_w4p4.push_back(sigmaIetaIeta_w4p4);
+
+    float sigmaIetaIeta_w4p3 = sqrt(mylocalCovariances_w4p3[0]);
+    my_eleSigmaIetaIeta_w4p3.push_back(sigmaIetaIeta_w4p3);
+
+    float sigmaIetaIeta_w4p2 = sqrt(mylocalCovariances_w4p2[0]);
+    my_eleSigmaIetaIeta_w4p2.push_back(sigmaIetaIeta_w4p2);
+
+    float sigmaIetaIeta_w4p1 = sqrt(mylocalCovariances_w4p1[0]);
+    my_eleSigmaIetaIeta_w4p1.push_back(sigmaIetaIeta_w4p1);
 
     float sigmaIetaIeta_w4p0 = sqrt(mylocalCovariances_w4p0[0]);
     my_eleSigmaIetaIeta_w4p0.push_back(sigmaIetaIeta_w4p0);
