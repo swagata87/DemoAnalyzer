@@ -6,6 +6,8 @@
 <use name="CommonTools/UtilAlgos"/>
 <use name="RecoEcal/EgammaCoreTools"/>
 <use name="DataFormats/GsfTrackReco"/>
+<use   name="DataFormats/ParticleFlowReco"/>
+<use   name="RecoParticleFlow/PFClusterTools"/>
 <use   name="DataFormats/EgammaCandidates"/>
 <use   name="DataFormats/RecoCandidate"/>
 <use   name="RecoEgamma/EgammaTools"/>
@@ -15,5 +17,6 @@
 <use   name="CondFormats/EcalObjects"/>
 <use name="SimDataFormats/PileupSummaryInfo"/>
 <use name="DataFormats/HepMCCandidate"/>
+<use   name="DataFormats/DetId"/>
 
 <flags EDM_PLUGIN="1"/>
