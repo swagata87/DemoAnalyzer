@@ -52,16 +52,22 @@ int CompareProf() {
   prof_my_sieie_w4p0_signal_barrel_vs_pt_2024->SetLineWidth(3);
 
   std::cout << "Get profile hist 3" << std::endl;
-  TProfile* prof_my_sieie_w3p5_signal_barrel_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_w3p5_signal_barrel_vs_pt;1");
-  prof_my_sieie_w3p5_signal_barrel_vs_pt_2024->SetMarkerColor(kMagenta);
-  prof_my_sieie_w3p5_signal_barrel_vs_pt_2024->SetLineColor(kMagenta);
-  prof_my_sieie_w3p5_signal_barrel_vs_pt_2024->SetLineWidth(3);
+  TProfile* prof_my_sieie_w4p4_signal_barrel_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_w4p4_signal_barrel_vs_pt;1");
+  prof_my_sieie_w4p4_signal_barrel_vs_pt_2024->SetMarkerColor(kMagenta);
+  prof_my_sieie_w4p4_signal_barrel_vs_pt_2024->SetLineColor(kMagenta);
+  prof_my_sieie_w4p4_signal_barrel_vs_pt_2024->SetLineWidth(3);
 
   std::cout << "Get profile hist 4" << std::endl;
-  TProfile* prof_my_sieie_w3p0_signal_barrel_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_w3p0_signal_barrel_vs_pt;1");
-  prof_my_sieie_w3p0_signal_barrel_vs_pt_2024->SetMarkerColor(kGreen+1);
-  prof_my_sieie_w3p0_signal_barrel_vs_pt_2024->SetLineColor(kGreen+1);
-  prof_my_sieie_w3p0_signal_barrel_vs_pt_2024->SetLineWidth(3);
+  TProfile* prof_my_sieie_w4p3_signal_barrel_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_w4p3_signal_barrel_vs_pt;1");
+  prof_my_sieie_w4p3_signal_barrel_vs_pt_2024->SetMarkerColor(kGreen+1);
+  prof_my_sieie_w4p3_signal_barrel_vs_pt_2024->SetLineColor(kGreen+1);
+  prof_my_sieie_w4p3_signal_barrel_vs_pt_2024->SetLineWidth(3);
+
+  std::cout << "Get profile hist 4" << std::endl;
+  TProfile* prof_my_sieie_w4p2_signal_barrel_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_w4p2_signal_barrel_vs_pt;1");
+  prof_my_sieie_w4p2_signal_barrel_vs_pt_2024->SetMarkerColor(kGray+1);
+  prof_my_sieie_w4p2_signal_barrel_vs_pt_2024->SetLineColor(kGray+1);
+  prof_my_sieie_w4p2_signal_barrel_vs_pt_2024->SetLineWidth(3);
   ///
 
   //Energy cut , same in barrel and endcap
@@ -153,8 +159,9 @@ int CompareProf() {
   gPad->SetLogy();
   prof_my_sieie_signal_barrel_vs_pt_2024->Draw();
   prof_my_sieie_w4p0_signal_barrel_vs_pt_2024->Draw("same");
-  prof_my_sieie_w3p5_signal_barrel_vs_pt_2024->Draw("same");
-  prof_my_sieie_w3p0_signal_barrel_vs_pt_2024->Draw("same");
+  prof_my_sieie_w4p4_signal_barrel_vs_pt_2024->Draw("same");
+  prof_my_sieie_w4p3_signal_barrel_vs_pt_2024->Draw("same");
+  prof_my_sieie_w4p2_signal_barrel_vs_pt_2024->Draw("same");
 
   TLegend *leg_example = new TLegend(0.65,0.70,0.94,0.94);
   leg_example->SetHeader("Sieie, real e, barrel","C"); // option "C" allows to center the header
@@ -162,9 +169,10 @@ int CompareProf() {
   leg_example->SetTextFont(42);
   leg_example->SetBorderSize(0);
   leg_example->AddEntry(prof_my_sieie_signal_barrel_vs_pt_2024, "default", "lp");
+  leg_example->AddEntry(prof_my_sieie_w4p4_signal_barrel_vs_pt_2024, "4.4", "lp");
+  leg_example->AddEntry(prof_my_sieie_w4p3_signal_barrel_vs_pt_2024, "4.3", "lp");
+  leg_example->AddEntry(prof_my_sieie_w4p2_signal_barrel_vs_pt_2024, "4.3", "lp");
   leg_example->AddEntry(prof_my_sieie_w4p0_signal_barrel_vs_pt_2024, "4.0", "lp");
-  leg_example->AddEntry(prof_my_sieie_w3p5_signal_barrel_vs_pt_2024, "3.5", "lp");
-  leg_example->AddEntry(prof_my_sieie_w3p0_signal_barrel_vs_pt_2024, "3.0", "lp");
   leg_example->Draw("same");
   my_canvas1->SetGrid();
 

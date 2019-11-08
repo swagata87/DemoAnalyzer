@@ -1,12 +1,12 @@
 //////////////////////////////////////////////////////////
 // This class has been automatically generated on
-// Fri Oct 18 13:22:01 2019 by ROOT version 6.14/09
+// Tue Oct 22 09:25:19 2019 by ROOT version 6.14/09
 // from TTree EventTree/EventData
 // found on file: RedefNtup_AOD_2024.root
 //////////////////////////////////////////////////////////
 
-#ifndef RedefSieie_h
-#define RedefSieie_h
+#ifndef DrawROC_h
+#define DrawROC_h
 
 #include <TROOT.h>
 #include <TChain.h>
@@ -17,7 +17,7 @@
 #include "vector"
 #include "vector"
 
-class RedefSieie {
+class DrawROC {
 public :
    TTree          *fChain;   //!pointer to the analyzed TTree or TChain
    Int_t           fCurrent; //!current Tree number in a TChain
@@ -46,22 +46,13 @@ public :
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p2 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p1 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p0 = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p8 = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p7 = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p6 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p5 = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p4 = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p3 = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p2 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w3p0 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en0p2 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en0p15 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en0p15_noRelNoiseCut = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en0p5 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en1 = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en0p2_noRelNoiseCut = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en0p15_noRelNoiseCut = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en0p5_noRelNoiseCut = 1;
-   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en1_noRelNoiseCut = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en_0p1_0p4 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en_0p15_0p5 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_en_0p16_0p6 = 1;
@@ -97,22 +88,13 @@ public :
    vector<double>  *my_eleSigmaIetaIeta_w4p2_;
    vector<double>  *my_eleSigmaIetaIeta_w4p1_;
    vector<double>  *my_eleSigmaIetaIeta_w4p0_;
-   vector<double>  *my_eleSigmaIetaIeta_w3p8_;
-   vector<double>  *my_eleSigmaIetaIeta_w3p7_;
-   vector<double>  *my_eleSigmaIetaIeta_w3p6_;
    vector<double>  *my_eleSigmaIetaIeta_w3p5_;
-   vector<double>  *my_eleSigmaIetaIeta_w3p4_;
-   vector<double>  *my_eleSigmaIetaIeta_w3p3_;
-   vector<double>  *my_eleSigmaIetaIeta_w3p2_;
    vector<double>  *my_eleSigmaIetaIeta_w3p0_;
    vector<double>  *my_eleSigmaIetaIeta_en0p2_;
    vector<double>  *my_eleSigmaIetaIeta_en0p15_;
+   vector<double>  *my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_;
    vector<double>  *my_eleSigmaIetaIeta_en0p5_;
    vector<double>  *my_eleSigmaIetaIeta_en1_;
-   vector<double>  *my_eleSigmaIetaIeta_en0p2_noRelNoiseCut_;
-   vector<double>  *my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_;
-   vector<double>  *my_eleSigmaIetaIeta_en0p5_noRelNoiseCut_;
-   vector<double>  *my_eleSigmaIetaIeta_en1_noRelNoiseCut_;
    vector<double>  *my_eleSigmaIetaIeta_en_0p1_0p4_;
    vector<double>  *my_eleSigmaIetaIeta_en_0p15_0p5_;
    vector<double>  *my_eleSigmaIetaIeta_en_0p16_0p6_;
@@ -148,22 +130,15 @@ public :
    TBranch        *b_my_eleSigmaIetaIeta_w4p2_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w4p1_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w4p0_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_w3p8_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_w3p7_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_w3p6_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w3p5_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_w3p4_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_w3p3_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_w3p2_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w3p0_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_en0p2_;   //!
+
    TBranch        *b_my_eleSigmaIetaIeta_en0p15_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_;   //!
+
    TBranch        *b_my_eleSigmaIetaIeta_en0p5_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_en1_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_en0p2_noRelNoiseCut_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_en0p5_noRelNoiseCut_;   //!
-   TBranch        *b_my_eleSigmaIetaIeta_en1_noRelNoiseCut_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_en_0p1_0p4_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_en_0p15_0p5_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_en_0p16_0p6_;   //!
@@ -175,8 +150,8 @@ public :
    TBranch        *b_gen_pdgid_;   //!
    TBranch        *b_gen_pt_;   //!
 
-   RedefSieie(TTree *tree=0);
-   virtual ~RedefSieie();
+   DrawROC(TTree *tree=0);
+   virtual ~DrawROC();
    virtual Int_t    Cut(Long64_t entry);
    virtual Int_t    GetEntry(Long64_t entry);
    virtual Long64_t LoadTree(Long64_t entry);
@@ -188,8 +163,8 @@ public :
 
 #endif
 
-#ifdef RedefSieie_cxx
-RedefSieie::RedefSieie(TTree *tree) : fChain(0) 
+#ifdef DrawROC_cxx
+DrawROC::DrawROC(TTree *tree) : fChain(0) 
 {
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
@@ -205,19 +180,19 @@ RedefSieie::RedefSieie(TTree *tree) : fChain(0)
    Init(tree);
 }
 
-RedefSieie::~RedefSieie()
+DrawROC::~DrawROC()
 {
    if (!fChain) return;
    delete fChain->GetCurrentFile();
 }
 
-Int_t RedefSieie::GetEntry(Long64_t entry)
+Int_t DrawROC::GetEntry(Long64_t entry)
 {
 // Read contents of entry.
    if (!fChain) return 0;
    return fChain->GetEntry(entry);
 }
-Long64_t RedefSieie::LoadTree(Long64_t entry)
+Long64_t DrawROC::LoadTree(Long64_t entry)
 {
 // Set the environment to read one entry
    if (!fChain) return -5;
@@ -230,7 +205,7 @@ Long64_t RedefSieie::LoadTree(Long64_t entry)
    return centry;
 }
 
-void RedefSieie::Init(TTree *tree)
+void DrawROC::Init(TTree *tree)
 {
    // The Init() function is called when the selector needs to initialize
    // a new tree or chain. Typically here the branch addresses and branch
@@ -264,22 +239,13 @@ void RedefSieie::Init(TTree *tree)
    my_eleSigmaIetaIeta_w4p2_ = 0;
    my_eleSigmaIetaIeta_w4p1_ = 0;
    my_eleSigmaIetaIeta_w4p0_ = 0;
-   my_eleSigmaIetaIeta_w3p8_ = 0;
-   my_eleSigmaIetaIeta_w3p7_ = 0;
-   my_eleSigmaIetaIeta_w3p6_ = 0;
    my_eleSigmaIetaIeta_w3p5_ = 0;
-   my_eleSigmaIetaIeta_w3p4_ = 0;
-   my_eleSigmaIetaIeta_w3p3_ = 0;
-   my_eleSigmaIetaIeta_w3p2_ = 0;
    my_eleSigmaIetaIeta_w3p0_ = 0;
    my_eleSigmaIetaIeta_en0p2_ = 0;
    my_eleSigmaIetaIeta_en0p15_ = 0;
+   my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_ = 0;
    my_eleSigmaIetaIeta_en0p5_ = 0;
    my_eleSigmaIetaIeta_en1_ = 0;
-   my_eleSigmaIetaIeta_en0p2_noRelNoiseCut_ = 0;
-   my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_ = 0;
-   my_eleSigmaIetaIeta_en0p5_noRelNoiseCut_ = 0;
-   my_eleSigmaIetaIeta_en1_noRelNoiseCut_ = 0;
    my_eleSigmaIetaIeta_en_0p1_0p4_ = 0;
    my_eleSigmaIetaIeta_en_0p15_0p5_ = 0;
    my_eleSigmaIetaIeta_en_0p16_0p6_ = 0;
@@ -319,22 +285,15 @@ void RedefSieie::Init(TTree *tree)
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p2_", &my_eleSigmaIetaIeta_w4p2_, &b_my_eleSigmaIetaIeta_w4p2_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p1_", &my_eleSigmaIetaIeta_w4p1_, &b_my_eleSigmaIetaIeta_w4p1_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p0_", &my_eleSigmaIetaIeta_w4p0_, &b_my_eleSigmaIetaIeta_w4p0_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p8_", &my_eleSigmaIetaIeta_w3p8_, &b_my_eleSigmaIetaIeta_w3p8_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p7_", &my_eleSigmaIetaIeta_w3p7_, &b_my_eleSigmaIetaIeta_w3p7_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p6_", &my_eleSigmaIetaIeta_w3p6_, &b_my_eleSigmaIetaIeta_w3p6_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p5_", &my_eleSigmaIetaIeta_w3p5_, &b_my_eleSigmaIetaIeta_w3p5_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p4_", &my_eleSigmaIetaIeta_w3p4_, &b_my_eleSigmaIetaIeta_w3p4_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p3_", &my_eleSigmaIetaIeta_w3p3_, &b_my_eleSigmaIetaIeta_w3p3_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p2_", &my_eleSigmaIetaIeta_w3p2_, &b_my_eleSigmaIetaIeta_w3p2_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w3p0_", &my_eleSigmaIetaIeta_w3p0_, &b_my_eleSigmaIetaIeta_w3p0_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_en0p2_", &my_eleSigmaIetaIeta_en0p2_, &b_my_eleSigmaIetaIeta_en0p2_);
+
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_en0p15_", &my_eleSigmaIetaIeta_en0p15_, &b_my_eleSigmaIetaIeta_en0p15_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_", &my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_, &b_my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_);
+
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_en0p5_", &my_eleSigmaIetaIeta_en0p5_, &b_my_eleSigmaIetaIeta_en0p5_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_en1_", &my_eleSigmaIetaIeta_en1_, &b_my_eleSigmaIetaIeta_en1_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_en0p2_noRelNoiseCut_", &my_eleSigmaIetaIeta_en0p2_noRelNoiseCut_, &b_my_eleSigmaIetaIeta_en0p2_noRelNoiseCut_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_", &my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_, &b_my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_en0p5_noRelNoiseCut_", &my_eleSigmaIetaIeta_en0p5_noRelNoiseCut_, &b_my_eleSigmaIetaIeta_en0p5_noRelNoiseCut_);
-   fChain->SetBranchAddress("my_eleSigmaIetaIeta_en1_noRelNoiseCut_", &my_eleSigmaIetaIeta_en1_noRelNoiseCut_, &b_my_eleSigmaIetaIeta_en1_noRelNoiseCut_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_en_0p1_0p4_", &my_eleSigmaIetaIeta_en_0p1_0p4_, &b_my_eleSigmaIetaIeta_en_0p1_0p4_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_en_0p15_0p5_", &my_eleSigmaIetaIeta_en_0p15_0p5_, &b_my_eleSigmaIetaIeta_en_0p15_0p5_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_en_0p16_0p6_", &my_eleSigmaIetaIeta_en_0p16_0p6_, &b_my_eleSigmaIetaIeta_en_0p16_0p6_);
@@ -348,7 +307,7 @@ void RedefSieie::Init(TTree *tree)
    Notify();
 }
 
-Bool_t RedefSieie::Notify()
+Bool_t DrawROC::Notify()
 {
    // The Notify() function is called when a new file is opened. This
    // can be either for a new TTree in a TChain or when when a new TTree
@@ -359,18 +318,18 @@ Bool_t RedefSieie::Notify()
    return kTRUE;
 }
 
-void RedefSieie::Show(Long64_t entry)
+void DrawROC::Show(Long64_t entry)
 {
 // Print contents of entry.
 // If entry is not specified, print current entry
    if (!fChain) return;
    fChain->Show(entry);
 }
-Int_t RedefSieie::Cut(Long64_t entry)
+Int_t DrawROC::Cut(Long64_t entry)
 {
 // This function may be called from Loop.
 // returns  1 if entry is accepted.
 // returns -1 otherwise.
    return 1;
 }
-#endif // #ifdef RedefSieie_cxx
+#endif // #ifdef DrawROC_cxx

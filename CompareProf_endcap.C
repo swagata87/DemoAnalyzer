@@ -57,6 +57,11 @@ int CompareProf_endcap() {
   prof_my_sieie_w3p5_signal_endcap_vs_pt_2024->SetLineColor(kMagenta);
   prof_my_sieie_w3p5_signal_endcap_vs_pt_2024->SetLineWidth(3);
 
+  TProfile* prof_my_sieie_w3p7_signal_endcap_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_w3p7_signal_endcap_vs_pt;1");
+  prof_my_sieie_w3p7_signal_endcap_vs_pt_2024->SetMarkerColor(kGray+1);
+  prof_my_sieie_w3p7_signal_endcap_vs_pt_2024->SetLineColor(kGray+1);
+  prof_my_sieie_w3p7_signal_endcap_vs_pt_2024->SetLineWidth(3);
+
   std::cout << "Get profile hist 4" << std::endl;
   TProfile* prof_my_sieie_w3p0_signal_endcap_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_w3p0_signal_endcap_vs_pt;1");
   prof_my_sieie_w3p0_signal_endcap_vs_pt_2024->SetMarkerColor(kGreen+1);
@@ -154,6 +159,7 @@ int CompareProf_endcap() {
   prof_my_sieie_signal_endcap_vs_pt_2024->Draw();
   prof_my_sieie_w4p0_signal_endcap_vs_pt_2024->Draw("same");
   prof_my_sieie_w3p5_signal_endcap_vs_pt_2024->Draw("same");
+  prof_my_sieie_w3p7_signal_endcap_vs_pt_2024->Draw("same");
   prof_my_sieie_w3p0_signal_endcap_vs_pt_2024->Draw("same");
 
   TLegend *leg_example = new TLegend(0.65,0.70,0.94,0.94);
@@ -164,6 +170,7 @@ int CompareProf_endcap() {
   leg_example->AddEntry(prof_my_sieie_signal_endcap_vs_pt_2024, "default", "lp");
   leg_example->AddEntry(prof_my_sieie_w4p0_signal_endcap_vs_pt_2024, "4.0", "lp");
   leg_example->AddEntry(prof_my_sieie_w3p5_signal_endcap_vs_pt_2024, "3.5", "lp");
+  leg_example->AddEntry(prof_my_sieie_w3p7_signal_endcap_vs_pt_2024, "3.7", "lp");
   leg_example->AddEntry(prof_my_sieie_w3p0_signal_endcap_vs_pt_2024, "3.0", "lp");
   leg_example->Draw("same");
   my_canvas1->SetGrid();
