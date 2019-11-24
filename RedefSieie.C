@@ -36,7 +36,7 @@ void RedefSieie::Loop()
 //    fChain->GetEntry(jentry);       //read all branches
 //by  b_branchname->GetEntry(ientry); //read only this branch
 
-  TFile* outputFile = new TFile("Out_redefhists_2024.root","RECREATE");
+  TFile* outputFile = new TFile("Out_redefhists_2018_pt30.root","RECREATE");
 
   //  Float_t ptbins[] = { 0,5,10,15,20,25,30,35,40,45,50,70,90,200 };
   // Int_t  binnum = sizeof(ptbins)/sizeof(Float_t) - 1; // or just the number
@@ -588,7 +588,7 @@ void RedefSieie::Loop()
       for(int iele=0; iele < elePt_->size(); iele++) {
 
 	// signal | barrel
-	if (ele_genmatched_->at(iele)==1 && fabs(eleScEta_->at(iele))<1.44  && (elePt_->at(iele)>0) ) {
+	if (ele_genmatched_->at(iele)==1 && fabs(eleScEta_->at(iele))<1.44  && (elePt_->at(iele)>30) ) {
 	  //std::cout << "my_eleSigmaIetaIeta_ = " << my_eleSigmaIetaIeta_->at(iele) << std::endl;
 	  h1_my_eleSigmaIetaIeta_signal_barrel->Fill(my_eleSigmaIetaIeta_->at(iele));
 	  h1_cmssw_eleSigmaIetaIeta_signal_barrel->Fill(cmssw_eleSigmaIetaIeta_->at(iele));
@@ -726,7 +726,7 @@ void RedefSieie::Loop()
 	}
 
 	// background | barrel
-	if (ele_genmatched_->at(iele)==0 && fabs(eleScEta_->at(iele))<1.44  &&  (elePt_->at(iele)>0)) {
+	if (ele_genmatched_->at(iele)==0 && fabs(eleScEta_->at(iele))<1.44  &&  (elePt_->at(iele)>30)) {
 	  // std::cout << "\nmy_eleSigmaIetaIeta_ = " << my_eleSigmaIetaIeta_->at(iele) << std::endl;
 	  h1_my_eleSigmaIetaIeta_bkg_barrel->Fill(my_eleSigmaIetaIeta_->at(iele));
 	  h1_cmssw_eleSigmaIetaIeta_bkg_barrel->Fill(cmssw_eleSigmaIetaIeta_->at(iele));
@@ -867,7 +867,7 @@ void RedefSieie::Loop()
 
 
 	// signal | endcap
-	if (ele_genmatched_->at(iele)==1 && fabs(eleScEta_->at(iele))>1.56   &&  (elePt_->at(iele)>0)) {
+	if (ele_genmatched_->at(iele)==1 && fabs(eleScEta_->at(iele))>1.56   &&  (elePt_->at(iele)>30)) {
 	  //std::cout << "my_eleSigmaIetaIeta_ = " << my_eleSigmaIetaIeta_->at(iele) << std::endl;
 	  h1_my_eleSigmaIetaIeta_signal_endcap->Fill(my_eleSigmaIetaIeta_->at(iele));
 	  h1_cmssw_eleSigmaIetaIeta_signal_endcap->Fill(cmssw_eleSigmaIetaIeta_->at(iele));
@@ -1007,7 +1007,7 @@ void RedefSieie::Loop()
 	}
 
 	// background | endcap
-	if (ele_genmatched_->at(iele)==0 && fabs(eleScEta_->at(iele))>1.56  &&  (elePt_->at(iele)>0)) {
+	if (ele_genmatched_->at(iele)==0 && fabs(eleScEta_->at(iele))>1.56  &&  (elePt_->at(iele)>30)) {
 	  //std::cout << "my_eleSigmaIetaIeta_ = " << my_eleSigmaIetaIeta_->at(iele) << std::endl;
 	  h1_my_eleSigmaIetaIeta_bkg_endcap->Fill(my_eleSigmaIetaIeta_->at(iele));
 	  h1_cmssw_eleSigmaIetaIeta_bkg_endcap->Fill(cmssw_eleSigmaIetaIeta_->at(iele));

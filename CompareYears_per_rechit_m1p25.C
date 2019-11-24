@@ -88,7 +88,7 @@ int CompareYears_per_rechit_m1p25() {
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018->Draw("same");
 
   TLegend *leg_example = new TLegend(0.65,0.70,0.94,0.94);
-  leg_example->SetHeader("Sieie, per recHit cut * 1.25, real e, barrel","C"); // option "C" allows to center the header
+  leg_example->SetHeader("Sieie, per-recHit*1.25, real e, barrel","C"); // option "C" allows to center the header
   leg_example->SetFillColor(0);
   leg_example->SetTextFont(42);
   leg_example->SetBorderSize(0);
@@ -100,7 +100,7 @@ int CompareYears_per_rechit_m1p25() {
   my_canvas1->SetGrid();
 
   my_canvas1->Write();
-  my_canvas1->SaveAs("DefaultSieie_years_barrel_per_rechit_m1p25.pdf");
+  //  my_canvas1->SaveAs("DefaultSieie_years_barrel_per_rechit_m1p25.pdf");
   my_canvas1->SaveAs("DefaultSieie_years_barrel_per_rechit_m1p25.png");
 
   /////endcaps
@@ -143,7 +143,7 @@ int CompareYears_per_rechit_m1p25() {
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018->Draw("same");
 
   TLegend *leg_example2 = new TLegend(0.65,0.70,0.94,0.94);
-  leg_example2->SetHeader("Sieie, per recHit cut * 1.25, real e, endcap","C"); // option "C" allows to center the header
+  leg_example2->SetHeader("Sieie, per-recHit*1.25, real e, endcap","C"); // option "C" allows to center the header
   leg_example2->SetFillColor(0);
   leg_example2->SetTextFont(42);
   leg_example2->SetBorderSize(0);
@@ -155,7 +155,7 @@ int CompareYears_per_rechit_m1p25() {
   my_canvas2->SetGrid();
 
   my_canvas2->Write();
-  my_canvas2->SaveAs("DefaultSieie_years_endcap_per_rechit_m1p25.pdf");
+  // my_canvas2->SaveAs("DefaultSieie_years_endcap_per_rechit_m1p25.pdf");
   my_canvas2->SaveAs("DefaultSieie_years_endcap_per_rechit_m1p25.png");
 
 

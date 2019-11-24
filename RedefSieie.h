@@ -194,11 +194,11 @@ RedefSieie::RedefSieie(TTree *tree) : fChain(0)
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("RedefNtup_AOD_2024.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("RedefNtup_AOD_2018.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("RedefNtup_AOD_2024.root");
+         f = new TFile("RedefNtup_AOD_2018.root");
       }
-      TDirectory * dir = (TDirectory*)f->Get("RedefNtup_AOD_2024.root:/demo");
+      TDirectory * dir = (TDirectory*)f->Get("RedefNtup_AOD_2018.root:/demo");
       dir->GetObject("EventTree",tree);
 
    }

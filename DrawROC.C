@@ -57,7 +57,10 @@ void DrawROC::Loop()
 
    Long64_t nentries = fChain->GetEntriesFast();
    
-   float cuts[40] = {0.002, 0.003 ,0.004 ,0.005, 0.006 ,0.007,0.0075 ,0.008, 0.0085, 0.009, 0.0092 ,0.0095 ,0.0100, 0.0101, 0.0102, 0.0103 ,0.0104, 0.0106, 0.0108, 0.0110, 0.0112, 0.0114, 0.0116, 0.0118, 0.0120, 0.0122, 0.0124, 0.0126, 0.015, 0.02, 0.04, 0.05,0.06, 0.07, 0.08 , 0.09, 0.1 ,0.5,0.6,1};
+   float cuts[40] = {0.002, 0.004, 0.005, 0.006, 0.007, 0.0073, 0.0076, 0.0078, 0.0080, 0.0083, 0.0086 ,0.0088 ,0.009, 0.0095 ,0.010, 0.011, 0.012, 0.013, 0.014, 0.015, 0.016, 0.017, 0.018, 0.019, 0.02, 0.021, 0.022, 0.023, 0.024, 0.025, 0.026 ,0.03, 0.04, 0.05, 0.06, 0.07 ,0.08, 0.09 ,0.1, 10};
+
+   //   float cuts[40] = {0.002, 0.003 ,0.004 ,0.005, 0.006 ,0.007,0.0075 ,0.008, 0.0085, 0.009, 0.0092 ,0.0095 ,0.0100, 0.0101, 0.0102, 0.0103 ,0.0104, 0.0106, 0.0108, 0.0110, 0.0112, 0.0114, 0.0116, 0.0118, 0.0120, 0.0122, 0.0124, 0.0126, 0.015, 0.02, 0.04, 0.05,0.06, 0.07, 0.08 , 0.09, 0.1 ,0.5,0.6,1};
+
    int len = sizeof(cuts) / sizeof(cuts[0]);
    std::cout << "len of cuts array " << len << std::endl;
 
@@ -164,65 +167,65 @@ void DrawROC::Loop()
        
        for(int iele=0; iele < elePt_->size(); iele++) {
 	 
-	 if (  ((fabs(eleScEta_->at(iele)) ) < 1.44 ) && ( elePt_->at(iele) > 70 ) && ( elePt_->at(iele) < 99999  )  ) {
+	 if (  ((fabs(eleScEta_->at(iele)) ) < 1.44 ) && ( elePt_->at(iele) > 7 ) && ( elePt_->at(iele) < 15 )  ) {
 	   
 	   if ( ele_genmatched_->at(iele)==1 ) nsig_total_barrel++;
 	   if ( ele_genmatched_->at(iele)==0 ) nbkg_total_barrel++;	  
 	  
 	   //// default
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_->at(iele)) < cuts[i]) ) nsig_default_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_->at(iele)) < cuts[i]) ) nbkg_default_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_->at(iele)) < cuts[i]) ) nsig_default_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_->at(iele)) < cuts[i]) ) nbkg_default_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_->at(iele)) < 0.001)  ) nsig_default_spike++;
 
 	   //// w4p2
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p2_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p2_->at(iele)) < cuts[i]) ) nsig_w4p2_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p2_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p2_->at(iele)) < cuts[i]) ) nbkg_w4p2_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p2_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p2_->at(iele)) < cuts[i]) ) nsig_w4p2_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p2_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p2_->at(iele)) < cuts[i]) ) nbkg_w4p2_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p2_->at(iele)) < 0.001)  ) nsig_w4p2_spike++;
 
 	   //// w4p1
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p1_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p1_->at(iele)) < cuts[i]) ) nsig_w4p1_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p1_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p1_->at(iele)) < cuts[i]) ) nbkg_w4p1_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p1_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p1_->at(iele)) < cuts[i]) ) nsig_w4p1_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p1_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p1_->at(iele)) < cuts[i]) ) nbkg_w4p1_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p1_->at(iele)) < 0.001)  ) nsig_w4p1_spike++;
 
 	   //// w4p3
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p3_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p3_->at(iele)) < cuts[i]) ) nsig_w4p3_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p3_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p3_->at(iele)) < cuts[i]) ) nbkg_w4p3_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p3_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p3_->at(iele)) < cuts[i]) ) nsig_w4p3_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p3_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p3_->at(iele)) < cuts[i]) ) nbkg_w4p3_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p3_->at(iele)) < 0.001)  ) nsig_w4p3_spike++;
 
 
 	   //// w4p4
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p4_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p4_->at(iele)) < cuts[i]) ) nsig_w4p4_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p4_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p4_->at(iele)) < cuts[i]) ) nbkg_w4p4_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p4_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p4_->at(iele)) < cuts[i]) ) nsig_w4p4_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p4_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p4_->at(iele)) < cuts[i]) ) nbkg_w4p4_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p4_->at(iele)) < 0.001)  ) nsig_w4p4_spike++;
 
 	   //// per_rechit
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) < cuts[i]) ) nsig_per_rechit_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) < cuts[i]) ) nbkg_per_rechit_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) < cuts[i]) ) nsig_per_rechit_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) < cuts[i]) ) nbkg_per_rechit_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_->at(iele)) < 0.001)  ) nsig_per_rechit_spike++;
 
 	   //// per_rechit_m1p25
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < cuts[i]) ) nsig_per_rechit_m1p25_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < cuts[i]) ) nbkg_per_rechit_m1p25_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < cuts[i]) ) nsig_per_rechit_m1p25_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < cuts[i]) ) nbkg_per_rechit_m1p25_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < 0.001)  ) nsig_per_rechit_m1p25_spike++;
 
 	   //// w4p0
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p0_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p0_->at(iele)) < cuts[i]) ) nsig_w4p0_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p0_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_w4p0_->at(iele)) < cuts[i]) ) nbkg_w4p0_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p0_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p0_->at(iele)) < cuts[i]) ) nsig_w4p0_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_w4p0_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p0_->at(iele)) < cuts[i]) ) nbkg_w4p0_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p0_->at(iele)) < 0.001)  ) nsig_w4p0_spike++;
 
 	   //// en0p15
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p15_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_en0p15_->at(iele)) < cuts[i]) ) nsig_en0p15_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_en0p15_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_en0p15_->at(iele)) < cuts[i]) ) nbkg_en0p15_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p15_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_en0p15_->at(iele)) < cuts[i]) ) nsig_en0p15_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_en0p15_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_en0p15_->at(iele)) < cuts[i]) ) nbkg_en0p15_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p15_->at(iele)) < 0.001)  ) nsig_en0p15_spike++;
 
 	   //// en0p15_noRelNoiseCut
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) < cuts[i]) ) nsig_en0p15_noRelNoiseCut_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) < cuts[i]) ) nbkg_en0p15_noRelNoiseCut_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) < cuts[i]) ) nsig_en0p15_noRelNoiseCut_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) < cuts[i]) ) nbkg_en0p15_noRelNoiseCut_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p15_noRelNoiseCut_->at(iele)) < 0.001)  ) nsig_en0p15_noRelNoiseCut_spike++;
 
 	   //// en0p2
-	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p2_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_en0p2_->at(iele)) < cuts[i]) ) nsig_en0p2_passed_barrel++;
-	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_en0p2_->at(iele)) > 0.001) && ((my_eleSigmaIetaIeta_en0p2_->at(iele)) < cuts[i]) ) nbkg_en0p2_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p2_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_en0p2_->at(iele)) < cuts[i]) ) nsig_en0p2_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_en0p2_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_en0p2_->at(iele)) < cuts[i]) ) nbkg_en0p2_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_en0p2_->at(iele)) < 0.001)  ) nsig_en0p2_spike++;
 	   	   
 	 }
@@ -270,6 +273,11 @@ void DrawROC::Loop()
 
      x_sigEff_sieie_en0p2.push_back((double)nsig_en0p2_passed_barrel/(double)nsig_total_barrel);
      y_bkgEff_sieie_en0p2.push_back(1- (double)nbkg_en0p2_passed_barrel/(double)nbkg_total_barrel);
+
+     std::cout << "\n cut " << i << " sieie<" << cuts[i] << " sig eff / bkg rej (default)" << ((double)nsig_default_passed_barrel/(double)nsig_total_barrel) << " / " <<  (1- (double)nbkg_default_passed_barrel/(double)nbkg_total_barrel) << std::endl;
+
+     std::cout << " cut " << i << " sieie<" << cuts[i] << " sig eff / bkg rej (perrecH)" << ((double)nsig_per_rechit_passed_barrel/(double)nsig_total_barrel) << " / " << (1- (double)nbkg_per_rechit_passed_barrel/(double)nbkg_total_barrel) << std::endl;
+
 
      if      (i==1)  {
        std::cout << " fraction of spike default " << (double)nsig_default_spike/(double)nsig_total_barrel << std::endl;
@@ -352,7 +360,7 @@ void DrawROC::Loop()
    gr1->Draw("ALP");
    gr1->GetYaxis()->SetTitle("Background Rejection");
    gr1->GetXaxis()->SetTitle("Signal Efficiency");
-   gr1->GetHistogram()->SetMaximum(1.05);   // along                                                                                                                
+   gr1->GetHistogram()->SetMaximum(1.05);   // along                                                                                                        
    gr1->GetHistogram()->SetMinimum(0.0);  //   Y                                                                                                                             
    gr1->GetXaxis()->SetLimits(0.0,1.05);
    gr1->Write("default");
@@ -366,16 +374,16 @@ void DrawROC::Loop()
    gr2->Write("w4p2");
 
    TGraph *gr6 = new TGraph (len, &x_sigEff_sieie_w4p1[0], &y_bkgEff_sieie_w4p1[0]);
-   gr6->SetMarkerColor(8);
-   gr6->SetLineColor(8);
+   gr6->SetMarkerColor(3);
+   gr6->SetLineColor(3);
    gr6->SetLineWidth(2);
    gr6->SetMarkerStyle(26);
-   //   gr6->Draw("LP, same");
+   gr6->Draw("LP, same");
    gr6->Write("w4p1");
 
    TGraph *gr3 = new TGraph (len, &x_sigEff_sieie_w4p3[0], &y_bkgEff_sieie_w4p3[0]);
-   gr3->SetMarkerColor(3);
-   gr3->SetLineColor(3);
+   gr3->SetMarkerColor(4);
+   gr3->SetLineColor(4);
    gr3->SetLineWidth(2);
    gr3->SetMarkerStyle(23);
    gr3->Draw("LP, same");
@@ -389,21 +397,6 @@ void DrawROC::Loop()
    //  gr4->Draw("LP, same");
    gr4->Write("w4p4");
 
-   TGraph *gr_pr = new TGraph (len, &x_sigEff_sieie_per_rechit[0], &y_bkgEff_sieie_per_rechit[0]);
-   gr_pr->SetMarkerColor(3);
-   gr_pr->SetLineColor(3);
-   gr_pr->SetLineWidth(2);
-   gr_pr->SetMarkerStyle(24);
-   //   gr_pr->Draw("LP, same");
-   gr_pr->Write("per_rechit");
-
-   TGraph *gr_pr_m1p25 = new TGraph (len, &x_sigEff_sieie_per_rechit_m1p25[0], &y_bkgEff_sieie_per_rechit_m1p25[0]);
-   gr_pr_m1p25->SetMarkerColor(4);
-   gr_pr_m1p25->SetLineColor(4);
-   gr_pr_m1p25->SetLineWidth(2);
-   gr_pr_m1p25->SetMarkerStyle(28);
-   // gr_pr_m1p25->Draw("LP, same");
-   gr_pr_m1p25->Write("per_rechit_m1p25");
 
    TGraph *gr5 = new TGraph (len, &x_sigEff_sieie_w4p0[0], &y_bkgEff_sieie_w4p0[0]);
    gr5->SetMarkerColor(3);
@@ -413,18 +406,18 @@ void DrawROC::Loop()
    //gr5->Draw("LP, same");
    gr5->Write("w4p0");
 
-   TLegend *leg_example = new TLegend(0.12,0.2,0.42,0.5);
-   leg_example->SetHeader("Barrel Sieie (pT>70 GeV)","C"); // option "C" allows to center the header                                                                                     
+   TLegend *leg_example = new TLegend(0.12,0.15,0.4,0.46);
+   leg_example->SetHeader("Barrel (pT 7-15 GeV)","C"); // option "C" allows to center the header                                                                                     
    leg_example->SetFillColor(0);
    leg_example->SetTextFont(42);
    leg_example->SetBorderSize(0);
    leg_example->AddEntry(gr1, "default","pl");
-   //  leg_example->AddEntry(gr_pr, "per rechit cut","pl");
-   //  leg_example->AddEntry(gr_pr_m1p25, "per rechit cut * 1.25","pl");
+   //leg_example->AddEntry(gr_pr, "per rechit","pl");
+   //leg_example->AddEntry(gr_pr_m1p25, "per rechit * 1.25","pl");
    // leg_example->AddEntry(gr4, "w=4.4","pl");
-     leg_example->AddEntry(gr3, "w=4.3","pl");
+   leg_example->AddEntry(gr3, "w=4.3","pl");
    //leg_example->AddEntry(gr2, "w=4.2","pl");
-   //  leg_example->AddEntry(gr6, "w=4.1","pl");
+   leg_example->AddEntry(gr6, "w=4.1","pl");
    //leg_example->AddEntry(gr5, "w=4.0","pl");
    leg_example->Draw("same");
 
@@ -433,7 +426,62 @@ void DrawROC::Loop()
    // ar1->Draw("same");
 
    c1->SetGrid();
-   c1->SaveAs("BarrelROC_sieie_relative_noise_pt_gt_70.png");
+   c1->SaveAs("BarrelROC_sieie_relative_pt_7_15.png");
+
+   ////
+   //swagata // new // per-rechit
+   TCanvas *c1_new_pr = new TCanvas("c1_new_pr","eff", 200,10,600,400);
+
+   //   TGraph *gr1 = new TGraph (len, &x_sigEff_sieie_default[0], &y_bkgEff_sieie_default[0]);
+   //  gr1->SetTitle("#sigma_{i#eta i#eta} ROC");
+   // gr1->SetMarkerColor(2);
+   // gr1->SetLineColor(2);
+   // gr1->SetLineWidth(2);
+   // gr1->SetMarkerStyle(21);
+   gr1->Draw("ALP");
+   // gr1->GetYaxis()->SetTitle("Background Rejection");
+   // gr1->GetXaxis()->SetTitle("Signal Efficiency");
+   // gr1->GetHistogram()->SetMaximum(1.05);   // along                                                                                                                
+   // gr1->GetHistogram()->SetMinimum(0.0);  //   Y                                                                                                                             
+   // gr1->GetXaxis()->SetLimits(0.0,1.05);
+   //  gr1->Write("default");
+
+   TGraph *gr_pr = new TGraph (len, &x_sigEff_sieie_per_rechit[0], &y_bkgEff_sieie_per_rechit[0]);
+   gr_pr->SetMarkerColor(3);
+   gr_pr->SetLineColor(3);
+   gr_pr->SetLineWidth(2);
+   gr_pr->SetMarkerStyle(24);
+   gr_pr->Draw("LP, same");
+   gr_pr->Write("per_rechit");
+
+   TGraph *gr_pr_m1p25 = new TGraph (len, &x_sigEff_sieie_per_rechit_m1p25[0], &y_bkgEff_sieie_per_rechit_m1p25[0]);
+   gr_pr_m1p25->SetMarkerColor(4);
+   gr_pr_m1p25->SetLineColor(4);
+   gr_pr_m1p25->SetLineWidth(2);
+   gr_pr_m1p25->SetMarkerStyle(28);
+   gr_pr_m1p25->Draw("LP, same");
+   gr_pr_m1p25->Write("per_rechit_m1p25");
+
+   TLegend *leg_example_new_pr = new TLegend(0.12,0.15,0.4,0.46);
+   leg_example_new_pr->SetHeader("Barrel (pT 7-15 GeV)","C"); // option "C" allows to center the header                                                                                     
+   leg_example_new_pr->SetFillColor(0);
+   leg_example_new_pr->SetTextFont(42);
+   leg_example_new_pr->SetBorderSize(0);
+   leg_example_new_pr->AddEntry(gr1, "default","pl");
+   leg_example_new_pr->AddEntry(gr_pr, "per rechit","pl");
+   leg_example_new_pr->AddEntry(gr_pr_m1p25, "per rechit*1.25","pl");
+   // leg_example_new_pr->AddEntry(gr4, "w=4.4","pl");
+   //   leg_example_new_pr->AddEntry(gr3, "w=4.3","pl");
+   //leg_example_new_pr->AddEntry(gr2, "w=4.2","pl");
+   //  leg_example_new_pr->AddEntry(gr6, "w=4.1","pl");
+   //leg_example_new_pr->AddEntry(gr5, "w=4.0","pl");
+   leg_example_new_pr->Draw("same");
+
+   c1_new_pr->SetGrid();
+   c1_new_pr->SaveAs("BarrelROC_sieie_per_rechit_pt_7_15.png");
+
+
+   ///end new /// swagata
 
    /////
    TCanvas *c2 = new TCanvas("c2","spikeFrac", 200,10,600,400);
@@ -449,7 +497,7 @@ void DrawROC::Loop()
    gg1->GetYaxis()->SetTitle("Spike fraction");
    gg1->Write("spikeFrac");
 
-   TLegend *leg_example2 = new TLegend(0.2,0.2,0.5,0.5);
+   TLegend *leg_example2 = new TLegend(0.2,0.16,0.42,0.5);
    leg_example2->SetHeader("Barrel Sieie","C"); // option "C" allows to center the header                                                            
    leg_example2->AddEntry((TObject*)0, "Bin 0: default", "");
    leg_example2->AddEntry((TObject*)0, "Bin 1: w=4.4", "");
@@ -470,7 +518,7 @@ void DrawROC::Loop()
 
 
    c2->SetGrid();
-   c2->SaveAs("spike_pt_gt_70.png");
+   c2->SaveAs("spike_pt_7_15.png");
 
    ///en
    TCanvas *c3 = new TCanvas("c3","eff_en", 200,10,600,400);
@@ -501,8 +549,8 @@ void DrawROC::Loop()
    ge4->SetLineColor(6);
    ge4->SetLineWidth(2);
    ge4->SetMarkerStyle(24);
-   ge4->Draw("LP, same");
-   ge4->Write("en0p15");
+   //  ge4->Draw("LP, same");
+   ge4->Write("en0p15_noRelNoise");
 
    TGraph *ge3 = new TGraph (len, &x_sigEff_sieie_en0p2[0], &y_bkgEff_sieie_en0p2[0]);
    ge3->SetMarkerColor(4);
@@ -512,14 +560,14 @@ void DrawROC::Loop()
    ge3->Draw("LP, same");
    ge3->Write("en0p2");
 
-   TLegend *leg_example3 = new TLegend(0.15,0.2,0.45,0.5);
-   leg_example3->SetHeader("Barrel Sieie absolute noise cut ((pT>70 GeV))","C"); // option "C" allows to center the header                                                                            
+   TLegend *leg_example3 = new TLegend(0.12,0.15,0.4,0.46);
+   leg_example3->SetHeader("Barrel Sieie (pT 7-15 GeV)","C"); // option "C" allows to center the header                                                                            
    leg_example3->SetFillColor(0);
    leg_example3->SetTextFont(42);
    leg_example3->SetBorderSize(0);
    leg_example3->AddEntry(ge1, "default","pl");
    leg_example3->AddEntry(ge2, "E>0.15 GeV","pl");
-   leg_example3->AddEntry(ge4, "E>0.15 GeV (no rel cut)","pl");
+   ///   leg_example3->AddEntry(ge4, "E>0.15 GeV (no rel cut)","pl");
    leg_example3->AddEntry(ge3, "E>0.2 GeV","pl");
    leg_example3->Draw("same");
 
@@ -528,7 +576,7 @@ void DrawROC::Loop()
    // ar1->Draw("same");
 
    c3->SetGrid();
-   c3->SaveAs("BarrelROC_sieie_absNoiseCut_pt_gt_70.png");
+   c3->SaveAs("BarrelROC_sieie_absNoiseCut_pt_7_15.png");
 
    ///
    TCanvas *c21 = new TCanvas("c21","spikeFrac_absnoisecut", 200,10,600,400);
@@ -545,7 +593,7 @@ void DrawROC::Loop()
    ggs1->Write("spikeFrac_absnoisecut");
 
    TLegend *leg_example21 = new TLegend(0.2,0.6,0.5,0.9);
-   leg_example21->SetHeader("Barrel Sieie (pT>70 GeV)","C"); // option "C" allows to center the header                                                            
+   leg_example21->SetHeader("Barrel Sieie (pT 7-15 GeV)","C"); // option "C" allows to center the header                                          
    leg_example21->AddEntry((TObject*)0, "Bin 0: default", "");
    leg_example21->AddEntry((TObject*)0, "Bin 1: E>0.15 GeV", "");
    leg_example21->AddEntry((TObject*)0, "Bin 2: E>0.15 GeV (no abs cut)", "");
@@ -561,7 +609,7 @@ void DrawROC::Loop()
 
 
    c21->SetGrid();
-   c21->SaveAs("spike_absnoisecut_pt_gt_70.png");
+   c21->SaveAs("spike_absnoisecut_pt_7_15.png");
 
 
    ////
@@ -598,7 +646,7 @@ void DrawROC::Loop()
 
 
    c21_rechit->SetGrid();
-   c21_rechit->SaveAs("spike_per_rechit_cut_pt_gt_70.png");
+   c21_rechit->SaveAs("spike_per_rechit_cut_pt_7_15.png");
 
 
 

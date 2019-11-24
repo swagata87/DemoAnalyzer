@@ -194,11 +194,11 @@ pileup::pileup(TTree *tree) : fChain(0)
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("RedefNtup_AOD_2024.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("all3proc.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("RedefNtup_AOD_2024.root");
+         f = new TFile("all3proc.root");
       }
-      TDirectory * dir = (TDirectory*)f->Get("RedefNtup_AOD_2024.root:/demo");
+      TDirectory * dir = (TDirectory*)f->Get("all3proc.root:/demo");
       dir->GetObject("EventTree",tree);
 
    }

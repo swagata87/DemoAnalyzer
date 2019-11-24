@@ -38,11 +38,11 @@ int CompareProf_EB_per_rechit() {
   prof_my_sieie_signal_barrel_vs_pt_2024->SetMarkerColor(kBlue);
   prof_my_sieie_signal_barrel_vs_pt_2024->SetLineColor(kBlue);
   prof_my_sieie_signal_barrel_vs_pt_2024->SetLineWidth(3);
-  prof_my_sieie_signal_barrel_vs_pt_2024->GetXaxis()->SetTitle("Reconstructed p_{T} of electron");
-  prof_my_sieie_signal_barrel_vs_pt_2024->GetYaxis()->SetTitle("Sigma_ieta_ieta");
+  prof_my_sieie_signal_barrel_vs_pt_2024->GetXaxis()->SetTitle("Reconstructed p_{T} of electron in GeV");
+  prof_my_sieie_signal_barrel_vs_pt_2024->GetYaxis()->SetTitle("mean #sigma_{i#eta i#eta}");
   prof_my_sieie_signal_barrel_vs_pt_2024->SetTitle("");
   prof_my_sieie_signal_barrel_vs_pt_2024->SetStats(0);
-  prof_my_sieie_signal_barrel_vs_pt_2024->GetYaxis()->SetRangeUser(0.007,0.020);
+  prof_my_sieie_signal_barrel_vs_pt_2024->GetYaxis()->SetRangeUser(0.002,0.018);
 
 
   std::cout << "Get profile hist 2" << std::endl;
@@ -77,6 +77,16 @@ int CompareProf_EB_per_rechit() {
   prof_my_sieie_per_rechit_m1p25_signal_barrel_vs_pt_2024->SetLineColor(kBlack);
   prof_my_sieie_per_rechit_m1p25_signal_barrel_vs_pt_2024->SetLineWidth(3);
 
+  TProfile* prof_my_sieie_w4p1_signal_barrel_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_w4p1_signal_barrel_vs_pt;1");
+  prof_my_sieie_w4p1_signal_barrel_vs_pt_2024->SetMarkerColor(kBlack);
+  prof_my_sieie_w4p1_signal_barrel_vs_pt_2024->SetLineColor(kBlack);
+  prof_my_sieie_w4p1_signal_barrel_vs_pt_2024->SetLineWidth(3);
+
+  TProfile* prof_my_sieie_en0p2_signal_barrel_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_cmssw_sieie_en0p2_signal_barrel_vs_pt;1");
+  prof_my_sieie_en0p2_signal_barrel_vs_pt_2024->SetMarkerColor(kGreen+1);
+  prof_my_sieie_en0p2_signal_barrel_vs_pt_2024->SetLineColor(kGreen+1);
+  prof_my_sieie_en0p2_signal_barrel_vs_pt_2024->SetLineWidth(3);
+
 
   //--Plotting Styles//
   gStyle->SetPadLeftMargin(0.15);
@@ -95,14 +105,14 @@ int CompareProf_EB_per_rechit() {
 
   TCanvas* my_canvas1 = new TCanvas("canvas","canvas",800,600);
   my_canvas1->cd();
-  gPad->SetLogy();
+  // gPad->SetLogy();
   prof_my_sieie_signal_barrel_vs_pt_2024->Draw();
   prof_my_sieie_per_rechit_signal_barrel_vs_pt_2024->Draw("same");
-  prof_my_sieie_per_rechit_m1p05_signal_barrel_vs_pt_2024->Draw("same");
-  prof_my_sieie_per_rechit_m1p1_signal_barrel_vs_pt_2024->Draw("same");
-  prof_my_sieie_per_rechit_m1p15_signal_barrel_vs_pt_2024->Draw("same");
-  prof_my_sieie_per_rechit_m1p2_signal_barrel_vs_pt_2024->Draw("same");
-  prof_my_sieie_per_rechit_m1p25_signal_barrel_vs_pt_2024->Draw("same");
+  prof_my_sieie_en0p2_signal_barrel_vs_pt_2024->Draw("same");
+  // prof_my_sieie_per_rechit_m1p1_signal_barrel_vs_pt_2024->Draw("same");
+  //  prof_my_sieie_per_rechit_m1p15_signal_barrel_vs_pt_2024->Draw("same");
+  // prof_my_sieie_per_rechit_m1p2_signal_barrel_vs_pt_2024->Draw("same");
+  prof_my_sieie_w4p1_signal_barrel_vs_pt_2024->Draw("same");
   
   TLegend *leg_example = new TLegend(0.65,0.70,0.94,0.94);
   leg_example->SetHeader("Sieie, real e, barrel","C"); // option "C" allows to center the header
@@ -111,18 +121,18 @@ int CompareProf_EB_per_rechit() {
   leg_example->SetBorderSize(0);
   leg_example->AddEntry(prof_my_sieie_signal_barrel_vs_pt_2024, "default", "lp");
   leg_example->AddEntry(prof_my_sieie_per_rechit_signal_barrel_vs_pt_2024, "per recHit", "lp");
-  leg_example->AddEntry(prof_my_sieie_per_rechit_m1p05_signal_barrel_vs_pt_2024, "per recHit * 1.05", "lp");
-  leg_example->AddEntry(prof_my_sieie_per_rechit_m1p1_signal_barrel_vs_pt_2024, "per recHit * 1.1", "lp");
-  leg_example->AddEntry(prof_my_sieie_per_rechit_m1p15_signal_barrel_vs_pt_2024, "per recHit * 1.15", "lp");
-  leg_example->AddEntry(prof_my_sieie_per_rechit_m1p2_signal_barrel_vs_pt_2024, "per recHit * 1.2", "lp");
-  leg_example->AddEntry(prof_my_sieie_per_rechit_m1p25_signal_barrel_vs_pt_2024, "per recHit * 1.25", "lp");
+  // leg_example->AddEntry(prof_my_sieie_per_rechit_m1p1_signal_barrel_vs_pt_2024, "per recHit * 1.1", "lp");
+  //  leg_example->AddEntry(prof_my_sieie_per_rechit_m1p15_signal_barrel_vs_pt_2024, "per recHit * 1.15", "lp");
+  // leg_example->AddEntry(prof_my_sieie_per_rechit_m1p2_signal_barrel_vs_pt_2024, "per recHit * 1.2", "lp");
+  leg_example->AddEntry(prof_my_sieie_w4p1_signal_barrel_vs_pt_2024, "relative w=4.1", "lp");
+  leg_example->AddEntry(prof_my_sieie_en0p2_signal_barrel_vs_pt_2024, "absolute E>0.2 GeV", "lp");
 
   leg_example->Draw("same");
   my_canvas1->SetGrid();
 
   my_canvas1->Write();
-  my_canvas1->SaveAs("compareSieie_EB_per_rechit.pdf");
-  my_canvas1->SaveAs("compareSieie_EB_per_rechit.png");
+  // my_canvas1->SaveAs("compareSieie_EB_per_rechit.pdf");
+  my_canvas1->SaveAs("compareSieie_EB_all3scenario.png");
 
   return 0;
 

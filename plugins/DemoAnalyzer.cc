@@ -115,6 +115,13 @@ public:
   std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p15;
   std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p2;
   std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p25;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p3;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p4;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p5;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p6;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p7;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p8;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p9;
   //
   std::vector<double>  my_eleSigmaIetaIphi_per_rechit;
   std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p05;
@@ -122,6 +129,13 @@ public:
   std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p15;
   std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p2;
   std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p25;
+  std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p3;
+  std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p4;
+  std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p5;
+  std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p6;
+  std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p7;
+  std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p8;
+  std::vector<double>  my_eleSigmaIetaIphi_per_rechit_m1p9;
   //
   std::vector<double>  my_eleSigmaIphiIphi_per_rechit;
   std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p05;
@@ -129,6 +143,13 @@ public:
   std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p15;
   std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p2;
   std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p25;
+  std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p3;
+  std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p4;
+  std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p5;
+  std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p6;
+  std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p7;
+  std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p8;
+  std::vector<double>  my_eleSigmaIphiIphi_per_rechit_m1p9;
   //
   std::vector<double>  my_eleSigmaIetaIeta_w4p6;
   std::vector<double>  my_eleSigmaIetaIeta_w4p5;
@@ -288,6 +309,13 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p15_",&my_eleSigmaIetaIeta_per_rechit_m1p15);
   tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p2_",&my_eleSigmaIetaIeta_per_rechit_m1p2);
   tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p25_",&my_eleSigmaIetaIeta_per_rechit_m1p25);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p3_",&my_eleSigmaIetaIeta_per_rechit_m1p3);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p4_",&my_eleSigmaIetaIeta_per_rechit_m1p4);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p5_",&my_eleSigmaIetaIeta_per_rechit_m1p5);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p6_",&my_eleSigmaIetaIeta_per_rechit_m1p6);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p7_",&my_eleSigmaIetaIeta_per_rechit_m1p7);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p8_",&my_eleSigmaIetaIeta_per_rechit_m1p8);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p9_",&my_eleSigmaIetaIeta_per_rechit_m1p9);
   //
   tree->Branch("my_eleSigmaIetaIphi_per_rechit_",&my_eleSigmaIetaIphi_per_rechit);
   tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p05_",&my_eleSigmaIetaIphi_per_rechit_m1p05);
@@ -295,6 +323,13 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p15_",&my_eleSigmaIetaIphi_per_rechit_m1p15);
   tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p2_",&my_eleSigmaIetaIphi_per_rechit_m1p2);
   tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p25_",&my_eleSigmaIetaIphi_per_rechit_m1p25);
+  tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p3_",&my_eleSigmaIetaIphi_per_rechit_m1p3);
+  tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p4_",&my_eleSigmaIetaIphi_per_rechit_m1p4);
+  tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p5_",&my_eleSigmaIetaIphi_per_rechit_m1p5);
+  tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p6_",&my_eleSigmaIetaIphi_per_rechit_m1p6);
+  tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p7_",&my_eleSigmaIetaIphi_per_rechit_m1p7);
+  tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p8_",&my_eleSigmaIetaIphi_per_rechit_m1p8);
+  tree->Branch("my_eleSigmaIetaIphi_per_rechit_m1p9_",&my_eleSigmaIetaIphi_per_rechit_m1p9);
   //
   tree->Branch("my_eleSigmaIphiIphi_per_rechit_",&my_eleSigmaIphiIphi_per_rechit);
   tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p05_",&my_eleSigmaIphiIphi_per_rechit_m1p05);
@@ -302,6 +337,13 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p15_",&my_eleSigmaIphiIphi_per_rechit_m1p15);
   tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p2_",&my_eleSigmaIphiIphi_per_rechit_m1p2);
   tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p25_",&my_eleSigmaIphiIphi_per_rechit_m1p25);
+  tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p3_",&my_eleSigmaIphiIphi_per_rechit_m1p3);
+  tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p4_",&my_eleSigmaIphiIphi_per_rechit_m1p4);
+  tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p5_",&my_eleSigmaIphiIphi_per_rechit_m1p5);
+  tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p6_",&my_eleSigmaIphiIphi_per_rechit_m1p6);
+  tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p7_",&my_eleSigmaIphiIphi_per_rechit_m1p7);
+  tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p8_",&my_eleSigmaIphiIphi_per_rechit_m1p8);
+  tree->Branch("my_eleSigmaIphiIphi_per_rechit_m1p9_",&my_eleSigmaIphiIphi_per_rechit_m1p9);
   //
   tree->Branch("my_eleSigmaIetaIeta_w4p6_",&my_eleSigmaIetaIeta_w4p6);
   tree->Branch("my_eleSigmaIetaIeta_w4p5_",&my_eleSigmaIetaIeta_w4p5);
@@ -440,6 +482,13 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   my_eleSigmaIetaIeta_per_rechit_m1p15.clear();
   my_eleSigmaIetaIeta_per_rechit_m1p2.clear();
   my_eleSigmaIetaIeta_per_rechit_m1p25.clear();
+  my_eleSigmaIetaIeta_per_rechit_m1p3.clear();
+  my_eleSigmaIetaIeta_per_rechit_m1p4.clear();
+  my_eleSigmaIetaIeta_per_rechit_m1p5.clear();
+  my_eleSigmaIetaIeta_per_rechit_m1p6.clear();
+  my_eleSigmaIetaIeta_per_rechit_m1p7.clear();
+  my_eleSigmaIetaIeta_per_rechit_m1p8.clear();
+  my_eleSigmaIetaIeta_per_rechit_m1p9.clear();
   //
   my_eleSigmaIetaIphi_per_rechit.clear();
   my_eleSigmaIetaIphi_per_rechit_m1p05.clear();
@@ -447,6 +496,13 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   my_eleSigmaIetaIphi_per_rechit_m1p15.clear();
   my_eleSigmaIetaIphi_per_rechit_m1p2.clear();
   my_eleSigmaIetaIphi_per_rechit_m1p25.clear();
+  my_eleSigmaIetaIphi_per_rechit_m1p3.clear();
+  my_eleSigmaIetaIphi_per_rechit_m1p4.clear();
+  my_eleSigmaIetaIphi_per_rechit_m1p5.clear();
+  my_eleSigmaIetaIphi_per_rechit_m1p6.clear();
+  my_eleSigmaIetaIphi_per_rechit_m1p7.clear();
+  my_eleSigmaIetaIphi_per_rechit_m1p8.clear();
+  my_eleSigmaIetaIphi_per_rechit_m1p9.clear();
   //
   my_eleSigmaIphiIphi_per_rechit.clear();
   my_eleSigmaIphiIphi_per_rechit_m1p05.clear();
@@ -454,6 +510,13 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   my_eleSigmaIphiIphi_per_rechit_m1p15.clear();
   my_eleSigmaIphiIphi_per_rechit_m1p2.clear();
   my_eleSigmaIphiIphi_per_rechit_m1p25.clear();
+  my_eleSigmaIphiIphi_per_rechit_m1p3.clear();
+  my_eleSigmaIphiIphi_per_rechit_m1p4.clear();
+  my_eleSigmaIphiIphi_per_rechit_m1p5.clear();
+  my_eleSigmaIphiIphi_per_rechit_m1p6.clear();
+  my_eleSigmaIphiIphi_per_rechit_m1p7.clear();
+  my_eleSigmaIphiIphi_per_rechit_m1p8.clear();
+  my_eleSigmaIphiIphi_per_rechit_m1p9.clear();
   //
   my_eleSigmaIetaIeta_w4p6.clear();
   my_eleSigmaIetaIeta_w4p5.clear();
@@ -685,6 +748,13 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     std::vector<float> mylocalCovariances_per_rechit_m1p15 ;
     std::vector<float> mylocalCovariances_per_rechit_m1p2 ;
     std::vector<float> mylocalCovariances_per_rechit_m1p25 ;
+    std::vector<float> mylocalCovariances_per_rechit_m1p3 ;
+    std::vector<float> mylocalCovariances_per_rechit_m1p4 ;
+    std::vector<float> mylocalCovariances_per_rechit_m1p5 ;
+    std::vector<float> mylocalCovariances_per_rechit_m1p6 ;
+    std::vector<float> mylocalCovariances_per_rechit_m1p7 ;
+    std::vector<float> mylocalCovariances_per_rechit_m1p8 ;
+    std::vector<float> mylocalCovariances_per_rechit_m1p9 ;
     std::vector<float> mylocalCovariances_per_rechit_thresholds ;
     std::vector<float> mylocalCovariances_per_rechit_crys_eta ;
     std::vector<float> mylocalCovariances_per_rechit_crys_phi ;
@@ -699,7 +769,13 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       mylocalCovariances_per_rechit_m1p15 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.15).cov;
       mylocalCovariances_per_rechit_m1p2 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.2).cov;
       mylocalCovariances_per_rechit_m1p25 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry,  &iSetup, 4.7, 1.25).cov;
-      
+      mylocalCovariances_per_rechit_m1p3 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.3).cov;
+      mylocalCovariances_per_rechit_m1p4 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.4).cov;
+      mylocalCovariances_per_rechit_m1p5 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.5).cov;
+      mylocalCovariances_per_rechit_m1p6 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.6).cov;
+      mylocalCovariances_per_rechit_m1p7 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.7).cov;
+      mylocalCovariances_per_rechit_m1p8 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.8).cov;
+      mylocalCovariances_per_rechit_m1p9 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.9).cov;
       mylocalCovariances_per_rechit_thresholds = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry,  &iSetup, 4.7, 1).thr;
       mylocalCovariances_per_rechit_crys_eta = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1).cryseta;
       mylocalCovariances_per_rechit_crys_phi = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry,  &iSetup, 4.7, 1).crysphi;
@@ -913,6 +989,28 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     float sigmaIetaIeta_per_rechit_m1p25 = sqrt(mylocalCovariances_per_rechit_m1p25[0]); 
     my_eleSigmaIetaIeta_per_rechit_m1p25.push_back(sigmaIetaIeta_per_rechit_m1p25);
     //
+    float sigmaIetaIeta_per_rechit_m1p3 = sqrt(mylocalCovariances_per_rechit_m1p3[0]); 
+    my_eleSigmaIetaIeta_per_rechit_m1p3.push_back(sigmaIetaIeta_per_rechit_m1p3);
+
+    float sigmaIetaIeta_per_rechit_m1p4 = sqrt(mylocalCovariances_per_rechit_m1p4[0]); 
+    my_eleSigmaIetaIeta_per_rechit_m1p4.push_back(sigmaIetaIeta_per_rechit_m1p4);
+
+    float sigmaIetaIeta_per_rechit_m1p5 = sqrt(mylocalCovariances_per_rechit_m1p5[0]); 
+    my_eleSigmaIetaIeta_per_rechit_m1p5.push_back(sigmaIetaIeta_per_rechit_m1p5);
+
+    float sigmaIetaIeta_per_rechit_m1p6 = sqrt(mylocalCovariances_per_rechit_m1p6[0]); 
+    my_eleSigmaIetaIeta_per_rechit_m1p6.push_back(sigmaIetaIeta_per_rechit_m1p6);
+
+    float sigmaIetaIeta_per_rechit_m1p7 = sqrt(mylocalCovariances_per_rechit_m1p7[0]); 
+    my_eleSigmaIetaIeta_per_rechit_m1p7.push_back(sigmaIetaIeta_per_rechit_m1p7);
+
+    float sigmaIetaIeta_per_rechit_m1p8 = sqrt(mylocalCovariances_per_rechit_m1p8[0]); 
+    my_eleSigmaIetaIeta_per_rechit_m1p8.push_back(sigmaIetaIeta_per_rechit_m1p8);
+
+    float sigmaIetaIeta_per_rechit_m1p9 = sqrt(mylocalCovariances_per_rechit_m1p9[0]); 
+    my_eleSigmaIetaIeta_per_rechit_m1p9.push_back(sigmaIetaIeta_per_rechit_m1p9);
+
+    //
     float sigmaIetaIphi_per_rechit = sqrt(mylocalCovariances_per_rechit[1]); 
     my_eleSigmaIetaIphi_per_rechit.push_back(sigmaIetaIphi_per_rechit);
 
@@ -927,9 +1025,31 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
     float sigmaIetaIphi_per_rechit_m1p2 = sqrt(mylocalCovariances_per_rechit_m1p2[1]); 
     my_eleSigmaIetaIphi_per_rechit_m1p2.push_back(sigmaIetaIphi_per_rechit_m1p2);
-
+    
     float sigmaIetaIphi_per_rechit_m1p25 = sqrt(mylocalCovariances_per_rechit_m1p25[1]); 
     my_eleSigmaIetaIphi_per_rechit_m1p25.push_back(sigmaIetaIphi_per_rechit_m1p25);
+
+    float sigmaIetaIphi_per_rechit_m1p3 = sqrt(mylocalCovariances_per_rechit_m1p3[1]); 
+    my_eleSigmaIetaIphi_per_rechit_m1p3.push_back(sigmaIetaIphi_per_rechit_m1p3);
+
+    float sigmaIetaIphi_per_rechit_m1p4 = sqrt(mylocalCovariances_per_rechit_m1p4[1]); 
+    my_eleSigmaIetaIphi_per_rechit_m1p4.push_back(sigmaIetaIphi_per_rechit_m1p4);
+
+    float sigmaIetaIphi_per_rechit_m1p5 = sqrt(mylocalCovariances_per_rechit_m1p5[1]); 
+    my_eleSigmaIetaIphi_per_rechit_m1p5.push_back(sigmaIetaIphi_per_rechit_m1p5);
+
+    float sigmaIetaIphi_per_rechit_m1p6 = sqrt(mylocalCovariances_per_rechit_m1p6[1]); 
+    my_eleSigmaIetaIphi_per_rechit_m1p6.push_back(sigmaIetaIphi_per_rechit_m1p6);
+
+    float sigmaIetaIphi_per_rechit_m1p7 = sqrt(mylocalCovariances_per_rechit_m1p7[1]); 
+    my_eleSigmaIetaIphi_per_rechit_m1p7.push_back(sigmaIetaIphi_per_rechit_m1p7);
+
+    float sigmaIetaIphi_per_rechit_m1p8 = sqrt(mylocalCovariances_per_rechit_m1p8[1]); 
+    my_eleSigmaIetaIphi_per_rechit_m1p8.push_back(sigmaIetaIphi_per_rechit_m1p8);
+
+    float sigmaIetaIphi_per_rechit_m1p9 = sqrt(mylocalCovariances_per_rechit_m1p9[1]); 
+    my_eleSigmaIetaIphi_per_rechit_m1p9.push_back(sigmaIetaIphi_per_rechit_m1p9);
+
     // 
     float sigmaIphiIphi_per_rechit = sqrt(mylocalCovariances_per_rechit[2]); 
     my_eleSigmaIphiIphi_per_rechit.push_back(sigmaIphiIphi_per_rechit);
@@ -948,6 +1068,28 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
     float sigmaIphiIphi_per_rechit_m1p25 = sqrt(mylocalCovariances_per_rechit_m1p25[2]); 
     my_eleSigmaIphiIphi_per_rechit_m1p25.push_back(sigmaIphiIphi_per_rechit_m1p25);
+
+    float sigmaIphiIphi_per_rechit_m1p3 = sqrt(mylocalCovariances_per_rechit_m1p3[2]); 
+    my_eleSigmaIphiIphi_per_rechit_m1p3.push_back(sigmaIphiIphi_per_rechit_m1p3);
+
+    float sigmaIphiIphi_per_rechit_m1p4 = sqrt(mylocalCovariances_per_rechit_m1p4[2]); 
+    my_eleSigmaIphiIphi_per_rechit_m1p4.push_back(sigmaIphiIphi_per_rechit_m1p4);
+
+    float sigmaIphiIphi_per_rechit_m1p5 = sqrt(mylocalCovariances_per_rechit_m1p5[2]); 
+    my_eleSigmaIphiIphi_per_rechit_m1p5.push_back(sigmaIphiIphi_per_rechit_m1p5);
+
+    float sigmaIphiIphi_per_rechit_m1p6 = sqrt(mylocalCovariances_per_rechit_m1p6[2]); 
+    my_eleSigmaIphiIphi_per_rechit_m1p6.push_back(sigmaIphiIphi_per_rechit_m1p6);
+
+    float sigmaIphiIphi_per_rechit_m1p7 = sqrt(mylocalCovariances_per_rechit_m1p7[2]); 
+    my_eleSigmaIphiIphi_per_rechit_m1p7.push_back(sigmaIphiIphi_per_rechit_m1p7);
+
+    float sigmaIphiIphi_per_rechit_m1p8 = sqrt(mylocalCovariances_per_rechit_m1p8[2]); 
+    my_eleSigmaIphiIphi_per_rechit_m1p8.push_back(sigmaIphiIphi_per_rechit_m1p8);
+
+    float sigmaIphiIphi_per_rechit_m1p9 = sqrt(mylocalCovariances_per_rechit_m1p9[2]); 
+    my_eleSigmaIphiIphi_per_rechit_m1p9.push_back(sigmaIphiIphi_per_rechit_m1p9);
+
 
   }
   

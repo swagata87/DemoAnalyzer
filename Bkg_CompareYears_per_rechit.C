@@ -26,7 +26,7 @@
 #include "TGraphAsymmErrors.h"
 #include "THStack.h"
 
-int CompareYears_per_rechit() {
+int Bkg_CompareYears_per_rechit() {
 
   std::cout << "Get the root files " << std::endl;
   TFile *file_2018 = new TFile("./Out_redefhists_2018_pt30.root");

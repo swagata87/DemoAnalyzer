@@ -100,7 +100,7 @@ int CompareYears_w4p1() {
   my_canvas1->SetGrid();
 
   my_canvas1->Write();
-  my_canvas1->SaveAs("DefaultSieie_years_barrel_w4p1.pdf");
+  //  my_canvas1->SaveAs("DefaultSieie_years_barrel_w4p1.pdf");
   my_canvas1->SaveAs("DefaultSieie_years_barrel_w4p1.png");
 
   /////endcaps
@@ -155,7 +155,7 @@ int CompareYears_w4p1() {
   my_canvas2->SetGrid();
 
   my_canvas2->Write();
-  my_canvas2->SaveAs("DefaultSieie_years_endcap_w4p1.pdf");
+  //  my_canvas2->SaveAs("DefaultSieie_years_endcap_w4p1.pdf");
   my_canvas2->SaveAs("DefaultSieie_years_endcap_w4p1.png");
 
 

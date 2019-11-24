@@ -88,7 +88,7 @@ int CompareYears_en0p2() {
   h1_my_SigmaIetaIeta_en0p2_signal_barrel_2018->Draw("same");
 
   TLegend *leg_example = new TLegend(0.65,0.70,0.94,0.94);
-  leg_example->SetHeader("Sieie Ecut 0.2, real e, barrel","C"); // option "C" allows to center the header
+  leg_example->SetHeader("Sieie E>0.2, real e, barrel","C"); // option "C" allows to center the header
   leg_example->SetFillColor(0);
   leg_example->SetTextFont(42);
   leg_example->SetBorderSize(0);
@@ -100,7 +100,7 @@ int CompareYears_en0p2() {
   my_canvas1->SetGrid();
 
   my_canvas1->Write();
-  my_canvas1->SaveAs("DefaultSieie_years_barrel_0p2.pdf");
+  //  my_canvas1->SaveAs("DefaultSieie_years_barrel_0p2.pdf");
   my_canvas1->SaveAs("DefaultSieie_years_barrel_0p2.png");
 
   /////endcaps
@@ -143,7 +143,7 @@ int CompareYears_en0p2() {
   h1_my_SigmaIetaIeta_en0p2_signal_endcap_2018->Draw("same");
 
   TLegend *leg_example2 = new TLegend(0.65,0.70,0.94,0.94);
-  leg_example2->SetHeader("Sieie Ecut 0.2, real e, endcap","C"); // option "C" allows to center the header
+  leg_example2->SetHeader("Sieie E>0.2, real e, endcap","C"); // option "C" allows to center the header
   leg_example2->SetFillColor(0);
   leg_example2->SetTextFont(42);
   leg_example2->SetBorderSize(0);
@@ -155,7 +155,7 @@ int CompareYears_en0p2() {
   my_canvas2->SetGrid();
 
   my_canvas2->Write();
-  my_canvas2->SaveAs("DefaultSieie_years_endcap_0p2.pdf");
+  //  my_canvas2->SaveAs("DefaultSieie_years_endcap_0p2.pdf");
   my_canvas2->SaveAs("DefaultSieie_years_endcap_0p2.png");
 
 

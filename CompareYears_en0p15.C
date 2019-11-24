@@ -88,7 +88,7 @@ int CompareYears_en0p15() {
   h1_my_SigmaIetaIeta_en0p15_signal_barrel_2018->Draw("same");
 
   TLegend *leg_example = new TLegend(0.65,0.70,0.94,0.94);
-  leg_example->SetHeader("Sieie Ecut 0p15, real e, barrel","C"); // option "C" allows to center the header
+  leg_example->SetHeader("Sieie E>0.15, real e, barrel","C"); // option "C" allows to center the header
   leg_example->SetFillColor(0);
   leg_example->SetTextFont(42);
   leg_example->SetBorderSize(0);
@@ -100,7 +100,7 @@ int CompareYears_en0p15() {
   my_canvas1->SetGrid();
 
   my_canvas1->Write();
-  my_canvas1->SaveAs("DefaultSieie_years_barrel_0p15.pdf");
+  //  my_canvas1->SaveAs("DefaultSieie_years_barrel_0p15.pdf");
   my_canvas1->SaveAs("DefaultSieie_years_barrel_0p15.png");
 
   /////endcaps

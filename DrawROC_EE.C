@@ -57,7 +57,7 @@ void DrawROC_EE::Loop()
 
    Long64_t nentries = fChain->GetEntriesFast();
    
-   float cuts[45] = {0.002, 0.007,0.0075 ,0.008, 0.0085, 0.009, 0.0095 ,0.0100, 0.0101, 0.0102, 0.0103 ,0.0104, 0.0106, 0.0108, 0.0110, 0.0112, 0.0114, 0.0116, 0.0118, 0.0120, 0.0122, 0.0124, 0.0126, 0.014 ,0.015, 0.016 ,0.018 ,0.02, 0.022 ,0.025 ,0.03, 0.032 , 0.033 ,0.035 , 0.036, 0.038, 0.04, 0.041 ,0.042, 0.045, 0.048 ,0.05, 0.06, 0.5, 1};
+   float cuts[55] = {0.002, 0.007,0.0075 ,0.008, 0.0085, 0.009, 0.0095 ,0.0100, 0.0101, 0.0102, 0.0103 ,0.0104, 0.0106, 0.0108, 0.0110, 0.0112, 0.0114, 0.0116, 0.0118, 0.0120, 0.0122, 0.0124, 0.0126, 0.013 ,0.014 ,0.015, 0.016 , 0.017, 0.018, 0.019, 0.02, 0.021 ,0.022, 0.023, 0.024 ,0.025, 0.026, 0.027, 0.028, 0.029 ,0.03, 0.032 , 0.033 ,0.035 , 0.036, 0.038, 0.04, 0.041 ,0.042, 0.045, 0.048 ,0.05, 0.06, 0.5, 1};
    int len = sizeof(cuts) / sizeof(cuts[0]);
    std::cout << "len of cuts array " << len << std::endl;
 
@@ -176,7 +176,7 @@ void DrawROC_EE::Loop()
        for(int iele=0; iele < elePt_->size(); iele++) {
 
 	 
-	 if ( ((fabs(eleScEta_->at(iele)) ) > 1.56)  &&   ( (elePt_->at(iele))>0 )  && ( (elePt_->at(iele))<30 )       ) {
+	 if ( ((fabs(eleScEta_->at(iele)) ) > 1.56)  &&   ( (elePt_->at(iele))>70 )  && ( (elePt_->at(iele))<150 )       ) {
 
 	   //  std::cout << "my_eleSigmaIetaIeta_w3p5 " << my_eleSigmaIetaIeta_w3p5_->at(iele) << " , " << " my_eleSigmaIetaIeta_w3p0 " << my_eleSigmaIetaIeta_w3p0_->at(iele) << std::endl; 
 	   
@@ -390,22 +390,6 @@ void DrawROC_EE::Loop()
    //   gr2->Draw("LP, same");
    gr2->Write("w4p2");
 
-   TGraph *gr_pr = new TGraph (len, &x_sigEff_sieie_per_rechit[0], &y_bkgEff_sieie_per_rechit[0]);
-   gr_pr->SetMarkerColor(3);
-   gr_pr->SetLineColor(3);
-   gr_pr->SetLineWidth(2);
-   gr_pr->SetMarkerStyle(22);
-   // gr_pr->Draw("LP, same");
-   gr_pr->Write("per_rechit");
-
-   TGraph *gr_pr_m1p25 = new TGraph (len, &x_sigEff_sieie_per_rechit_m1p25[0], &y_bkgEff_sieie_per_rechit_m1p25[0]);
-   gr_pr_m1p25->SetMarkerColor(4);
-   gr_pr_m1p25->SetLineColor(4);
-   gr_pr_m1p25->SetLineWidth(2);
-   gr_pr_m1p25->SetMarkerStyle(22);
-   //gr_pr_m1p25->Draw("LP, same");
-   gr_pr_m1p25->Write("per_rechit_m1p25");
-
    TGraph *gr3 = new TGraph (len, &x_sigEff_sieie_w3p0[0], &y_bkgEff_sieie_w3p0[0]);
    gr3->SetMarkerColor(4);
    gr3->SetLineColor(4);
@@ -427,7 +411,7 @@ void DrawROC_EE::Loop()
    gr6->SetLineColor(8);
    gr6->SetLineWidth(2);
    gr6->SetMarkerStyle(26);
-   //gr6->Draw("LP, same");
+   gr6->Draw("LP, same");
    gr6->Write("w3p2");
 
    TGraph *gr5 = new TGraph (len, &x_sigEff_sieie_w4p0[0], &y_bkgEff_sieie_w4p0[0]);
@@ -446,8 +430,8 @@ void DrawROC_EE::Loop()
    gr7->Draw("LP, same");
    gr7->Write("w3p7");
 
-   TLegend *leg_example = new TLegend(0.16,0.2,0.45,0.5);
-   leg_example->SetHeader("Endcap Sieie 0<pT<30 GeV","C"); // option "C" allows to center the header                                                                                     
+   TLegend *leg_example = new TLegend(0.12,0.2,0.42,0.46);
+   leg_example->SetHeader("Endcap (pT 70-150 GeV)","C"); // option "C" allows to center the header                                                                                     
    leg_example->SetFillColor(0);
    leg_example->SetTextFont(42);
    leg_example->SetBorderSize(0);
@@ -456,7 +440,7 @@ void DrawROC_EE::Loop()
    //leg_example->AddEntry(gr3, "w=3.0","pl");
    // leg_example->AddEntry(gr2, "w=4.2","pl");
    //    leg_example->AddEntry(gr5, "w=4.0","pl");
-   //  leg_example->AddEntry(gr6, "w=3.2","pl");
+   leg_example->AddEntry(gr6, "w=3.2","pl");
    //  leg_example->AddEntry(gr_pr, "per rechit cut","pl");
    // leg_example->AddEntry(gr_pr_m1p25, "per rechit cut * 1.5","pl");
    leg_example->AddEntry(gr7, "w=3.7","pl");
@@ -467,7 +451,68 @@ void DrawROC_EE::Loop()
    // ar1->Draw("same");
 
    c1->SetGrid();
-   c1->SaveAs("EndcapROC_sieie_default_vs_w_pt_0_30.png");
+   c1->SaveAs("EndcapROC_relative_pt_70_150.png");
+   /////
+   ////swagata new 
+
+   TCanvas *c1_new = new TCanvas("c1_new","eff", 200,10,600,400);
+
+   //   TGraph *gr1 = new TGraph (len, &x_sigEff_sieie_default[0], &y_bkgEff_sieie_default[0]);
+   // gr1->SetTitle("#sigma_{i#eta i#eta} ROC");
+   // gr1->SetMarkerColor(2);
+   // gr1->SetLineColor(2);
+   // gr1->SetLineWidth(2);
+   // gr1->SetMarkerStyle(21);
+   gr1->Draw("ALP");
+   // gr1->GetYaxis()->SetTitle("Background Rejection");
+   // gr1->GetXaxis()->SetTitle("Signal Efficiency");
+   // gr1->GetHistogram()->SetMaximum(1.05);   // along                                                                                                                
+   // gr1->GetHistogram()->SetMinimum(0.0);  //   Y                                                                                                                             
+   // gr1->GetXaxis()->SetLimits(0.0,1.05);
+   // gr1->Write("default");
+
+
+   TGraph *gr_pr = new TGraph (len, &x_sigEff_sieie_per_rechit[0], &y_bkgEff_sieie_per_rechit[0]);
+   gr_pr->SetMarkerColor(3);
+   gr_pr->SetLineColor(3);
+   gr_pr->SetLineWidth(2);
+   gr_pr->SetMarkerStyle(22);
+   gr_pr->Draw("LP, same");
+   gr_pr->Write("per_rechit");
+
+   TGraph *gr_pr_m1p25 = new TGraph (len, &x_sigEff_sieie_per_rechit_m1p25[0], &y_bkgEff_sieie_per_rechit_m1p25[0]);
+   gr_pr_m1p25->SetMarkerColor(4);
+   gr_pr_m1p25->SetLineColor(4);
+   gr_pr_m1p25->SetLineWidth(2);
+   gr_pr_m1p25->SetMarkerStyle(22);
+   gr_pr_m1p25->Draw("LP, same");
+   gr_pr_m1p25->Write("per_rechit_m1p25");
+
+   TLegend *leg_example_new = new TLegend(0.16,0.2,0.45,0.5);
+   leg_example_new->SetHeader("Endcap (pT 70-150 GeV)","C"); // option "C" allows to center the header                                                                                     
+   leg_example_new->SetFillColor(0);
+   leg_example_new->SetTextFont(42);
+   leg_example_new->SetBorderSize(0);
+   leg_example_new->AddEntry(gr1, "default","pl");
+   // leg_example_new->AddEntry(gr4, "w=3.5","pl");
+   //leg_example_new->AddEntry(gr3, "w=3.0","pl");
+   // leg_example_new->AddEntry(gr2, "w=4.2","pl");
+   //    leg_example_new->AddEntry(gr5, "w=4.0","pl");
+   //  leg_example_new->AddEntry(gr6, "w=3.2","pl");
+   leg_example_new->AddEntry(gr_pr, "per rechit cut","pl");
+   leg_example_new->AddEntry(gr_pr_m1p25, "per rechit cut * 1.25","pl");
+   //leg_example_new->AddEntry(gr7, "w=3.7","pl");
+   leg_example_new->Draw("same");
+
+   //   TArrow *ar1 = new TArrow(0.0126,0.3,0.0126,1.01);
+   // ar1->SetLineColor(kRed);
+   // ar1->Draw("same");
+
+   c1_new->SetGrid();
+   c1_new->SaveAs("EndcapROC_per_rechit_pt_70_150.png");
+
+
+
 
    /////
    TCanvas *c2 = new TCanvas("c2","spikeFrac", 200,10,600,400);
@@ -552,11 +597,11 @@ void DrawROC_EE::Loop()
    ge5->SetLineColor(7);
    ge5->SetLineWidth(2);
    ge5->SetMarkerStyle(26);
-   ge5->Draw("LP, same");
+   //ge5->Draw("LP, same");
    ge5->Write("en1_noRelNoiseCut");
 
    TLegend *leg_example3 = new TLegend(0.12,0.13,0.45,0.45);
-   leg_example3->SetHeader("Endcap Sieie absolute noise cut","C"); // option "C" allows to center the header                                                                            
+   leg_example3->SetHeader("Endcap (pT 70-150 GeV)","C"); // option "C" allows to center the header                                                                            
    leg_example3->SetFillColor(0);
    leg_example3->SetTextFont(42);
    leg_example3->SetBorderSize(0);
@@ -564,7 +609,7 @@ void DrawROC_EE::Loop()
    leg_example3->AddEntry(ge2, "E>0.5 GeV","pl");
    leg_example3->AddEntry(ge3, "E>0.2 GeV","pl");
    leg_example3->AddEntry(ge4, "E>1 GeV","pl");
-   leg_example3->AddEntry(ge5, "E>1 GeV, noRelCut","pl");
+   // leg_example3->AddEntry(ge5, "E>1 GeV, noRelCut","pl");
    leg_example3->Draw("same");
 
    //   TArrow *ar1 = new TArrow(0.0126,0.3,0.0126,1.01);
@@ -572,7 +617,7 @@ void DrawROC_EE::Loop()
    // ar1->Draw("same");
 
    c3->SetGrid();
-   c3->SaveAs("EndcapROC_sieie_absNoiseCut.png");
+   c3->SaveAs("EndcapROC_sieie_absNoiseCut_pt_70_150.png");
 
    ///
    TCanvas *c21 = new TCanvas("c21","spikeFrac_absnoisecut", 200,10,600,400);
@@ -606,7 +651,7 @@ void DrawROC_EE::Loop()
 
 
    c21->SetGrid();
-   c21->SaveAs("spike_absnoisecut_EE.png");
+   c21->SaveAs("spike_absnoisecut_EE_pt_70_150.png");
 
 
 

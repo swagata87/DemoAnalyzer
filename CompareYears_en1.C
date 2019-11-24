@@ -100,7 +100,7 @@ int CompareYears_en1() {
   my_canvas1->SetGrid();
 
   my_canvas1->Write();
-  my_canvas1->SaveAs("DefaultSieie_years_barrel_1.pdf");
+  ///  my_canvas1->SaveAs("DefaultSieie_years_barrel_1.pdf");
   my_canvas1->SaveAs("DefaultSieie_years_barrel_1.png");
 
   /////endcaps
@@ -143,7 +143,7 @@ int CompareYears_en1() {
   h1_my_SigmaIetaIeta_en1_signal_endcap_2018->Draw("same");
 
   TLegend *leg_example2 = new TLegend(0.65,0.70,0.94,0.94);
-  leg_example2->SetHeader("Sieie Ecut 1, real e, endcap","C"); // option "C" allows to center the header
+  leg_example2->SetHeader("Sieie E>1, real e, endcap","C"); // option "C" allows to center the header
   leg_example2->SetFillColor(0);
   leg_example2->SetTextFont(42);
   leg_example2->SetBorderSize(0);
@@ -155,7 +155,7 @@ int CompareYears_en1() {
   my_canvas2->SetGrid();
 
   my_canvas2->Write();
-  my_canvas2->SaveAs("DefaultSieie_years_endcap_1.pdf");
+  //  my_canvas2->SaveAs("DefaultSieie_years_endcap_1.pdf");
   my_canvas2->SaveAs("DefaultSieie_years_endcap_1.png");
 
 

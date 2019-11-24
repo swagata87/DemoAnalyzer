@@ -173,7 +173,7 @@ int PlotsieieRMSvsPU() {
   gr1->Draw("AP");
   gr1->GetYaxis()->SetTitle("Sieie RMS");
   gr1->GetXaxis()->SetTitle("nPU");
-  gr1->GetHistogram()->SetMaximum(0.003);   // along                                                                                              
+  gr1->GetHistogram()->SetMaximum(0.0035);   // along                                                                                              
   gr1->GetHistogram()->SetMinimum(0.001);  //   Y                                                                                                        
   //  gr1->GetXaxis()->SetLimits(0.0,1.05);
   gr1->Write("cmsswsieie");
