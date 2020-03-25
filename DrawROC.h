@@ -39,6 +39,10 @@ public :
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p15 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p2 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p25 = 1;
+
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p8 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p5 = 1;
+
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p6 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p5 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p4 = 1;
@@ -80,7 +84,11 @@ public :
    vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p1_;
    vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p15_;
    vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p2_;
+
    vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p25_;
+   vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p8_;
+   vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p5_;
+
    vector<double>  *my_eleSigmaIetaIeta_w4p6_;
    vector<double>  *my_eleSigmaIetaIeta_w4p5_;
    vector<double>  *my_eleSigmaIetaIeta_w4p4_;
@@ -122,7 +130,11 @@ public :
    TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p1_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p15_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p2_;   //!
+
    TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p25_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p8_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p5_;   //!
+
    TBranch        *b_my_eleSigmaIetaIeta_w4p6_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w4p5_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w4p4_;   //!
@@ -169,11 +181,11 @@ DrawROC::DrawROC(TTree *tree) : fChain(0)
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("all3proc_2024.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018_small.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("all3proc_2024.root");
+         f = new TFile("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018_small.root");
       }
-      TDirectory * dir = (TDirectory*)f->Get("all3proc_2024.root:/demo");
+      TDirectory * dir = (TDirectory*)f->Get("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018_small.root:/demo");
       dir->GetObject("EventTree",tree);
 
    }
@@ -231,7 +243,11 @@ void DrawROC::Init(TTree *tree)
    my_eleSigmaIetaIeta_per_rechit_m1p1_ = 0;
    my_eleSigmaIetaIeta_per_rechit_m1p15_ = 0;
    my_eleSigmaIetaIeta_per_rechit_m1p2_ = 0;
+
    my_eleSigmaIetaIeta_per_rechit_m1p25_ = 0;
+   my_eleSigmaIetaIeta_per_rechit_m1p8_ = 0;
+   my_eleSigmaIetaIeta_per_rechit_m1p5_ = 0;
+
    my_eleSigmaIetaIeta_w4p6_ = 0;
    my_eleSigmaIetaIeta_w4p5_ = 0;
    my_eleSigmaIetaIeta_w4p4_ = 0;
@@ -278,6 +294,8 @@ void DrawROC::Init(TTree *tree)
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p15_", &my_eleSigmaIetaIeta_per_rechit_m1p15_, &b_my_eleSigmaIetaIeta_per_rechit_m1p15_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p2_", &my_eleSigmaIetaIeta_per_rechit_m1p2_, &b_my_eleSigmaIetaIeta_per_rechit_m1p2_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p25_", &my_eleSigmaIetaIeta_per_rechit_m1p25_, &b_my_eleSigmaIetaIeta_per_rechit_m1p25_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p8_", &my_eleSigmaIetaIeta_per_rechit_m1p8_, &b_my_eleSigmaIetaIeta_per_rechit_m1p8_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p5_", &my_eleSigmaIetaIeta_per_rechit_m1p5_, &b_my_eleSigmaIetaIeta_per_rechit_m1p5_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p6_", &my_eleSigmaIetaIeta_w4p6_, &b_my_eleSigmaIetaIeta_w4p6_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p5_", &my_eleSigmaIetaIeta_w4p5_, &b_my_eleSigmaIetaIeta_w4p5_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p4_", &my_eleSigmaIetaIeta_w4p4_, &b_my_eleSigmaIetaIeta_w4p4_);

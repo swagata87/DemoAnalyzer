@@ -101,7 +101,7 @@ void localCovEtaPhi_EE::Loop()
 
       for(int iele=0; iele < elePt_->size(); iele++) {
 
-	if (  ((fabs(eleScEta_->at(iele)) ) > 1.56 ) && ( elePt_->at(iele) > 70 ) && ( elePt_->at(iele) < 150 )  ) {
+	if (  ((fabs(eleScEta_->at(iele)) ) > 1.56 ) && ( elePt_->at(iele) > 2 ) && ( elePt_->at(iele) < 7 )  ) {
 	  
 	  if ( my_eleSigmaIetaIphi_->at(iele) != my_eleSigmaIetaIphi_->at(iele)  ) continue;
 	  if ( my_eleSigmaIetaIphi_w3p7_->at(iele) != my_eleSigmaIetaIphi_w3p7_->at(iele)  ) continue;
@@ -156,7 +156,7 @@ void localCovEtaPhi_EE::Loop()
    TCanvas *c1 = new TCanvas("c1_roc","roc", 200,10,600,400);
 
    TGraph *gr1 = new TGraph (len, &x_sigEff_sieip_default[0], &y_bkgEff_sieip_default[0]);
-   gr1->SetTitle("#sigma_{i#eta i#phi} ROC 70-150 GeV");
+   gr1->SetTitle("#sigma_{i#eta i#phi} ROC 2-7 GeV");
    gr1->SetMarkerColor(2);
    gr1->SetLineColor(2);
    gr1->SetLineWidth(2);
@@ -169,13 +169,13 @@ void localCovEtaPhi_EE::Loop()
    gr1->GetXaxis()->SetLimits(0.0,1.05);
    gr1->Write("default");
 
-   TGraph *gr2 = new TGraph (len, &x_sigEff_sieip_w3p7[0], &y_bkgEff_sieip_w3p7[0]);
+   TGraph *gr2 = new TGraph (len, &x_sigEff_sieip_w3p2[0], &y_bkgEff_sieip_w3p2[0]);
    gr2->SetMarkerColor(3);
    gr2->SetLineColor(3);
    gr2->SetLineWidth(2);
    gr2->SetMarkerStyle(22);
    gr2->Draw("LP:same");
-   gr2->Write("w3p7");
+   gr2->Write("w3p2");
 
    //   TGraph *gr3 = new TGraph (len, &x_sigEff_sieip_w3p2[0], &y_bkgEff_sieip_w3p2[0]);
    // gr3->SetMarkerColor(4);
@@ -194,17 +194,17 @@ void localCovEtaPhi_EE::Loop()
    gr3->Write("per_rechit");
 
    TLegend *leg_example = new TLegend(0.12,0.12,0.42,0.36);
-   leg_example->SetHeader("Endcap Sieip (pT 70-150 GeV)","C"); // option "C" allows to center the header                                              
+   leg_example->SetHeader("Endcap Sieip (pT 2-7 GeV)","C"); // option "C" allows to center the header                                              
    leg_example->SetFillColor(0);
    leg_example->SetTextFont(42);
    leg_example->SetBorderSize(0);
-   leg_example->AddEntry(gr1, "default","pl");
-   leg_example->AddEntry(gr2, "w=3.7","pl");
-   leg_example->AddEntry(gr3, "w=per rechit","pl");
+   leg_example->AddEntry(gr1, "default (w=4.7)","pl");
+   leg_example->AddEntry(gr2, "w=3.2","pl");
+   leg_example->AddEntry(gr3, "per rechit","pl");
    leg_example->Draw("same");
 
    c1->SetGrid();
-   c1->SaveAs("EndcapROC_sieip_70_150.png");
+   c1->SaveAs("EndcapROC_sieip_2_7.png");
 
 }
 

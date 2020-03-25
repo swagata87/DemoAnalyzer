@@ -55,7 +55,7 @@ void localCovPhiPhi_EE::Loop()
   if (fChain == 0) return;
   Long64_t nentries = fChain->GetEntriesFast();
 
-  float cuts[35] = {0.001, 0.002, 0.003 ,0.004 ,0.005, 0.006 ,0.007, 0.0075 ,0.008, 0.0085, 0.0087 ,0.0089 ,0.009, 0.0092, 0.0096, 0.0098 ,0.01, 0.011 , 0.012 , 0.013, 0.014, 0.016 , 0.018, 0.02, 0.025 ,0.03, 0.035, 0.04,0.045 ,0.05, 0.06, 0.07, 0.08, 0.09, 1};
+  float cuts[38] = {0.001, 0.002, 0.003 ,0.004 ,0.005, 0.006 ,0.007, 0.0075 ,0.008, 0.0085, 0.0087 ,0.0089 ,0.009, 0.0092, 0.0096, 0.0098 ,0.01, 0.011 , 0.012 , 0.013, 0.014, 0.015, 0.016 , 0.017, 0.018, 0.019 ,0.02, 0.025 ,0.03, 0.035, 0.04,0.045 ,0.05, 0.06, 0.07, 0.08, 0.09, 1};
 
   int len = sizeof(cuts) / sizeof(cuts[0]);
   std::cout << "len of cuts array " << len << std::endl;
@@ -99,7 +99,7 @@ void localCovPhiPhi_EE::Loop()
 
       for(int iele=0; iele < elePt_->size(); iele++) {
 
-	if (  ((fabs(eleScEta_->at(iele)) ) > 1.56 ) && ( elePt_->at(iele) > 70 ) && ( elePt_->at(iele) < 150  )  ) {
+	if (  ((fabs(eleScEta_->at(iele)) ) > 1.56 ) && ( elePt_->at(iele) > 2 ) && ( elePt_->at(iele) < 7  )  ) {
 
 	  //	  if ( (i==0) && ( ele_genmatched_->at(iele)==1 ) ) std::cout << "sipip " << my_eleSigmaIphiIphi_->at(iele) << std::endl;
 
@@ -146,7 +146,7 @@ void localCovPhiPhi_EE::Loop()
    TCanvas *c1 = new TCanvas("c1_roc","roc", 200,10,600,400);
 
    TGraph *gr1 = new TGraph (len, &x_sigEff_sipip_default[0], &y_bkgEff_sipip_default[0]);
-   gr1->SetTitle("#sigma_{i#phi i#phi} ROC (pT 70-150)");
+   gr1->SetTitle("#sigma_{i#phi i#phi} ROC (pT 2-7)");
    gr1->SetMarkerColor(2);
    gr1->SetLineColor(2);
    gr1->SetLineWidth(2);
@@ -159,13 +159,13 @@ void localCovPhiPhi_EE::Loop()
    gr1->GetXaxis()->SetLimits(0.0,1.05);
    gr1->Write("default");
 
-   TGraph *gr2 = new TGraph (len, &x_sigEff_sipip_w3p7[0], &y_bkgEff_sipip_w3p7[0]);
+   TGraph *gr2 = new TGraph (len, &x_sigEff_sipip_w3p2[0], &y_bkgEff_sipip_w3p2[0]);
    gr2->SetMarkerColor(3);
    gr2->SetLineColor(3);
    gr2->SetLineWidth(2);
    gr2->SetMarkerStyle(22);
    gr2->Draw("LP:same");
-   gr2->Write("w3p7");
+   gr2->Write("w3p2");
 
    TGraph *gr3 = new TGraph (len, &x_sigEff_sipip_w3p2[0], &y_bkgEff_sipip_w3p2[0]);
    gr3->SetMarkerColor(4);
@@ -184,18 +184,18 @@ void localCovPhiPhi_EE::Loop()
    gr4->Write("per_rechit");
 
    TLegend *leg_example = new TLegend(0.12,0.12,0.42,0.42);
-   leg_example->SetHeader("Endcap Sipip (70-150 GeV)","C"); // option "C" allows to center the header                                              
+   leg_example->SetHeader("Endcap Sipip (2-7 GeV)","C"); // option "C" allows to center the header                                              
    leg_example->SetFillColor(0);
    leg_example->SetTextFont(42);
    leg_example->SetBorderSize(0);
-   leg_example->AddEntry(gr1, "default","pl");
-   leg_example->AddEntry(gr2, "w=3.7","pl");
+   leg_example->AddEntry(gr1, "default (w=4.7)","pl");
+   leg_example->AddEntry(gr2, "w=3.2","pl");
    //   leg_example->AddEntry(gr3, "w=4.3","pl");
    leg_example->AddEntry(gr4, "per recHit","pl");
    leg_example->Draw("same");
 
    c1->SetGrid();
-   c1->SaveAs("EndcapROC_sipip_70_150.png");
+   c1->SaveAs("EndcapROC_sipip_2_7.png");
 
 }
 

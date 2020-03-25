@@ -29,9 +29,9 @@
 int CompareProf_EE_per_rechit() {
 
   std::cout << "Get the root files " << std::endl;
-  TFile *file_2018 = new TFile("./Out_redefhists_2018.root");
-  TFile *file_2023 = new TFile("./Out_redefhists_2023.root");
-  TFile *file_2024 = new TFile("./Out_redefhists_2024.root");
+  TFile *file_2018 = new TFile("./highstat_redefhists_2018.root");
+  TFile *file_2023 = new TFile("./highstat_redefhists_2023.root");
+  TFile *file_2024 = new TFile("./highstat_redefhists_2024.root");
 
   std::cout << "Get profile hist 1" << std::endl;
   TProfile* prof_my_sieie_signal_endcap_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_my_sieie_signal_endcap_vs_pt");
@@ -107,9 +107,9 @@ int CompareProf_EE_per_rechit() {
   my_canvas1->cd();
   // gPad->SetLogy();
   prof_my_sieie_signal_endcap_vs_pt_2024->Draw();
-  prof_my_sieie_per_rechit_signal_endcap_vs_pt_2024->Draw("same");
-  prof_my_sieie_w3p7_signal_endcap_vs_pt_2024->Draw("same");
-  prof_my_sieie_en0p5_signal_endcap_vs_pt_2024->Draw("same");
+  //  prof_my_sieie_per_rechit_signal_endcap_vs_pt_2024->Draw("same");
+  //  prof_my_sieie_w3p7_signal_endcap_vs_pt_2024->Draw("same");
+  // prof_my_sieie_en0p5_signal_endcap_vs_pt_2024->Draw("same");
   // prof_my_sieie_per_rechit_m1p1_signal_endcap_vs_pt_2024->Draw("same");
   //prof_my_sieie_per_rechit_m1p15_signal_endcap_vs_pt_2024->Draw("same");
   //prof_my_sieie_per_rechit_m1p2_signal_endcap_vs_pt_2024->Draw("same");
@@ -121,9 +121,9 @@ int CompareProf_EE_per_rechit() {
   leg_example->SetTextFont(42);
   leg_example->SetBorderSize(0);
   leg_example->AddEntry(prof_my_sieie_signal_endcap_vs_pt_2024, "default", "lp");
-  leg_example->AddEntry(prof_my_sieie_per_rechit_signal_endcap_vs_pt_2024, "per recHit", "lp");
-  leg_example->AddEntry(prof_my_sieie_w3p7_signal_endcap_vs_pt_2024, "relative w=3.7", "lp");
-  leg_example->AddEntry(prof_my_sieie_en0p5_signal_endcap_vs_pt_2024, "absolute E>0.5 GeV", "lp");
+  // leg_example->AddEntry(prof_my_sieie_per_rechit_signal_endcap_vs_pt_2024, "per recHit", "lp");
+  // leg_example->AddEntry(prof_my_sieie_w3p7_signal_endcap_vs_pt_2024, "relative w=3.7", "lp");
+  // leg_example->AddEntry(prof_my_sieie_en0p5_signal_endcap_vs_pt_2024, "absolute E>0.5 GeV", "lp");
   // leg_example->AddEntry(prof_my_sieie_per_rechit_m1p1_signal_endcap_vs_pt_2024, "per recHit * 1.1", "lp");
   // leg_example->AddEntry(prof_my_sieie_per_rechit_m1p15_signal_endcap_vs_pt_2024, "per recHit * 1.15", "lp");
   //leg_example->AddEntry(prof_my_sieie_per_rechit_m1p2_signal_endcap_vs_pt_2024, "per recHit * 1.2", "lp");

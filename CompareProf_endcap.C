@@ -29,9 +29,9 @@
 int CompareProf_endcap() {
 
   std::cout << "Get the root files " << std::endl;
-  TFile *file_2018 = new TFile("./Out_redefhists_2018.root");
-  TFile *file_2023 = new TFile("./Out_redefhists_2023.root");
-  TFile *file_2024 = new TFile("./Out_redefhists_2024.root");
+  TFile *file_2018 = new TFile("./highstat_redefhists_2018.root");
+  TFile *file_2023 = new TFile("./highstat_redefhists_2023.root");
+  TFile *file_2024 = new TFile("./highstat_redefhists_2024.root");
 
   std::cout << "Get profile hist 1" << std::endl;
   TProfile* prof_my_sieie_signal_endcap_vs_pt_2024  =  (TProfile*)file_2024->Get("prof_my_sieie_signal_endcap_vs_pt");
@@ -42,7 +42,13 @@ int CompareProf_endcap() {
   prof_my_sieie_signal_endcap_vs_pt_2024->GetYaxis()->SetTitle("Sigma_ieta_ieta");
   prof_my_sieie_signal_endcap_vs_pt_2024->SetTitle("");
   prof_my_sieie_signal_endcap_vs_pt_2024->SetStats(0);
-  prof_my_sieie_signal_endcap_vs_pt_2024->GetYaxis()->SetRangeUser(0.005,0.10);
+  prof_my_sieie_signal_endcap_vs_pt_2024->GetYaxis()->SetRangeUser(0.01,0.08);
+
+
+  TProfile* prof_my_sieie_signal_endcap_vs_pt_2018  =  (TProfile*)file_2018->Get("prof_my_sieie_signal_endcap_vs_pt");
+  prof_my_sieie_signal_endcap_vs_pt_2018->SetMarkerColor(kRed);
+  prof_my_sieie_signal_endcap_vs_pt_2018->SetLineColor(kRed);
+  prof_my_sieie_signal_endcap_vs_pt_2018->SetLineWidth(3);
 
 
   std::cout << "Get profile hist 2" << std::endl;
@@ -157,27 +163,32 @@ int CompareProf_endcap() {
   my_canvas1->cd();
   gPad->SetLogy();
   prof_my_sieie_signal_endcap_vs_pt_2024->Draw();
-  prof_my_sieie_w4p0_signal_endcap_vs_pt_2024->Draw("same");
-  prof_my_sieie_w3p5_signal_endcap_vs_pt_2024->Draw("same");
-  prof_my_sieie_w3p7_signal_endcap_vs_pt_2024->Draw("same");
-  prof_my_sieie_w3p0_signal_endcap_vs_pt_2024->Draw("same");
+  prof_my_sieie_signal_endcap_vs_pt_2018->Draw("same");
+
+  //  prof_my_sieie_w4p0_signal_endcap_vs_pt_2024->Draw("same");
+  // prof_my_sieie_w3p5_signal_endcap_vs_pt_2024->Draw("same");
+  // prof_my_sieie_w3p7_signal_endcap_vs_pt_2024->Draw("same");
+  // prof_my_sieie_w3p0_signal_endcap_vs_pt_2024->Draw("same");
 
   TLegend *leg_example = new TLegend(0.65,0.70,0.94,0.94);
   leg_example->SetHeader("Sieie, real e, endcap","C"); // option "C" allows to center the header
   leg_example->SetFillColor(0);
   leg_example->SetTextFont(42);
   leg_example->SetBorderSize(0);
-  leg_example->AddEntry(prof_my_sieie_signal_endcap_vs_pt_2024, "default", "lp");
+  leg_example->AddEntry(prof_my_sieie_signal_endcap_vs_pt_2024, "2024", "lp");
+  leg_example->AddEntry(prof_my_sieie_signal_endcap_vs_pt_2018, "2018", "lp");
+  /*
   leg_example->AddEntry(prof_my_sieie_w4p0_signal_endcap_vs_pt_2024, "4.0", "lp");
   leg_example->AddEntry(prof_my_sieie_w3p5_signal_endcap_vs_pt_2024, "3.5", "lp");
   leg_example->AddEntry(prof_my_sieie_w3p7_signal_endcap_vs_pt_2024, "3.7", "lp");
   leg_example->AddEntry(prof_my_sieie_w3p0_signal_endcap_vs_pt_2024, "3.0", "lp");
+  */
   leg_example->Draw("same");
   my_canvas1->SetGrid();
 
   my_canvas1->Write();
-  my_canvas1->SaveAs("compareSieie_endcap.pdf");
-  my_canvas1->SaveAs("compareSieie_endcap.png");
+  // my_canvas1->SaveAs("compareSieie_endcap.pdf");
+  my_canvas1->SaveAs("compareSieie_endcap_2018_vs_2024.png");
 
   ///same energy cut in EB / EE
 

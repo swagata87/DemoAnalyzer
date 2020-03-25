@@ -36,7 +36,7 @@ void pt::Loop()
 //    fChain->GetEntry(jentry);       //read all branches
 //by  b_branchname->GetEntry(ientry); //read only this branch
 
-  TFile* outputFile = new TFile("Out_dy_pt.root","RECREATE");
+  TFile* outputFile = new TFile("Out_ttbar_pt.root","RECREATE");
 
   TH1F* pt_sig = new TH1F("pt_signal","pt_signal", 200,0,200);
   TH1F* pt_bkg = new TH1F("pt_background","pt_background", 5000,0,5000);

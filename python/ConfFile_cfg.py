@@ -18,19 +18,29 @@ process.load('PhysicsTools.HepMCCandAlgos.genParticles_cfi')
 #from SimGeneral.HepPDTESSource.pythiapdt_cfi import *
 #from RecoJets.Configuration.GenJetParticles_cff import *
 
-process.MessageLogger.cerr.FwkReport.reportEvery = 500
+process.MessageLogger.cerr.FwkReport.reportEvery = 5000
 
 from Configuration.AlCa.GlobalTag import GlobalTag
 #process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2024_realistic_v4', '')     # 2024 MC
-#process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2023_realistic_v3', '')     # 2023 MC
+process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2023_realistic_v3', '')     # 2023 MC
 #process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2021_realistic_v3', '')     # 2021 MC
-process.GlobalTag = GlobalTag(process.GlobalTag, '102X_upgrade2018_realistic_v15', '')     # 2018 MC
+#process.GlobalTag = GlobalTag(process.GlobalTag, '102X_upgrade2018_realistic_v15', '')     # 2018 MC
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(2900) )
+#process.GlobalTag = GlobalTag(process.GlobalTag, '102X_dataRun2_Sep2018Rereco_v1', '')     # 2018 data
+
+#process.SimpleMemoryCheck = cms.Service("SimpleMemoryCheck",
+#    ignoreTotal = cms.untracked.int32(1),
+#    moduleMemorySummary = cms.untracked.bool(True),
+#)
+
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 
 process.source = cms.Source("PoolSource",
                                 fileNames = cms.untracked.vstring(
-             #'/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2024Scenario_106X_mcRun3_2024_realistic_v4-v2/260000/4B82E385-367D-B947-9207-A8C03E836D6F.root', #AODSIM 2024
+                                    '/store/mc/RunIIAutumn18MiniAOD/QCD_Pt-15to7000_TuneCP5_Flat_13TeV_pythia8/MINIAODSIM/102X_upgrade2018_realistic_v15_ext1-v1/110000/FF7E6F76-76B3-2345-840B-073E02E94CC5.root'
+#                                    '/store/mc/RunIIAutumn18MiniAOD/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/MINIAODSIM/102X_upgrade2018_realistic_v15-v1/100000/701296C8-FBEE-EC4E-9C28-6101E8E302E8.root'
+#                                    '/store/mc/Run3Summer19MiniAOD/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/MINIAODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v2/50000/E65C97CA-5D68-6541-899E-FB1817AAE8FC.root'
+#             '/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2024Scenario_106X_mcRun3_2024_realistic_v4-v2/260000/4B82E385-367D-B947-9207-A8C03E836D6F.root', #AODSIM 2024
 #             '/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2024Scenario_106X_mcRun3_2024_realistic_v4-v2/260000/4B82D862-1E4E-2447-8798-479E52D96373.root',
              #'/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2024Scenario_106X_mcRun3_2024_realistic_v4-v2/260000/FD0BE6B3-105C-4B46-856E-8E75903B25BD.root',
 #             '/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2024Scenario_106X_mcRun3_2024_realistic_v4-v2/260000/FC70F977-60BE-DD49-A0AD-1A1C9DD1FC88.root',
@@ -43,14 +53,14 @@ process.source = cms.Source("PoolSource",
 #
 #
 #2018
-                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/FE2EA85F-2F46-9B41-B6FF-E724174EE4CE.root',#2018 AOD
-                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/120001/72DDC91F-6BC8-D343-A44C-6D537B8547FC.root',
-                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/120001/76FA30CA-F518-ED4D-8AA4-AD2D43E74742.root',
-                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/120001/77299BB6-3845-E246-B8BE-22A4D464B5EA.root',
-                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/120001/7A836983-300B-CD4D-8765-EFC6496BA19C.root',
-                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/F7081D33-4A27-A747-8EC5-456347EFCC5B.root',
-                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/EF5F6A2B-D0F6-F24D-8C4D-75CA685B4717.root',
-                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/EB92479B-8BC9-F84F-A53C-F956EB116B16.root'
+#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/FE2EA85F-2F46-9B41-B6FF-E724174EE4CE.root',#2018 AOD
+#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/120001/72DDC91F-6BC8-D343-A44C-6D537B8547FC.root',
+#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/120001/76FA30CA-F518-ED4D-8AA4-AD2D43E74742.root',
+#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/120001/77299BB6-3845-E246-B8BE-22A4D464B5EA.root',
+#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/120001/7A836983-300B-CD4D-8765-EFC6496BA19C.root',
+#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/F7081D33-4A27-A747-8EC5-456347EFCC5B.root',
+#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/EF5F6A2B-D0F6-F24D-8C4D-75CA685B4717.root',
+#                '/store/mc/RunIIAutumn18DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_13TeV-powheg-pythia8/AODSIM/102X_upgrade2018_realistic_v15-v1/270000/EB92479B-8BC9-F84F-A53C-F956EB116B16.root'
 #
 #2023
 #               '/store/mc/Run3Summer19DRPremix/DYToEE_M-50_NNPDF31_TuneCP5_14TeV-powheg-pythia8/AODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v2/260000/FFD71080-0F4A-1340-962F-D23AC2252C7C.root', #2023 AOD
@@ -114,25 +124,43 @@ process.source = cms.Source("PoolSource",
 #                    '/store/mc/Run3Summer19DR/QCD_Pt_15to7000_TuneCP5_Flat_14TeV_pythia8/AODSIM/106X_mcRun3_2024_realistic_v4-v2/260000/D8654C10-2098-0E49-A849-EAE16D322DA7.root',
 #                    '/store/mc/Run3Summer19DR/QCD_Pt_15to7000_TuneCP5_Flat_14TeV_pythia8/AODSIM/106X_mcRun3_2024_realistic_v4-v2/260000/D4B1FB75-7C74-624E-976B-11D223A216BA.root',
 #                    '/store/mc/Run3Summer19DR/QCD_Pt_15to7000_TuneCP5_Flat_14TeV_pythia8/AODSIM/106X_mcRun3_2024_realistic_v4-v2/260000/D37962E8-B35E-E641-90B3-0C88707046C0.root'
+#data 2018
+#                      '/store/data/Run2018A/EGamma/AOD/17Sep2018-v2/810000/FFEE3B45-775E-D443-9CC7-916C9F3A67BF.root'
+#                     '/store/data/Run2018D/EGamma/AOD/PromptReco-v2/000/321/457/00000/DEE4367C-75A7-E811-A0AD-02163E019F53.root'
+#                      '/store/data/Run2018D/EGamma/AOD/PromptReco-v2/000/320/804/00000/74C9E64F-3599-E811-B1D0-02163E019EC2.root'
+#Gjet
+#                      '/store/mc/Run3Summer19DRPremix/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/AODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v1/270002/FFFFCB4B-3AF1-A84D-810B-F281E56E6FF2.root', #2023
+#                      '/store/mc/Run3Summer19DRPremix/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/AODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v1/260000/81CC98A1-B20B-814D-8687-2AD27C2EF019.root',
+#                      '/store/mc/Run3Summer19DRPremix/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/AODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v1/260000/80A10012-7693-3D47-963D-E60C8CC7C0D9.root',
+#                      '/store/mc/Run3Summer19DRPremix/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/AODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v1/260000/7B97329D-CB46-2F40-AC2C-3E9E0DD7E088.root',
+#                      '/store/mc/Run3Summer19DRPremix/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/AODSIM/2023Scenario_106X_mcRun3_2023_realistic_v3-v1/260000/797E9558-D103-7949-9721-72AAFBAD4E49.root'
+#                       '/store/mc/Run3Summer19DRPremix/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/AODSIM/2021Scenario_106X_mcRun3_2021_realistic_v3-v1/50001/554AB958-6644-5644-8E59-16B6FC431051.root' #2021
                 )
                             )
 
 process.demo = cms.EDAnalyzer('DemoAnalyzer',
-       tracks = cms.untracked.InputTag('generalTracks'),
-       electrons = cms.InputTag('gedGsfElectrons'),
-       #electrons = cms.InputTag('slimmedElectrons'),
+#       tracks = cms.untracked.InputTag('generalTracks'),
+#       electrons = cms.InputTag('gedGsfElectrons'),
+       electrons = cms.InputTag('slimmedElectrons'),
        #EBRecHitCollection = cms.InputTag("ecalRecHit","EcalRecHitsEB"), #RECO 
        #EERecHitCollection = cms.InputTag("ecalRecHit","EcalRecHitsEE"), #RECO
-       EERecHitCollection = cms.InputTag("reducedEcalRecHitsEE"), #AOD
-       EBRecHitCollection = cms.InputTag("reducedEcalRecHitsEB"), #AOD
-#      pfrechits = cms.InputTag('particleFlowRecHitECAL'   , 'Cleaned'  ,       'RECO'), #AOD    
-       #EERecHitCollection = cms.InputTag("reducedEERecHits"), #miniAOD
-       #EBRecHitCollection = cms.InputTag("reducedEBRecHits"), #miniAOD
-       pileupCollection     = cms.InputTag("addPileupInfo"),
-       genParticleSrc       = cms.InputTag("genParticles"),
+#       EERecHitCollection = cms.InputTag("reducedEcalRecHitsEE"), #AOD
+#       EBRecHitCollection = cms.InputTag("reducedEcalRecHitsEB"), #AOD
+       EERecHitCollection = cms.InputTag("reducedEgamma","reducedEERecHits","PAT"), #miniAOD
+       EBRecHitCollection = cms.InputTag("reducedEgamma","reducedEBRecHits","PAT"), #miniAOD
+#       pileupCollection     = cms.InputTag("addPileupInfo"),
+       pileupCollection     = cms.InputTag("slimmedAddPileupInfo"),
+#       genParticleSrc       = cms.InputTag("genParticles"),
+       genParticleSrc       = cms.InputTag("prunedGenParticles"),
+       ootPhotons       = cms.InputTag("ootPhotons"),
+#       Photons       = cms.InputTag("gedPhotons"),
+       Photons       = cms.InputTag("slimmedPhotons"),
+       RunEle_       = cms.bool(False),
+       RunPho_       = cms.bool(True),
 
                               )
-#process.TFileService = cms.Service("TFileService", fileName = cms.string('RedefNtup_AOD_2018.root'))
-process.TFileService = cms.Service("TFileService", fileName = cms.string('test_AOD.root'))
+#process.TFileService = cms.Service("TFileService", fileName = cms.string('RedefNtup_AOD_pho.root'))
+#process.TFileService = cms.Service("TFileService", fileName = cms.string('RedefNtup_AOD.root'))
+process.TFileService = cms.Service("TFileService", fileName = cms.string('test.root'))
 
 process.p = cms.Path(process.demo)

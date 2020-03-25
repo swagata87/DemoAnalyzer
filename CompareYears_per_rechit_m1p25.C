@@ -29,10 +29,10 @@
 int CompareYears_per_rechit_m1p25() {
 
   std::cout << "Get the root files " << std::endl;
-  TFile *file_2018 = new TFile("./Out_redefhists_2018.root");
-  TFile *file_2021 = new TFile("./Out_redefhists_2021.root");
-  TFile *file_2023 = new TFile("./Out_redefhists_2023.root");
-  TFile *file_2024 = new TFile("./Out_redefhists_2024.root");
+  TFile *file_2018 = new TFile("./highstat_redefhists_2018.root");
+  TFile *file_2021 = new TFile("./highstat_redefhists_2021.root");
+  TFile *file_2023 = new TFile("./highstat_redefhists_2023.root");
+  TFile *file_2024 = new TFile("./highstat_redefhists_2024.root");
 
   //--Plotting Styles//
   gStyle->SetPadLeftMargin(0.15);
@@ -51,7 +51,7 @@ int CompareYears_per_rechit_m1p25() {
 
   //barrel
   TH1D* h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024 = (TH1D*)file_2024->Get("h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel");
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024->Rebin(2);
+  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024->Rebin(1);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024->SetLineColor(kBlue);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024->SetLineWidth(3);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024->Scale(1/h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024->GetEntries());
@@ -61,19 +61,19 @@ int CompareYears_per_rechit_m1p25() {
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024->GetXaxis()->SetRangeUser(0, 0.03);
 
   TH1D* h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023 = (TH1D*)file_2023->Get("h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel");
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023->Rebin(2);
+  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023->Rebin(1);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023->SetLineColor(kRed);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023->SetLineWidth(3);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023->Scale(1/h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023->GetEntries());
 
   TH1D* h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021 = (TH1D*)file_2021->Get("h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel");
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021->Rebin(2);
+  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021->Rebin(1);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021->SetLineColor(kGreen+1);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021->SetLineWidth(3);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021->Scale(1/h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021->GetEntries());
 
   TH1D* h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018 = (TH1D*)file_2018->Get("h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel");
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018->Rebin(2);
+  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018->Rebin(1);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018->SetLineColor(kGray+1);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018->SetLineWidth(3);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018->Scale(1/h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018->GetEntries());
@@ -83,7 +83,7 @@ int CompareYears_per_rechit_m1p25() {
   my_canvas1->cd();
   gPad->SetLogy();
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024->Draw();
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021->Draw("same");
+  //  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021->Draw("same");
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023->Draw("same");
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018->Draw("same");
 
@@ -93,7 +93,7 @@ int CompareYears_per_rechit_m1p25() {
   leg_example->SetTextFont(42);
   leg_example->SetBorderSize(0);
   leg_example->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2018, "2018", "lp");
-  leg_example->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021, "2021", "lp");
+  //  leg_example->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2021, "2021", "lp");
   leg_example->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2023, "2023", "lp");
   leg_example->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_barrel_2024, "2024", "lp");
   leg_example->Draw("same");
@@ -106,7 +106,7 @@ int CompareYears_per_rechit_m1p25() {
   /////endcaps
 
   TH1D* h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024 = (TH1D*)file_2024->Get("h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap");
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024->Rebin(4);
+  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024->Rebin(2);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024->SetLineColor(kBlue);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024->SetLineWidth(3);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024->Scale(1/h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024->GetEntries());
@@ -116,19 +116,19 @@ int CompareYears_per_rechit_m1p25() {
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024->GetXaxis()->SetRangeUser(0, 0.08);
 
   TH1D* h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023 = (TH1D*)file_2023->Get("h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap");
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023->Rebin(4);
+  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023->Rebin(2);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023->SetLineColor(kRed);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023->SetLineWidth(3);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023->Scale(1/h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023->GetEntries());
 
   TH1D* h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021 = (TH1D*)file_2021->Get("h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap");
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021->Rebin(4);
+  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021->Rebin(2);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021->SetLineColor(kGreen+1);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021->SetLineWidth(3);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021->Scale(1/h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021->GetEntries());
 
   TH1D* h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018 = (TH1D*)file_2018->Get("h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap");
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018->Rebin(4);
+  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018->Rebin(2);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018->SetLineColor(kGray+1);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018->SetLineWidth(3);
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018->Scale(1/h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018->GetEntries());
@@ -138,7 +138,7 @@ int CompareYears_per_rechit_m1p25() {
   my_canvas2->cd();
   gPad->SetLogy();
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024->Draw();
-  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021->Draw("same");
+  //  h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021->Draw("same");
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023->Draw("same");
   h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018->Draw("same");
 
@@ -148,7 +148,7 @@ int CompareYears_per_rechit_m1p25() {
   leg_example2->SetTextFont(42);
   leg_example2->SetBorderSize(0);
   leg_example2->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2018, "2018", "lp");
-  leg_example2->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021, "2021", "lp");
+  // leg_example2->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2021, "2021", "lp");
   leg_example2->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2023, "2023", "lp");
   leg_example2->AddEntry(h1_my_SigmaIetaIeta_per_rechit_m1p25_signal_endcap_2024, "2024", "lp");
   leg_example2->Draw("same");

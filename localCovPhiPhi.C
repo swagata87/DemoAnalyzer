@@ -99,7 +99,7 @@ void localCovPhiPhi::Loop()
 
       for(int iele=0; iele < elePt_->size(); iele++) {
 
-	if (  ((fabs(eleScEta_->at(iele)) ) < 1.44 ) && ( elePt_->at(iele) > 2 ) && ( elePt_->at(iele) < 7  )  ) {
+	if (  ((fabs(eleScEta_->at(iele)) ) < 1.44 ) && ( elePt_->at(iele) > 70 ) && ( elePt_->at(iele) < 150  )  ) {
 
 	  //	  if ( (i==0) && ( ele_genmatched_->at(iele)==1 ) ) std::cout << "sipip " << my_eleSigmaIphiIphi_->at(iele) << std::endl;
 
@@ -146,7 +146,7 @@ void localCovPhiPhi::Loop()
    TCanvas *c1 = new TCanvas("c1_roc","roc", 200,10,600,400);
 
    TGraph *gr1 = new TGraph (len, &x_sigEff_sipip_default[0], &y_bkgEff_sipip_default[0]);
-   gr1->SetTitle("#sigma_{i#phi i#phi} ROC (pT 2-7)");
+   gr1->SetTitle("#sigma_{i#phi i#phi} ROC (pT 70-150)");
    gr1->SetMarkerColor(2);
    gr1->SetLineColor(2);
    gr1->SetLineWidth(2);
@@ -184,7 +184,7 @@ void localCovPhiPhi::Loop()
    gr4->Write("per_rechit");
 
    TLegend *leg_example = new TLegend(0.12,0.12,0.42,0.42);
-   leg_example->SetHeader("Barrel Sipip (2-7 GeV)","C"); // option "C" allows to center the header                                              
+   leg_example->SetHeader("Barrel Sipip (70-150 GeV)","C"); // option "C" allows to center the header                                              
    leg_example->SetFillColor(0);
    leg_example->SetTextFont(42);
    leg_example->SetBorderSize(0);
@@ -195,7 +195,7 @@ void localCovPhiPhi::Loop()
    leg_example->Draw("same");
 
    c1->SetGrid();
-   c1->SaveAs("BarrelROC_sipip_2_7.png");
+   c1->SaveAs("BarrelROC_sipip_70_150.png");
 
 }
 

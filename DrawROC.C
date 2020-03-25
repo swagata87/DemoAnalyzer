@@ -50,7 +50,7 @@ void DrawROC::Loop()
 //    fChain->GetEntry(jentry);       //read all branches
 //by  b_branchname->GetEntry(ientry); //read only this branch
 
-  TFile* outputFile = new TFile("my_sieie_ROC_2024.root","RECREATE");
+  TFile* outputFile = new TFile("my_sieie_ROC_2018.root","RECREATE");
   outputFile->cd();
 
    if (fChain == 0) return;
@@ -101,6 +101,14 @@ void DrawROC::Loop()
    std::vector<float> y_bkgEff_sieie_per_rechit_m1p25;
    int nsig_per_rechit_m1p25_spike=0;
 
+   std::vector<float> x_sigEff_sieie_per_rechit_m1p8;
+   std::vector<float> y_bkgEff_sieie_per_rechit_m1p8;
+   int nsig_per_rechit_m1p8_spike=0;
+
+   std::vector<float> x_sigEff_sieie_per_rechit_m1p5;
+   std::vector<float> y_bkgEff_sieie_per_rechit_m1p5;
+   int nsig_per_rechit_m1p5_spike=0;
+
    std::vector<float> x_sigEff_sieie_w4p0;
    std::vector<float> y_bkgEff_sieie_w4p0;
    int nsig_w4p0_spike=0;
@@ -145,6 +153,12 @@ void DrawROC::Loop()
    int nsig_per_rechit_m1p25_passed_barrel=0;
    int nbkg_per_rechit_m1p25_passed_barrel=0;
 
+   int nsig_per_rechit_m1p8_passed_barrel=0;
+   int nbkg_per_rechit_m1p8_passed_barrel=0;
+
+   int nsig_per_rechit_m1p5_passed_barrel=0;
+   int nbkg_per_rechit_m1p5_passed_barrel=0;
+
    int nsig_w4p0_passed_barrel=0;
    int nbkg_w4p0_passed_barrel=0;
 
@@ -167,7 +181,7 @@ void DrawROC::Loop()
        
        for(int iele=0; iele < elePt_->size(); iele++) {
 	 
-	 if (  ((fabs(eleScEta_->at(iele)) ) < 1.44 ) && ( elePt_->at(iele) > 7 ) && ( elePt_->at(iele) < 15 )  ) {
+	 if (  ((fabs(eleScEta_->at(iele)) ) < 1.44 ) && ( elePt_->at(iele) > 70 ) && ( elePt_->at(iele) < 150 )  ) {
 	   
 	   if ( ele_genmatched_->at(iele)==1 ) nsig_total_barrel++;
 	   if ( ele_genmatched_->at(iele)==0 ) nbkg_total_barrel++;	  
@@ -207,6 +221,18 @@ void DrawROC::Loop()
 	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < cuts[i]) ) nsig_per_rechit_m1p25_passed_barrel++;
 	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < cuts[i]) ) nbkg_per_rechit_m1p25_passed_barrel++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < 0.001)  ) nsig_per_rechit_m1p25_spike++;
+
+
+	   //// per_rechit_m1p8
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p8_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_m1p8_->at(iele)) < cuts[i]) ) nsig_per_rechit_m1p8_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p8_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_m1p8_->at(iele)) < cuts[i]) ) nbkg_per_rechit_m1p8_passed_barrel++;
+	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p8_->at(iele)) < 0.001)  ) nsig_per_rechit_m1p8_spike++;
+
+	   //// per_rechit_m1p5
+	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p5_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_m1p5_->at(iele)) < cuts[i]) ) nsig_per_rechit_m1p5_passed_barrel++;
+	   if ( (ele_genmatched_->at(iele)==0) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p5_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_per_rechit_m1p5_->at(iele)) < cuts[i]) ) nbkg_per_rechit_m1p5_passed_barrel++;
+	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p5_->at(iele)) < 0.001)  ) nsig_per_rechit_m1p5_spike++;
+
 
 	   //// w4p0
 	   if ( (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_w4p0_->at(iele)) >= 0.000) && ((my_eleSigmaIetaIeta_w4p0_->at(iele)) < cuts[i]) ) nsig_w4p0_passed_barrel++;
@@ -262,6 +288,12 @@ void DrawROC::Loop()
      x_sigEff_sieie_per_rechit_m1p25.push_back((double)nsig_per_rechit_m1p25_passed_barrel/(double)nsig_total_barrel);
      y_bkgEff_sieie_per_rechit_m1p25.push_back(1- (double)nbkg_per_rechit_m1p25_passed_barrel/(double)nbkg_total_barrel);
 
+     x_sigEff_sieie_per_rechit_m1p8.push_back((double)nsig_per_rechit_m1p8_passed_barrel/(double)nsig_total_barrel);
+     y_bkgEff_sieie_per_rechit_m1p8.push_back(1- (double)nbkg_per_rechit_m1p8_passed_barrel/(double)nbkg_total_barrel);
+
+     x_sigEff_sieie_per_rechit_m1p5.push_back((double)nsig_per_rechit_m1p5_passed_barrel/(double)nsig_total_barrel);
+     y_bkgEff_sieie_per_rechit_m1p5.push_back(1- (double)nbkg_per_rechit_m1p5_passed_barrel/(double)nbkg_total_barrel);
+
      x_sigEff_sieie_w4p0.push_back((double)nsig_w4p0_passed_barrel/(double)nsig_total_barrel);
      y_bkgEff_sieie_w4p0.push_back(1- (double)nbkg_w4p0_passed_barrel/(double)nbkg_total_barrel);
 
@@ -288,6 +320,8 @@ void DrawROC::Loop()
        std::cout << " fraction of w4p4 " << (double)nsig_w4p4_spike/(double)nsig_total_barrel << std::endl;
        std::cout << " fraction of per_rechit " << (double)nsig_per_rechit_spike/(double)nsig_total_barrel << std::endl;
        std::cout << " fraction of per_rechit_m1p25 " << (double)nsig_per_rechit_m1p25_spike/(double)nsig_total_barrel << std::endl;
+       std::cout << " fraction of per_rechit_m1p8 " << (double)nsig_per_rechit_m1p8_spike/(double)nsig_total_barrel << std::endl;
+       std::cout << " fraction of per_rechit_m1p5 " << (double)nsig_per_rechit_m1p5_spike/(double)nsig_total_barrel << std::endl;
 
        std::cout << " fraction of en0p15 " << (double)nsig_en0p15_spike/(double)nsig_total_barrel << std::endl;
        std::cout << " fraction of en0p15_noRelNoiseCut " << (double)nsig_en0p15_noRelNoiseCut_spike/(double)nsig_total_barrel << std::endl;
@@ -407,7 +441,7 @@ void DrawROC::Loop()
    gr5->Write("w4p0");
 
    TLegend *leg_example = new TLegend(0.12,0.15,0.4,0.46);
-   leg_example->SetHeader("Barrel (pT 7-15 GeV)","C"); // option "C" allows to center the header                                                                                     
+   leg_example->SetHeader("Barrel (pT 70-150 GeV)","C"); // option "C" allows to center the header                                                                                     
    leg_example->SetFillColor(0);
    leg_example->SetTextFont(42);
    leg_example->SetBorderSize(0);
@@ -426,7 +460,7 @@ void DrawROC::Loop()
    // ar1->Draw("same");
 
    c1->SetGrid();
-   c1->SaveAs("BarrelROC_sieie_relative_pt_7_15.png");
+   c1->SaveAs("BarrelROC_sieie_relative_pt_70_150.png");
 
    ////
    //swagata // new // per-rechit
@@ -462,14 +496,33 @@ void DrawROC::Loop()
    gr_pr_m1p25->Draw("LP, same");
    gr_pr_m1p25->Write("per_rechit_m1p25");
 
+
+   TGraph *gr_pr_m1p8 = new TGraph (len, &x_sigEff_sieie_per_rechit_m1p8[0], &y_bkgEff_sieie_per_rechit_m1p8[0]);
+   gr_pr_m1p8->SetMarkerColor(7);
+   gr_pr_m1p8->SetLineColor(7);
+   gr_pr_m1p8->SetLineWidth(2);
+   gr_pr_m1p8->SetMarkerStyle(29);
+   gr_pr_m1p8->Draw("LP, same");
+   gr_pr_m1p8->Write("per_rechit_m1p8");
+
+   TGraph *gr_pr_m1p5 = new TGraph (len, &x_sigEff_sieie_per_rechit_m1p5[0], &y_bkgEff_sieie_per_rechit_m1p5[0]);
+   gr_pr_m1p5->SetMarkerColor(6);
+   gr_pr_m1p5->SetLineColor(6);
+   gr_pr_m1p5->SetLineWidth(2);
+   gr_pr_m1p5->SetMarkerStyle(24);
+   gr_pr_m1p5->Draw("LP, same");
+   gr_pr_m1p5->Write("per_rechit_m1p5");
+
    TLegend *leg_example_new_pr = new TLegend(0.12,0.15,0.4,0.46);
-   leg_example_new_pr->SetHeader("Barrel (pT 7-15 GeV)","C"); // option "C" allows to center the header                                                                                     
+   leg_example_new_pr->SetHeader("Barrel (pT 70-150 GeV)","C"); // option "C" allows to center the header                                                                                     
    leg_example_new_pr->SetFillColor(0);
    leg_example_new_pr->SetTextFont(42);
    leg_example_new_pr->SetBorderSize(0);
    leg_example_new_pr->AddEntry(gr1, "default","pl");
    leg_example_new_pr->AddEntry(gr_pr, "per rechit","pl");
    leg_example_new_pr->AddEntry(gr_pr_m1p25, "per rechit*1.25","pl");
+   leg_example_new_pr->AddEntry(gr_pr_m1p8, "per rechit*1.8","pl");
+   leg_example_new_pr->AddEntry(gr_pr_m1p5, "per rechit*1.5","pl");
    // leg_example_new_pr->AddEntry(gr4, "w=4.4","pl");
    //   leg_example_new_pr->AddEntry(gr3, "w=4.3","pl");
    //leg_example_new_pr->AddEntry(gr2, "w=4.2","pl");
@@ -478,7 +531,7 @@ void DrawROC::Loop()
    leg_example_new_pr->Draw("same");
 
    c1_new_pr->SetGrid();
-   c1_new_pr->SaveAs("BarrelROC_sieie_per_rechit_pt_7_15.png");
+   c1_new_pr->SaveAs("Barrel_whereROCdegrades_sieie_per_rechit_pt_70_150.png");
 
 
    ///end new /// swagata
@@ -518,7 +571,7 @@ void DrawROC::Loop()
 
 
    c2->SetGrid();
-   c2->SaveAs("spike_pt_7_15.png");
+   c2->SaveAs("spike_pt_70_150.png");
 
    ///en
    TCanvas *c3 = new TCanvas("c3","eff_en", 200,10,600,400);
@@ -561,7 +614,7 @@ void DrawROC::Loop()
    ge3->Write("en0p2");
 
    TLegend *leg_example3 = new TLegend(0.12,0.15,0.4,0.46);
-   leg_example3->SetHeader("Barrel Sieie (pT 7-15 GeV)","C"); // option "C" allows to center the header                                                                            
+   leg_example3->SetHeader("Barrel Sieie (pT 70-150 GeV)","C"); // option "C" allows to center the header                                                                            
    leg_example3->SetFillColor(0);
    leg_example3->SetTextFont(42);
    leg_example3->SetBorderSize(0);
@@ -576,7 +629,7 @@ void DrawROC::Loop()
    // ar1->Draw("same");
 
    c3->SetGrid();
-   c3->SaveAs("BarrelROC_sieie_absNoiseCut_pt_7_15.png");
+   c3->SaveAs("BarrelROC_sieie_absNoiseCut_pt_70_150.png");
 
    ///
    TCanvas *c21 = new TCanvas("c21","spikeFrac_absnoisecut", 200,10,600,400);
@@ -593,7 +646,7 @@ void DrawROC::Loop()
    ggs1->Write("spikeFrac_absnoisecut");
 
    TLegend *leg_example21 = new TLegend(0.2,0.6,0.5,0.9);
-   leg_example21->SetHeader("Barrel Sieie (pT 7-15 GeV)","C"); // option "C" allows to center the header                                          
+   leg_example21->SetHeader("Barrel Sieie (pT 70-150 GeV)","C"); // option "C" allows to center the header                                          
    leg_example21->AddEntry((TObject*)0, "Bin 0: default", "");
    leg_example21->AddEntry((TObject*)0, "Bin 1: E>0.15 GeV", "");
    leg_example21->AddEntry((TObject*)0, "Bin 2: E>0.15 GeV (no abs cut)", "");
@@ -609,7 +662,7 @@ void DrawROC::Loop()
 
 
    c21->SetGrid();
-   c21->SaveAs("spike_absnoisecut_pt_7_15.png");
+   c21->SaveAs("spike_absnoisecut_pt_70_150.png");
 
 
    ////
@@ -646,7 +699,7 @@ void DrawROC::Loop()
 
 
    c21_rechit->SetGrid();
-   c21_rechit->SaveAs("spike_per_rechit_cut_pt_7_15.png");
+   c21_rechit->SaveAs("spike_per_rechit_cut_pt_70_150.png");
 
 
 

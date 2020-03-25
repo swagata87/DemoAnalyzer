@@ -61,6 +61,7 @@ void DrawROC_EE::Loop()
    int len = sizeof(cuts) / sizeof(cuts[0]);
    std::cout << "len of cuts array " << len << std::endl;
 
+
    std::vector<float> x_cutName;
    std::vector<float> y_spikeFrac;
 
@@ -82,6 +83,14 @@ void DrawROC_EE::Loop()
    std::vector<float> x_sigEff_sieie_per_rechit_m1p25;
    std::vector<float> y_bkgEff_sieie_per_rechit_m1p25;
    int nsig_per_rechit_m1p25_spike=0;
+
+   std::vector<float> x_sigEff_sieie_per_rechit_m1p5;
+   std::vector<float> y_bkgEff_sieie_per_rechit_m1p5;
+   int nsig_per_rechit_m1p5_spike=0;
+
+   std::vector<float> x_sigEff_sieie_per_rechit_m1p8;
+   std::vector<float> y_bkgEff_sieie_per_rechit_m1p8;
+   int nsig_per_rechit_m1p8_spike=0;
 
    std::vector<float> x_sigEff_sieie_w4p0;
    std::vector<float> y_bkgEff_sieie_w4p0;
@@ -122,7 +131,7 @@ void DrawROC_EE::Loop()
    Long64_t nbytes = 0, nb = 0;
 
    for (int i=0; i<len; i++) {
-
+     std::cout << "cut  " << i << std::endl;
    int nsig_total_endcap=0;
    int nbkg_total_endcap=0;
 
@@ -137,6 +146,12 @@ void DrawROC_EE::Loop()
 
    int nsig_per_rechit_m1p25_passed_endcap=0;
    int nbkg_per_rechit_m1p25_passed_endcap=0;
+
+   int nsig_per_rechit_m1p5_passed_endcap=0;
+   int nbkg_per_rechit_m1p5_passed_endcap=0;
+
+   int nsig_per_rechit_m1p8_passed_endcap=0;
+   int nbkg_per_rechit_m1p8_passed_endcap=0;
 
    int nsig_w3p0_passed_endcap=0;
    int nbkg_w3p0_passed_endcap=0;
@@ -166,13 +181,14 @@ void DrawROC_EE::Loop()
    int nbkg_en1_noRelNoiseCut_passed_endcap=0;
      
      //     std::cout << "sieie cut : " << cuts[i] << "   " ;
-     
+   int ij=0;
      for (Long64_t jentry=0; jentry<nentries;jentry++) {
        Long64_t ientry = LoadTree(jentry);
        if (ientry < 0) break;
        nb = fChain->GetEntry(jentry);   nbytes += nb;
        // if (Cut(ientry) < 0) continue;
-       
+       ij++;
+       ///          if (ij==97176) break;
        for(int iele=0; iele < elePt_->size(); iele++) {
 
 	 
@@ -202,6 +218,16 @@ void DrawROC_EE::Loop()
 	   if ( (ele_genmatched_->at(iele)==1)  && ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < cuts[i]) ) nsig_per_rechit_m1p25_passed_endcap++;
 	   if ( (ele_genmatched_->at(iele)==0)  && ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < cuts[i]) ) nbkg_per_rechit_m1p25_passed_endcap++;
 	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p25_->at(iele)) < 0.001)  ) nsig_per_rechit_m1p25_spike++;
+
+	   //// per_rechit_m1p5
+	   if ( (ele_genmatched_->at(iele)==1)  && ((my_eleSigmaIetaIeta_per_rechit_m1p5_->at(iele)) < cuts[i]) ) nsig_per_rechit_m1p5_passed_endcap++;
+	   if ( (ele_genmatched_->at(iele)==0)  && ((my_eleSigmaIetaIeta_per_rechit_m1p5_->at(iele)) < cuts[i]) ) nbkg_per_rechit_m1p5_passed_endcap++;
+	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p5_->at(iele)) < 0.001)  ) nsig_per_rechit_m1p5_spike++;
+
+	   //// per_rechit_m1p8
+	   if ( (ele_genmatched_->at(iele)==1)  && ((my_eleSigmaIetaIeta_per_rechit_m1p8_->at(iele)) < cuts[i]) ) nsig_per_rechit_m1p8_passed_endcap++;
+	   if ( (ele_genmatched_->at(iele)==0)  && ((my_eleSigmaIetaIeta_per_rechit_m1p8_->at(iele)) < cuts[i]) ) nbkg_per_rechit_m1p8_passed_endcap++;
+	   if ( (i==1) && (ele_genmatched_->at(iele)==1) &&  ((my_eleSigmaIetaIeta_per_rechit_m1p8_->at(iele)) < 0.001)  ) nsig_per_rechit_m1p8_spike++;
 
 	   //// w3p0
 	   if ( (ele_genmatched_->at(iele)==1)  && ((my_eleSigmaIetaIeta_w3p0_->at(iele)) < cuts[i]) ) nsig_w3p0_passed_endcap++;
@@ -273,6 +299,12 @@ void DrawROC_EE::Loop()
      x_sigEff_sieie_per_rechit_m1p25.push_back((double)nsig_per_rechit_m1p25_passed_endcap/(double)nsig_total_endcap);
      y_bkgEff_sieie_per_rechit_m1p25.push_back(1- (double)nbkg_per_rechit_m1p25_passed_endcap/(double)nbkg_total_endcap);
 
+     x_sigEff_sieie_per_rechit_m1p5.push_back((double)nsig_per_rechit_m1p5_passed_endcap/(double)nsig_total_endcap);
+     y_bkgEff_sieie_per_rechit_m1p5.push_back(1- (double)nbkg_per_rechit_m1p5_passed_endcap/(double)nbkg_total_endcap);
+
+     x_sigEff_sieie_per_rechit_m1p8.push_back((double)nsig_per_rechit_m1p8_passed_endcap/(double)nsig_total_endcap);
+     y_bkgEff_sieie_per_rechit_m1p8.push_back(1- (double)nbkg_per_rechit_m1p8_passed_endcap/(double)nbkg_total_endcap);
+
      x_sigEff_sieie_w3p0.push_back((double)nsig_w3p0_passed_endcap/(double)nsig_total_endcap);
      y_bkgEff_sieie_w3p0.push_back(1- (double)nbkg_w3p0_passed_endcap/(double)nbkg_total_endcap);
 
@@ -306,6 +338,8 @@ void DrawROC_EE::Loop()
        std::cout << " fraction of w4p2 " << (double)nsig_w4p2_spike/(double)nsig_total_endcap << std::endl;
        std::cout << " fraction of per_rechit " << (double)nsig_per_rechit_spike/(double)nsig_total_endcap << std::endl;
        std::cout << " fraction of per_rechit_m1p25 " << (double)nsig_per_rechit_m1p25_spike/(double)nsig_total_endcap << std::endl;
+       std::cout << " fraction of per_rechit_m1p5 " << (double)nsig_per_rechit_m1p5_spike/(double)nsig_total_endcap << std::endl;
+       std::cout << " fraction of per_rechit_m1p8 " << (double)nsig_per_rechit_m1p8_spike/(double)nsig_total_endcap << std::endl;
        std::cout << " fraction of w3p0 " << (double)nsig_w3p0_spike/(double)nsig_total_endcap << std::endl;
        std::cout << " fraction of w3p5 " << (double)nsig_w3p5_spike/(double)nsig_total_endcap << std::endl;
        std::cout << " fraction of w3p7 " << (double)nsig_w3p7_spike/(double)nsig_total_endcap << std::endl;
@@ -488,6 +522,22 @@ void DrawROC_EE::Loop()
    gr_pr_m1p25->Draw("LP, same");
    gr_pr_m1p25->Write("per_rechit_m1p25");
 
+   TGraph *gr_pr_m1p5 = new TGraph (len, &x_sigEff_sieie_per_rechit_m1p5[0], &y_bkgEff_sieie_per_rechit_m1p5[0]);
+   gr_pr_m1p5->SetMarkerColor(6);
+   gr_pr_m1p5->SetLineColor(6);
+   gr_pr_m1p5->SetLineWidth(2);
+   gr_pr_m1p5->SetMarkerStyle(24);
+   gr_pr_m1p5->Draw("LP, same");
+   gr_pr_m1p5->Write("per_rechit_m1p5");
+
+   TGraph *gr_pr_m1p8 = new TGraph (len, &x_sigEff_sieie_per_rechit_m1p8[0], &y_bkgEff_sieie_per_rechit_m1p8[0]);
+   gr_pr_m1p8->SetMarkerColor(7);
+   gr_pr_m1p8->SetLineColor(7);
+   gr_pr_m1p8->SetLineWidth(2);
+   gr_pr_m1p8->SetMarkerStyle(22);
+   gr_pr_m1p8->Draw("LP, same");
+   gr_pr_m1p8->Write("per_rechit_m1p8");
+
    TLegend *leg_example_new = new TLegend(0.16,0.2,0.45,0.5);
    leg_example_new->SetHeader("Endcap (pT 70-150 GeV)","C"); // option "C" allows to center the header                                                                                     
    leg_example_new->SetFillColor(0);
@@ -501,6 +551,8 @@ void DrawROC_EE::Loop()
    //  leg_example_new->AddEntry(gr6, "w=3.2","pl");
    leg_example_new->AddEntry(gr_pr, "per rechit cut","pl");
    leg_example_new->AddEntry(gr_pr_m1p25, "per rechit cut * 1.25","pl");
+   leg_example_new->AddEntry(gr_pr_m1p5, "per rechit cut * 1.5","pl");
+   leg_example_new->AddEntry(gr_pr_m1p8, "per rechit cut * 1.8","pl");
    //leg_example_new->AddEntry(gr7, "w=3.7","pl");
    leg_example_new->Draw("same");
 
@@ -509,7 +561,7 @@ void DrawROC_EE::Loop()
    // ar1->Draw("same");
 
    c1_new->SetGrid();
-   c1_new->SaveAs("EndcapROC_per_rechit_pt_70_150.png");
+   c1_new->SaveAs("EndcapROC_per_rechit_whenROCdegrades_pt_70_150.png");
 
 
 

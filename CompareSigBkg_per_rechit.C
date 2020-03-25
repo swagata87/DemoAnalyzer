@@ -34,7 +34,7 @@ int CompareSigBkg_per_rechit() {
   //  TFile *file_2018 = new TFile("./Out_redefhists_2018.root");
   // TFile *file_2021 = new TFile("./Out_redefhists_2021.root");
   // TFile *file_2023 = new TFile("./Out_redefhists_2023.root");
-  TFile *file_2024 = new TFile("./Out_redefhists_2024.root");
+  TFile *file_2024 = new TFile("./highstat_redefhists_2024.root");
 
   //--Plotting Styles//
   //  gStyle->SetPadLeftMargin(0.15);

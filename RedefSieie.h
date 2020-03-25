@@ -24,7 +24,7 @@ public :
 
 // Fixed size dimensions of array or collections stored in the TTree if any.
    static constexpr Int_t kMaxele_genmatched = 1;
-   static constexpr Int_t kMaxtrkCharge = 1;
+   ////   static constexpr Int_t kMaxtrkCharge = 1;
    static constexpr Int_t kMaxcmssw_eleSigmaIetaIeta = 1;
    static constexpr Int_t kMaxcmssw_eleR9 = 1;
    static constexpr Int_t kMaxcmssw_eleHoE = 1;
@@ -75,7 +75,7 @@ public :
 
    // Declaration of leaf types
    vector<int>     *ele_genmatched_;
-   vector<int>     *trkCharge_;
+   ///   vector<int>     *trkCharge_;
    vector<double>  *cmssw_eleSigmaIetaIeta_;
    vector<float>   *cmssw_eleR9_;
    vector<float>   *cmssw_eleHoE_;
@@ -126,7 +126,7 @@ public :
 
    // List of branches
    TBranch        *b_ele_genmatched_;   //!
-   TBranch        *b_trkCharge_;   //!
+   ///   TBranch        *b_trkCharge_;   //!
    TBranch        *b_cmssw_eleSigmaIetaIeta_;   //!
    TBranch        *b_cmssw_eleR9_;   //!
    TBranch        *b_cmssw_eleHoE_;   //!
@@ -194,11 +194,11 @@ RedefSieie::RedefSieie(TTree *tree) : fChain(0)
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("RedefNtup_AOD_2018.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("RedefNtup_AOD_2018.root");
+         f = new TFile("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018.root");
       }
-      TDirectory * dir = (TDirectory*)f->Get("RedefNtup_AOD_2018.root:/demo");
+      TDirectory * dir = (TDirectory*)f->Get("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018.root:/demo");
       dir->GetObject("EventTree",tree);
 
    }
@@ -242,7 +242,7 @@ void RedefSieie::Init(TTree *tree)
 
    // Set object pointer
    ele_genmatched_ = 0;
-   trkCharge_ = 0;
+   ////   trkCharge_ = 0;
    cmssw_eleSigmaIetaIeta_ = 0;
    cmssw_eleR9_ = 0;
    cmssw_eleHoE_ = 0;
@@ -297,7 +297,7 @@ void RedefSieie::Init(TTree *tree)
    fChain->SetMakeClass(1);
 
    fChain->SetBranchAddress("ele_genmatched_", &ele_genmatched_, &b_ele_genmatched_);
-   fChain->SetBranchAddress("trkCharge_", &trkCharge_, &b_trkCharge_);
+   ///   fChain->SetBranchAddress("trkCharge_", &trkCharge_, &b_trkCharge_);
    fChain->SetBranchAddress("cmssw_eleSigmaIetaIeta_", &cmssw_eleSigmaIetaIeta_, &b_cmssw_eleSigmaIetaIeta_);
    fChain->SetBranchAddress("cmssw_eleR9_", &cmssw_eleR9_, &b_cmssw_eleR9_);
    fChain->SetBranchAddress("cmssw_eleHoE_", &cmssw_eleHoE_, &b_cmssw_eleHoE_);

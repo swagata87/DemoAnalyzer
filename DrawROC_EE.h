@@ -24,7 +24,7 @@ public :
 
 // Fixed size dimensions of array or collections stored in the TTree if any.
    static constexpr Int_t kMaxele_genmatched = 1;
-   static constexpr Int_t kMaxtrkCharge = 1;
+   ///   static constexpr Int_t kMaxtrkCharge = 1;
    static constexpr Int_t kMaxcmssw_eleSigmaIetaIeta = 1;
    static constexpr Int_t kMaxcmssw_eleR9 = 1;
    static constexpr Int_t kMaxcmssw_eleHoE = 1;
@@ -39,6 +39,8 @@ public :
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p15 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p2 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p25 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p5 = 1;
+   static constexpr Int_t kMaxmy_eleSigmaIetaIeta_per_rechit_m1p8 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p6 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p5 = 1;
    static constexpr Int_t kMaxmy_eleSigmaIetaIeta_w4p4 = 1;
@@ -79,7 +81,7 @@ public :
 
    // Declaration of leaf types
    vector<int>     *ele_genmatched_;
-   vector<int>     *trkCharge_;
+   ///   vector<int>     *trkCharge_;
    vector<double>  *cmssw_eleSigmaIetaIeta_;
    vector<float>   *cmssw_eleR9_;
    vector<float>   *cmssw_eleHoE_;
@@ -94,6 +96,8 @@ public :
    vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p15_;
    vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p2_;
    vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p25_;
+   vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p5_;
+   vector<double>  *my_eleSigmaIetaIeta_per_rechit_m1p8_;
    vector<double>  *my_eleSigmaIetaIeta_w4p6_;
    vector<double>  *my_eleSigmaIetaIeta_w4p5_;
    vector<double>  *my_eleSigmaIetaIeta_w4p4_;
@@ -135,7 +139,7 @@ public :
 
    // List of branches
    TBranch        *b_ele_genmatched_;   //!
-   TBranch        *b_trkCharge_;   //!
+   ///   TBranch        *b_trkCharge_;   //!
    TBranch        *b_cmssw_eleSigmaIetaIeta_;   //!
    TBranch        *b_cmssw_eleR9_;   //!
    TBranch        *b_cmssw_eleHoE_;   //!
@@ -150,6 +154,8 @@ public :
    TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p15_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p2_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p25_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p5_;   //!
+   TBranch        *b_my_eleSigmaIetaIeta_per_rechit_m1p8_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w4p6_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w4p5_;   //!
    TBranch        *b_my_eleSigmaIetaIeta_w4p4_;   //!
@@ -208,11 +214,11 @@ DrawROC_EE::DrawROC_EE(TTree *tree) : fChain(0)
 // if parameter tree is not specified (or zero), connect the file
 // used to generate this class and read the Tree.
    if (tree == 0) {
-      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("all3proc_2024.root");
+      TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018_small.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("all3proc_2024.root");
+         f = new TFile("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018_small.root");
       }
-      TDirectory * dir = (TDirectory*)f->Get("all3proc_2024.root:/demo");
+      TDirectory * dir = (TDirectory*)f->Get("/eos/cms/store/group/phys_egamma/swmukher/Run3_Redef_Jan27_2020/all_2018_small.root:/demo");
       dir->GetObject("EventTree",tree);
 
    }
@@ -256,7 +262,7 @@ void DrawROC_EE::Init(TTree *tree)
 
    // Set object pointer
    ele_genmatched_ = 0;
-   trkCharge_ = 0;
+   /// trkCharge_ = 0;
    cmssw_eleSigmaIetaIeta_ = 0;
    cmssw_eleR9_ = 0;
    cmssw_eleHoE_ = 0;
@@ -271,6 +277,8 @@ void DrawROC_EE::Init(TTree *tree)
    my_eleSigmaIetaIeta_per_rechit_m1p15_ = 0;
    my_eleSigmaIetaIeta_per_rechit_m1p2_ = 0;
    my_eleSigmaIetaIeta_per_rechit_m1p25_ = 0;
+   my_eleSigmaIetaIeta_per_rechit_m1p5_ = 0;
+   my_eleSigmaIetaIeta_per_rechit_m1p8_ = 0;
    my_eleSigmaIetaIeta_w4p6_ = 0;
    my_eleSigmaIetaIeta_w4p5_ = 0;
    my_eleSigmaIetaIeta_w4p4_ = 0;
@@ -316,7 +324,7 @@ void DrawROC_EE::Init(TTree *tree)
    fChain->SetMakeClass(1);
 
    fChain->SetBranchAddress("ele_genmatched_", &ele_genmatched_, &b_ele_genmatched_);
-   fChain->SetBranchAddress("trkCharge_", &trkCharge_, &b_trkCharge_);
+   ///   fChain->SetBranchAddress("trkCharge_", &trkCharge_, &b_trkCharge_);
    fChain->SetBranchAddress("cmssw_eleSigmaIetaIeta_", &cmssw_eleSigmaIetaIeta_, &b_cmssw_eleSigmaIetaIeta_);
    fChain->SetBranchAddress("cmssw_eleR9_", &cmssw_eleR9_, &b_cmssw_eleR9_);
    fChain->SetBranchAddress("cmssw_eleHoE_", &cmssw_eleHoE_, &b_cmssw_eleHoE_);
@@ -331,6 +339,8 @@ void DrawROC_EE::Init(TTree *tree)
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p15_", &my_eleSigmaIetaIeta_per_rechit_m1p15_, &b_my_eleSigmaIetaIeta_per_rechit_m1p15_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p2_", &my_eleSigmaIetaIeta_per_rechit_m1p2_, &b_my_eleSigmaIetaIeta_per_rechit_m1p2_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p25_", &my_eleSigmaIetaIeta_per_rechit_m1p25_, &b_my_eleSigmaIetaIeta_per_rechit_m1p25_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p5_", &my_eleSigmaIetaIeta_per_rechit_m1p5_, &b_my_eleSigmaIetaIeta_per_rechit_m1p5_);
+   fChain->SetBranchAddress("my_eleSigmaIetaIeta_per_rechit_m1p8_", &my_eleSigmaIetaIeta_per_rechit_m1p8_, &b_my_eleSigmaIetaIeta_per_rechit_m1p8_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p6_", &my_eleSigmaIetaIeta_w4p6_, &b_my_eleSigmaIetaIeta_w4p6_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p5_", &my_eleSigmaIetaIeta_w4p5_, &b_my_eleSigmaIetaIeta_w4p5_);
    fChain->SetBranchAddress("my_eleSigmaIetaIeta_w4p4_", &my_eleSigmaIetaIeta_w4p4_, &b_my_eleSigmaIetaIeta_w4p4_);

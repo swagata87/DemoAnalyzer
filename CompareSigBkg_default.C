@@ -31,10 +31,10 @@ int CompareSigBkg_default() {
   std::cout << "Get the root files " << std::endl;
   //Out_ptGT80_redefhists_2018
 
-  //  TFile *file_2018 = new TFile("./Out_redefhists_2018.root");
+  //  TFile *file_2018 = new TFile("./highstat_redefhists_2018.root");
   // TFile *file_2021 = new TFile("./Out_redefhists_2021.root");
   // TFile *file_2023 = new TFile("./Out_redefhists_2023.root");
-  TFile *file_2024 = new TFile("./Out_redefhists_2024.root");
+    TFile *file_2024 = new TFile("./highstat_redefhists_2018.root");
 
   //--Plotting Styles//
   //  gStyle->SetPadLeftMargin(0.15);
@@ -75,7 +75,7 @@ int CompareSigBkg_default() {
   h1_my_SigmaIetaIeta_bkg_barrel_2024->Draw("same");
 
   TLegend *leg_example = new TLegend(0.65,0.70,0.94,0.94);
-  leg_example->SetHeader("SIEIE default, barrel","C"); // option "C" allows to center the header
+  leg_example->SetHeader("SIEIE default, 2018, barrel","C"); // option "C" allows to center the header
   leg_example->SetFillColor(0);
   leg_example->SetTextFont(42);
   leg_example->SetBorderSize(0);
@@ -111,7 +111,7 @@ int CompareSigBkg_default() {
   h1_my_SigmaIetaIeta_bkg_endcap_2024->Draw("same");
 
   TLegend *leg_example2 = new TLegend(0.65,0.70,0.94,0.94);
-  leg_example2->SetHeader("SIEIE default, endcap","C"); // option "C" allows to center the header
+  leg_example2->SetHeader("SIEIE default, 2018, endcap","C"); // option "C" allows to center the header
   leg_example2->SetFillColor(0);
   leg_example2->SetTextFont(42);
   leg_example2->SetBorderSize(0);

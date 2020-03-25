@@ -57,7 +57,7 @@ void localCovEtaPhi::Loop()
   if (fChain == 0) return;
   Long64_t nentries = fChain->GetEntriesFast();
 
-  float cuts[21] = {0.00005 ,0.0001, 0.001, 0.002, 0.0022, 0.0023 ,0.0025 ,0.003, 0.0035 ,0.004 ,0.005, 0.006, 0.007, 0.008, 0.010, 0.012, 0.014, 0.016, 0.02, 0.1, 10};
+  float cuts[27] = {0.000001, 0.00001  ,0.00005 ,0.0001, 0.001, 0.0012 ,0.0015, 0.0018 ,0.002, 0.0022, 0.0023 ,0.0025 ,0.003, 0.0035 ,0.004 ,0.005, 0.0055 ,0.006, 0.007, 0.008, 0.010, 0.012, 0.014, 0.016, 0.02, 0.1, 10};
 
   int len = sizeof(cuts) / sizeof(cuts[0]);
   std::cout << "len of cuts array " << len << std::endl;
@@ -101,7 +101,7 @@ void localCovEtaPhi::Loop()
 
       for(int iele=0; iele < elePt_->size(); iele++) {
 
-	if (  ((fabs(eleScEta_->at(iele)) ) < 1.44 ) && ( elePt_->at(iele) > 30 ) && ( elePt_->at(iele) < 70 )  ) {
+	if (  ((fabs(eleScEta_->at(iele)) ) < 1.44 ) && ( elePt_->at(iele) > 70 ) && ( elePt_->at(iele) < 150 )  ) {
 	  
 	  if ( my_eleSigmaIetaIphi_->at(iele) != my_eleSigmaIetaIphi_->at(iele)  ) continue;
 	  if ( my_eleSigmaIetaIphi_w4p1_->at(iele) != my_eleSigmaIetaIphi_w4p1_->at(iele)  ) continue;
@@ -156,7 +156,7 @@ void localCovEtaPhi::Loop()
    TCanvas *c1 = new TCanvas("c1_roc","roc", 200,10,600,400);
 
    TGraph *gr1 = new TGraph (len, &x_sigEff_sieip_default[0], &y_bkgEff_sieip_default[0]);
-   gr1->SetTitle("#sigma_{i#eta i#phi} ROC 30-70 GeV");
+   gr1->SetTitle("#sigma_{i#eta i#phi} ROC 70-150 GeV");
    gr1->SetMarkerColor(2);
    gr1->SetLineColor(2);
    gr1->SetLineWidth(2);
@@ -194,17 +194,17 @@ void localCovEtaPhi::Loop()
    gr3->Write("per_rechit");
 
    TLegend *leg_example = new TLegend(0.12,0.12,0.42,0.36);
-   leg_example->SetHeader("Barrel Sieip (pT 30-70 GeV)","C"); // option "C" allows to center the header                                              
+   leg_example->SetHeader("Barrel Sieip (pT 70-150 GeV)","C"); // option "C" allows to center the header                                              
    leg_example->SetFillColor(0);
    leg_example->SetTextFont(42);
    leg_example->SetBorderSize(0);
-   leg_example->AddEntry(gr1, "default","pl");
+   leg_example->AddEntry(gr1, "default (w=4.7)","pl");
    leg_example->AddEntry(gr2, "w=4.1","pl");
-   leg_example->AddEntry(gr3, "w=per rechit","pl");
+   leg_example->AddEntry(gr3, "per rechit","pl");
    leg_example->Draw("same");
 
    c1->SetGrid();
-   c1->SaveAs("BarrelROC_sieip_30_70.png");
+   c1->SaveAs("BarrelROC_sieip_70_150.png");
 
 }
 
