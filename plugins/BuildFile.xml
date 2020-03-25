@@ -3,6 +3,7 @@
 <use name="FWCore/ParameterSet"/>
 <use name="DataFormats/TrackReco"/>
 <use name="CommonTools/Utils"/>
+<use name="DataFormats/PatCandidates"/>
 <use name="CommonTools/UtilAlgos"/>
 <use name="RecoEcal/EgammaCoreTools"/>
 <use name="DataFormats/GsfTrackReco"/>
