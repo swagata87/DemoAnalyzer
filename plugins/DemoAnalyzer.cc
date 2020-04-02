@@ -130,6 +130,17 @@ public:
   std::vector<double>  my_eleSigmaIphiIphi;
   //
   std::vector<double>  my_eleSigmaIetaIeta_per_rechit;
+  //
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p9;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p8;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p7;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p6;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p5;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p4;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p3;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p2;
+  std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m0p1;
+  //
   std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p1;
   std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p2;
   std::vector<double>  my_eleSigmaIetaIeta_per_rechit_m1p25;
@@ -198,7 +209,15 @@ public:
   std::vector<double> my_ootphoSigmaIetaIeta_per_rechit_m1p5;
 
   /// normal photon
+  std::vector<std::vector<int> > phoIDbits;
   std::vector<double> phoPt;
+  std::vector<double> phoR9;
+  std::vector<double> phoSCrawE;
+  std::vector<double> phoChargedHadronWorstVtxIso;
+  std::vector<double> phoChargedHadronIso;
+  std::vector<double> phoPhotonIso;
+  std::vector<double> phoEtaWidth;
+  std::vector<double> phoPhiWidth;
   std::vector<double> phoPhi;
   std::vector<double> phoScEn;
   std::vector<double> phoScEta;
@@ -218,6 +237,7 @@ public:
   std::vector<double> my_phoSigmaIetaIphi_per_rechit_m1p5;
   std::vector<double> my_phoSigmaIetaIeta_per_rechit;
   std::vector<double> my_phoSigmaIetaIeta_per_rechit_m1p1;
+  std::vector<double> my_phoSigmaIetaIeta_per_rechit_m0p8;
   std::vector<double> my_phoSigmaIetaIeta_per_rechit_m1p2;
   std::vector<double> my_phoSigmaIetaIeta_per_rechit_m1p25;
   std::vector<double> my_phoSigmaIetaIeta_per_rechit_m1p5;
@@ -237,7 +257,8 @@ private:
   //  edm::EDGetTokenT<edm::View<reco::GsfElectron> > eleToken_;
   edm::EDGetTokenT<edm::View<pat::Electron> > eleToken_;
   edm::EDGetTokenT<edm::View<reco::Photon> > ootphoToken_;
-  edm::EDGetTokenT<edm::View<reco::Photon> > phoToken_;
+  //edm::EDGetTokenT<edm::View<reco::Photon> > phoToken_;
+  edm::EDGetTokenT<edm::View<pat::Photon> > phoToken_;
   edm::EDGetTokenT<EcalRecHitCollection> EBRecHitCollectionT_;
   edm::EDGetTokenT<EcalRecHitCollection> EERecHitCollectionT_;
   edm::ESHandle<CaloTopology> theCaloTopology;
@@ -269,7 +290,8 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   //eleToken_(consumes<edm::View<reco::GsfElectron> >(iConfig.getParameter<edm::InputTag>("electrons"))),
   eleToken_(consumes<edm::View<pat::Electron> >(iConfig.getParameter<edm::InputTag>("electrons"))),
   ootphoToken_(consumes<edm::View<reco::Photon> >(iConfig.getParameter<edm::InputTag>("ootPhotons"))),
-  phoToken_(consumes<edm::View<reco::Photon> >(iConfig.getParameter<edm::InputTag>("Photons"))),
+  //phoToken_(consumes<edm::View<reco::Photon> >(iConfig.getParameter<edm::InputTag>("Photons"))),
+  phoToken_(consumes<edm::View<pat::Photon> >(iConfig.getParameter<edm::InputTag>("Photons"))),
   EBRecHitCollectionT_(consumes<EcalRecHitCollection>(iConfig.getParameter<edm::InputTag>("EBRecHitCollection"))),
   EERecHitCollectionT_(consumes<EcalRecHitCollection>(iConfig.getParameter<edm::InputTag>("EERecHitCollection"))),
   puCollection_(consumes<std::vector<PileupSummaryInfo> >(iConfig.getParameter<edm::InputTag>("pileupCollection"))),
@@ -330,6 +352,17 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   tree->Branch("my_eleSigmaIetaIphi_",&my_eleSigmaIetaIphi);
   //
   tree->Branch("my_eleSigmaIetaIeta_per_rechit_",&my_eleSigmaIetaIeta_per_rechit);
+  //
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p9_",&my_eleSigmaIetaIeta_per_rechit_m0p9);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p8_",&my_eleSigmaIetaIeta_per_rechit_m0p8);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p7_",&my_eleSigmaIetaIeta_per_rechit_m0p7);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p6_",&my_eleSigmaIetaIeta_per_rechit_m0p6);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p5_",&my_eleSigmaIetaIeta_per_rechit_m0p5);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p4_",&my_eleSigmaIetaIeta_per_rechit_m0p4);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p3_",&my_eleSigmaIetaIeta_per_rechit_m0p3);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p2_",&my_eleSigmaIetaIeta_per_rechit_m0p2);
+  tree->Branch("my_eleSigmaIetaIeta_per_rechit_m0p1_",&my_eleSigmaIetaIeta_per_rechit_m0p1);
+  //
   tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p1_",&my_eleSigmaIetaIeta_per_rechit_m1p1);
   tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p2_",&my_eleSigmaIetaIeta_per_rechit_m1p2);
   tree->Branch("my_eleSigmaIetaIeta_per_rechit_m1p25_",&my_eleSigmaIetaIeta_per_rechit_m1p25);
@@ -396,7 +429,15 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   tree->Branch("my_ootphoSigmaIetaIeta_per_rechit_m1p5_",&my_ootphoSigmaIetaIeta_per_rechit_m1p5);
 
   ////normal photon
+  tree->Branch("phoIDbits_", &phoIDbits);
   tree->Branch("phoPt_",&phoPt);
+  tree->Branch("phoR9_",&phoR9);
+  tree->Branch("phoSCrawE_",&phoSCrawE);
+  tree->Branch("phoChargedHadronWorstVtxIso_",&phoChargedHadronWorstVtxIso);
+  tree->Branch("phoChargedHadronIso_",&phoChargedHadronIso);
+  tree->Branch("phoPhotonIso_",&phoPhotonIso);
+  tree->Branch("phoEtaWidth_",&phoEtaWidth);
+  tree->Branch("phoPhiWidth_",&phoPhiWidth);
   tree->Branch("phoPhi_",&phoPhi);
   tree->Branch("phoScEn_",&phoScEn);
   tree->Branch("phoScEta_",&phoScEta);
@@ -415,6 +456,7 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   tree->Branch("my_phoSigmaIetaIphi_per_rechit_m1p25_",&my_phoSigmaIetaIphi_per_rechit_m1p25);
   tree->Branch("my_phoSigmaIetaIphi_per_rechit_m1p5_",&my_phoSigmaIetaIphi_per_rechit_m1p5);
   tree->Branch("my_phoSigmaIetaIeta_per_rechit_",&my_phoSigmaIetaIeta_per_rechit);
+  tree->Branch("my_phoSigmaIetaIeta_per_rechit_m0p8_",&my_phoSigmaIetaIeta_per_rechit_m0p8);
   tree->Branch("my_phoSigmaIetaIeta_per_rechit_m1p1_",&my_phoSigmaIetaIeta_per_rechit_m1p1);
   tree->Branch("my_phoSigmaIetaIeta_per_rechit_m1p2_",&my_phoSigmaIetaIeta_per_rechit_m1p2);
   tree->Branch("my_phoSigmaIetaIeta_per_rechit_m1p25_",&my_phoSigmaIetaIeta_per_rechit_m1p25);
@@ -487,6 +529,17 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   my_eleSigmaIphiIphi.clear();
   //
   my_eleSigmaIetaIeta_per_rechit.clear();
+  //
+  my_eleSigmaIetaIeta_per_rechit_m0p9.clear();
+  my_eleSigmaIetaIeta_per_rechit_m0p8.clear();
+  my_eleSigmaIetaIeta_per_rechit_m0p7.clear();
+  my_eleSigmaIetaIeta_per_rechit_m0p6.clear();
+  my_eleSigmaIetaIeta_per_rechit_m0p5.clear();
+  my_eleSigmaIetaIeta_per_rechit_m0p4.clear();
+  my_eleSigmaIetaIeta_per_rechit_m0p3.clear();
+  my_eleSigmaIetaIeta_per_rechit_m0p2.clear();
+  my_eleSigmaIetaIeta_per_rechit_m0p1.clear();
+  //
   my_eleSigmaIetaIeta_per_rechit_m1p1.clear();
   my_eleSigmaIetaIeta_per_rechit_m1p2.clear();
   my_eleSigmaIetaIeta_per_rechit_m1p25.clear();
@@ -556,7 +609,15 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   //
   //normal photon
   //
+  phoIDbits.clear();
   phoPt.clear();
+  phoR9.clear();
+  phoSCrawE.clear();
+  phoChargedHadronWorstVtxIso.clear();
+  phoChargedHadronIso.clear();
+  phoPhotonIso.clear();
+  phoEtaWidth.clear();
+  phoPhiWidth.clear();
   phoPhi.clear();
   phoScEn.clear();
   phoScEta.clear();
@@ -575,6 +636,7 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   my_phoSigmaIetaIphi_per_rechit_m1p25.clear();
   my_phoSigmaIetaIphi_per_rechit_m1p5.clear();
   my_phoSigmaIetaIeta_per_rechit.clear();
+  my_phoSigmaIetaIeta_per_rechit_m0p8.clear();
   my_phoSigmaIetaIeta_per_rechit_m1p1.clear();
   my_phoSigmaIetaIeta_per_rechit_m1p2.clear();
   my_phoSigmaIetaIeta_per_rechit_m1p25.clear();
@@ -752,7 +814,11 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     ////normal photon
     for(const auto& pho : iEvent.get(phoToken_) ) {
       //std::cout << "\n new photon " << std::endl;
-
+      
+      phoIDbits.push_back({pho.userInt("cutBasedPhotonID-Fall17-94X-V2-loose"),
+	    pho.userInt("cutBasedPhotonID-Fall17-94X-V2-medium"),
+	    pho.userInt("cutBasedPhotonID-Fall17-94X-V2-tight")});
+      
       int thispho_genmatched=0;
       double thispho_min_dr=9999.9;
       double thispho_ptR=9999.9;
@@ -790,6 +856,24 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       phoScEta.push_back(pho.superCluster()->eta());
       cmssw_phoSigmaIetaIeta.push_back(pho.full5x5_sigmaIetaIeta());
 
+      ///MVA ID var
+      phoR9.push_back(pho.full5x5_r9());
+      phoEtaWidth.push_back(pho.superCluster()->etaWidth());
+      phoPhiWidth.push_back(pho.superCluster()->phiWidth());
+      //
+      phoPhotonIso.push_back(pho.photonIso());  
+      phoChargedHadronIso.push_back(pho.chargedHadronIso());  
+      phoChargedHadronWorstVtxIso.push_back(pho.chargedHadronWorstVtxIso());
+      //
+      //      phoPhotonIso.push_back(pho.userFloat("phoPhotonIsolation"));  
+      //phoChargedHadronIso.push_back(pho.userFloat("phoChargedIsolation"));  
+      //phoChargedHadronWorstVtxIso.push_back(pho.userFloat("phoWorstChargedIsolation"));
+ 
+
+     phoSCrawE.push_back(pho.superCluster()->rawEnergy());    
+
+      //      std::cout << "chH/ chHWorst " << pho.chargedHadronIso() << " / " << pho.chargedHadronWorstVtxIso() << " " << pho.userFloat("phoWorstChargedIsolation") << std::endl;
+
       const reco::SuperCluster& phosuperClus = *pho.superCluster();
       const reco::CaloCluster &phoseedCluster = *phosuperClus.seed();
       const bool phoiseb = phoseedCluster.hitsAndFractions()[0].first.subdetId() == EcalBarrel;
@@ -811,6 +895,7 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       std::vector<float> phomylocalCovariances = ClusterTools::localCovariances(phoseedCluster, phorecHits, phocaloTopology,4.7,0,0 ) ;
       std::vector<float> phomylocalCovariances_per_rechit ;
       std::vector<float> phomylocalCovariances_per_rechit_m1p1 ;
+      std::vector<float> phomylocalCovariances_per_rechit_m0p8 ;
       std::vector<float> phomylocalCovariances_per_rechit_m1p2 ;
       std::vector<float> phomylocalCovariances_per_rechit_m1p25 ;
       std::vector<float> phomylocalCovariances_per_rechit_m1p5 ;
@@ -818,6 +903,7 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       if (theCaloGeometry) {
 	phomylocalCovariances_per_rechit = ClusterTools::localCovariancesnew(phoseedCluster, phorecHits, phocaloTopology, caloGeometry, &iSetup, 4.7, 1).cov;
 	phomylocalCovariances_per_rechit_m1p1 = ClusterTools::localCovariancesnew(phoseedCluster, phorecHits, phocaloTopology, caloGeometry, &iSetup, 4.7, 1.1).cov;
+	phomylocalCovariances_per_rechit_m0p8 = ClusterTools::localCovariancesnew(phoseedCluster, phorecHits, phocaloTopology, caloGeometry, &iSetup, 4.7, 0.8).cov;
 	phomylocalCovariances_per_rechit_m1p2 = ClusterTools::localCovariancesnew(phoseedCluster, phorecHits, phocaloTopology, caloGeometry, &iSetup, 4.7, 1.2).cov;
 	phomylocalCovariances_per_rechit_m1p25 = ClusterTools::localCovariancesnew(phoseedCluster, phorecHits, phocaloTopology, caloGeometry, &iSetup, 4.7, 1.25).cov;
 	phomylocalCovariances_per_rechit_m1p5 = ClusterTools::localCovariancesnew(phoseedCluster, phorecHits, phocaloTopology, caloGeometry, &iSetup, 4.7, 1.5).cov;
@@ -832,6 +918,9 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       
       float phosigmaIetaIeta_per_rechit_m1p1 = sqrt(phomylocalCovariances_per_rechit_m1p1[0]);
       my_phoSigmaIetaIeta_per_rechit_m1p1.push_back(phosigmaIetaIeta_per_rechit_m1p1);
+
+      float phosigmaIetaIeta_per_rechit_m0p8 = sqrt(phomylocalCovariances_per_rechit_m0p8[0]);
+      my_phoSigmaIetaIeta_per_rechit_m0p8.push_back(phosigmaIetaIeta_per_rechit_m0p8);
       
       float phosigmaIetaIeta_per_rechit_m1p2 = sqrt(phomylocalCovariances_per_rechit_m1p2[0]);
       my_phoSigmaIetaIeta_per_rechit_m1p2.push_back(phosigmaIetaIeta_per_rechit_m1p2);
@@ -1006,6 +1095,17 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       std::vector<float> mylocalCovariances = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.7,0,0 ) ;
       //
       std::vector<float> mylocalCovariances_per_rechit ;
+      //
+      std::vector<float> mylocalCovariances_per_rechit_m0p9 ;
+      std::vector<float> mylocalCovariances_per_rechit_m0p8 ;
+      std::vector<float> mylocalCovariances_per_rechit_m0p7 ;
+      std::vector<float> mylocalCovariances_per_rechit_m0p6 ;
+      std::vector<float> mylocalCovariances_per_rechit_m0p5 ;
+      std::vector<float> mylocalCovariances_per_rechit_m0p4 ;
+      std::vector<float> mylocalCovariances_per_rechit_m0p3 ;
+      std::vector<float> mylocalCovariances_per_rechit_m0p2 ;
+      std::vector<float> mylocalCovariances_per_rechit_m0p1 ;
+      //
       std::vector<float> mylocalCovariances_per_rechit_m1p1 ;
       std::vector<float> mylocalCovariances_per_rechit_m1p2 ;
       std::vector<float> mylocalCovariances_per_rechit_m1p25 ;
@@ -1015,6 +1115,17 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       if (theCaloGeometry) {
 	
 	mylocalCovariances_per_rechit = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1).cov;
+	//
+	mylocalCovariances_per_rechit_m0p9 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.9).cov;
+	mylocalCovariances_per_rechit_m0p8 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.8).cov;
+	mylocalCovariances_per_rechit_m0p7 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.7).cov;
+	mylocalCovariances_per_rechit_m0p6 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.6).cov;
+	mylocalCovariances_per_rechit_m0p5 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.5).cov;
+	mylocalCovariances_per_rechit_m0p4 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.4).cov;
+	mylocalCovariances_per_rechit_m0p3 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.3).cov;
+	mylocalCovariances_per_rechit_m0p2 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.2).cov;
+	mylocalCovariances_per_rechit_m0p1 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 0.1).cov;
+	//
 	mylocalCovariances_per_rechit_m1p1 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.1).cov;
 	mylocalCovariances_per_rechit_m1p2 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.2).cov;
 	mylocalCovariances_per_rechit_m1p25 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry,  &iSetup, 4.7, 1.25).cov;
@@ -1033,7 +1144,36 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       //
       float sigmaIetaIeta_per_rechit = sqrt(mylocalCovariances_per_rechit[0]); 
       my_eleSigmaIetaIeta_per_rechit.push_back(sigmaIetaIeta_per_rechit);
-      
+      //
+
+      float sigmaIetaIeta_per_rechit_m0p9 = sqrt(mylocalCovariances_per_rechit_m0p9[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p9.push_back(sigmaIetaIeta_per_rechit_m0p9);
+
+      float sigmaIetaIeta_per_rechit_m0p8 = sqrt(mylocalCovariances_per_rechit_m0p8[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p8.push_back(sigmaIetaIeta_per_rechit_m0p8);
+
+      float sigmaIetaIeta_per_rechit_m0p7 = sqrt(mylocalCovariances_per_rechit_m0p7[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p7.push_back(sigmaIetaIeta_per_rechit_m0p7);
+
+      float sigmaIetaIeta_per_rechit_m0p6 = sqrt(mylocalCovariances_per_rechit_m0p6[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p6.push_back(sigmaIetaIeta_per_rechit_m0p6);
+
+      float sigmaIetaIeta_per_rechit_m0p5 = sqrt(mylocalCovariances_per_rechit_m0p5[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p5.push_back(sigmaIetaIeta_per_rechit_m0p5);
+
+      float sigmaIetaIeta_per_rechit_m0p4 = sqrt(mylocalCovariances_per_rechit_m0p4[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p4.push_back(sigmaIetaIeta_per_rechit_m0p4);
+
+      float sigmaIetaIeta_per_rechit_m0p3 = sqrt(mylocalCovariances_per_rechit_m0p3[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p3.push_back(sigmaIetaIeta_per_rechit_m0p3);
+
+      float sigmaIetaIeta_per_rechit_m0p2 = sqrt(mylocalCovariances_per_rechit_m0p2[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p2.push_back(sigmaIetaIeta_per_rechit_m0p2);
+
+      float sigmaIetaIeta_per_rechit_m0p1 = sqrt(mylocalCovariances_per_rechit_m0p1[0]); 
+      my_eleSigmaIetaIeta_per_rechit_m0p1.push_back(sigmaIetaIeta_per_rechit_m0p1);
+
+      //
       float sigmaIetaIeta_per_rechit_m1p1 = sqrt(mylocalCovariances_per_rechit_m1p1[0]); 
       my_eleSigmaIetaIeta_per_rechit_m1p1.push_back(sigmaIetaIeta_per_rechit_m1p1);
       
