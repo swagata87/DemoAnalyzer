@@ -210,8 +210,12 @@ public:
 
   /// normal photon
   std::vector<std::vector<int> > phoIDbits;
+  std::vector<int> phoIDLoose;
+  std::vector<int> phoIDMedium;
+  std::vector<int> phoIDTight;
   std::vector<double> phoPt;
   std::vector<double> phoR9;
+  std::vector<double> cmssw_phoHoE;
   std::vector<double> phoSCrawE;
   std::vector<double> phoChargedHadronWorstVtxIso;
   std::vector<double> phoChargedHadronIso;
@@ -430,8 +434,12 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
 
   ////normal photon
   tree->Branch("phoIDbits_", &phoIDbits);
+  tree->Branch("phoIDLoose_", &phoIDLoose);
+  tree->Branch("phoIDMedium_", &phoIDMedium);
+  tree->Branch("phoIDTight_", &phoIDTight);
   tree->Branch("phoPt_",&phoPt);
   tree->Branch("phoR9_",&phoR9);
+  tree->Branch("cmssw_phoHoE_",&cmssw_phoHoE);
   tree->Branch("phoSCrawE_",&phoSCrawE);
   tree->Branch("phoChargedHadronWorstVtxIso_",&phoChargedHadronWorstVtxIso);
   tree->Branch("phoChargedHadronIso_",&phoChargedHadronIso);
@@ -610,8 +618,12 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   //normal photon
   //
   phoIDbits.clear();
+  phoIDLoose.clear();
+  phoIDMedium.clear();
+  phoIDTight.clear();
   phoPt.clear();
   phoR9.clear();
+  cmssw_phoHoE.clear();
   phoSCrawE.clear();
   phoChargedHadronWorstVtxIso.clear();
   phoChargedHadronIso.clear();
@@ -814,7 +826,15 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
     ////normal photon
     for(const auto& pho : iEvent.get(phoToken_) ) {
       //std::cout << "\n new photon " << std::endl;
-      
+
+      bool pass_loose = pho.photonID("cutBasedPhotonID-Fall17-94X-V2-loose");
+      bool pass_medium = pho.photonID("cutBasedPhotonID-Fall17-94X-V2-medium");
+      bool pass_tight = pho.photonID("cutBasedPhotonID-Fall17-94X-V2-tight");
+
+      phoIDLoose.push_back(pass_loose);
+      phoIDMedium.push_back(pass_medium);
+      phoIDTight.push_back(pass_tight);
+
       phoIDbits.push_back({pho.userInt("cutBasedPhotonID-Fall17-94X-V2-loose"),
 	    pho.userInt("cutBasedPhotonID-Fall17-94X-V2-medium"),
 	    pho.userInt("cutBasedPhotonID-Fall17-94X-V2-tight")});
@@ -855,6 +875,8 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       phoScEn.push_back(pho.superCluster()->energy());
       phoScEta.push_back(pho.superCluster()->eta());
       cmssw_phoSigmaIetaIeta.push_back(pho.full5x5_sigmaIetaIeta());
+      
+      cmssw_phoHoE.push_back(pho.hadTowOverEm());
 
       ///MVA ID var
       phoR9.push_back(pho.full5x5_r9());
