@@ -91,6 +91,11 @@ public:
   std::vector<std::vector<int> > eleIDbits;
   //  std::vector<UShort_t>  eleIDbit;
   //
+  std::vector<bool>  eleIDVeto;
+  std::vector<bool>  eleIDLoose;
+  std::vector<bool>  eleIDMedium;
+  std::vector<bool>  eleIDTight;
+  std::vector<bool>  eleIDMVAiso90;
   std::vector<double>  cmssw_eleSigmaIetaIeta;
   std::vector<double>  cmssw_eleSigmaIphiIphi;
   std::vector<float>  cmssw_eleR9;
@@ -313,6 +318,11 @@ DemoAnalyzer::DemoAnalyzer(const edm::ParameterSet& iConfig)
   //
   //  tree->Branch("eleIDbit_", &eleIDbit);
   tree->Branch("eleIDbits_", &eleIDbits);
+  tree->Branch("eleIDVeto_", &eleIDVeto);
+  tree->Branch("eleIDLoose_", &eleIDLoose);
+  tree->Branch("eleIDMedium_", &eleIDMedium);
+  tree->Branch("eleIDTight_", &eleIDTight);
+  tree->Branch("eleIDMVAiso90_", &eleIDMVAiso90);
 
   //
   tree->Branch("ele_genmatched_",&ele_genmatched);
@@ -495,6 +505,11 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
   //  std::cout << "\n \n --New Event-- \n" ;
   using namespace edm;
   
+  eleIDVeto.clear();
+  eleIDLoose.clear();
+  eleIDMedium.clear();
+  eleIDTight.clear();
+  eleIDMVAiso90.clear();
   eleIDbits.clear();
   //  eleIDbit.clear();
 
@@ -1006,7 +1021,18 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 
       ///ele ID
       //      UShort_t tmpeleIDbit = 0;   
-      //  bool isPassVeto   = ele->electronID("cutBasedElectronID-Fall17-94X-V2-veto");
+       bool isPassVeto   = ele.electronID("cutBasedElectronID-Fall17-94X-V2-veto");
+       bool isPassLoose   = ele.electronID("cutBasedElectronID-Fall17-94X-V2-loose");
+       bool isPassMedium   = ele.electronID("cutBasedElectronID-Fall17-94X-V2-medium");
+       bool isPassTight   = ele.electronID("cutBasedElectronID-Fall17-94X-V2-tight");
+       bool isPassMVAiso90 = ele.electronID("mvaEleID-Fall17-iso-V2-wp90");
+
+       eleIDVeto.push_back(isPassVeto);
+       eleIDLoose.push_back(isPassLoose);
+       eleIDMedium.push_back(isPassMedium);
+       eleIDTight.push_back(isPassTight);
+       eleIDMVAiso90.push_back(isPassMVAiso90);
+
       //  if (isPassVeto)   setbit(tmpeleIDbit, 0);    
 
       //      bool isPassLoose  = ele->electronID("cutBasedElectronID-Fall17-94X-V2-loose");

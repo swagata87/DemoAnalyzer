@@ -26,8 +26,8 @@ process.MessageLogger.cerr.FwkReport.reportEvery = 5000
 from Configuration.AlCa.GlobalTag import GlobalTag
 #process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2024_realistic_v4', '')     # 2024 MC
 #process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2023_realistic_v3', '')     # 2023 MC
-process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2021_realistic_v3', '')     # 2021 MC
-##process.GlobalTag = GlobalTag(process.GlobalTag, '102X_upgrade2018_realistic_v15', '')     # 2018 MC
+#process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2021_realistic_v3', '')     # 2021 MC
+process.GlobalTag = GlobalTag(process.GlobalTag, '102X_upgrade2018_realistic_v15', '')     # 2018 MC
 
 #process.GlobalTag = GlobalTag(process.GlobalTag, '102X_dataRun2_Sep2018Rereco_v1', '')     # 2018 data
 
@@ -36,15 +36,19 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '106X_mcRun3_2021_realistic_v3'
 #    moduleMemorySummary = cms.untracked.bool(True),
 #)
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(2000) )
 
 setupEgammaPostRecoSeq(process,
-                       era='2017-UL',
+#                       era='2017-UL',
+                       era='2018-Prompt',
                        phoIDModules=['RecoEgamma.PhotonIdentification.Identification.cutBasedPhotonID_Fall17_94X_V2_cff']
 )  
 
 process.source = cms.Source("PoolSource",
-                                fileNames = cms.untracked.vstring('/store/mc/Run3Summer19MiniAOD/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/MINIAODSIM/2021Scenario_106X_mcRun3_2021_realistic_v3-v2/130000/00DF0005-F507-2C4B-BF8B-C46342D7194E.root')
+                            fileNames = cms.untracked.vstring(
+                                #'/store/mc/Run3Summer19MiniAOD/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_14TeV_Pythia8/MINIAODSIM/2021Scenario_106X_mcRun3_2021_realistic_v3-v2/130000/00DF0005-F507-2C4B-BF8B-C46342D7194E.root'
+                                '/store/mc/RunIIAutumn18MiniAOD/DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/MINIAODSIM/102X_upgrade2018_realistic_v15-v1/80000/E7AE77A2-59DD-6C4B-AF91-8263DA41EFD8.root'
+                                )
 )
 
 
@@ -81,10 +85,10 @@ process.demo = cms.EDAnalyzer('DemoAnalyzer',
        ootPhotons       = cms.InputTag("ootPhotons"),
 #       Photons       = cms.InputTag("gedPhotons"),
        Photons       = cms.InputTag("slimmedPhotons"),
-       RunEle_       = cms.bool(False),
-       RunPho_       = cms.bool(True),
+       RunEle_       = cms.bool(True),
+       RunPho_       = cms.bool(False),
 
                               )
-process.TFileService = cms.Service("TFileService", fileName = cms.string('testPho.root'))
+process.TFileService = cms.Service("TFileService", fileName = cms.string('testEle.root'))
 
 process.p = cms.Path(process.egammaPostRecoSeq * process.demo)
