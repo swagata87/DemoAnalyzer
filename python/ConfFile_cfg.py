@@ -3,7 +3,7 @@ import FWCore.ParameterSet.Config as cms
 process = cms.Process("Demo")
 #from RecoEgamma.EgammaTools.EgammaPostRecoTools import setupEgammaPostRecoSeq
 
-from EgammaUser.EgammaPostRecoTools.EgammaPostRecoTools import setupEgammaPostRecoSeq
+#from EgammaUser.EgammaPostRecoTools.EgammaPostRecoTools import setupEgammaPostRecoSeq
 
 process.load("FWCore.MessageService.MessageLogger_cfi")
 #process.load("Configuration.StandardSequences.GeometryRecoDB_cff")
@@ -38,11 +38,11 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '102X_upgrade2018_realistic_v15
 
 process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(2000) )
 
-setupEgammaPostRecoSeq(process,
+#setupEgammaPostRecoSeq(process,
 #                       era='2017-UL',
-                       era='2018-Prompt',
-                       phoIDModules=['RecoEgamma.PhotonIdentification.Identification.cutBasedPhotonID_Fall17_94X_V2_cff']
-)  
+#                       era='2018-Prompt',
+#                       phoIDModules=['RecoEgamma.PhotonIdentification.Identification.cutBasedPhotonID_Fall17_94X_V2_cff']
+#)  
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(
@@ -91,4 +91,5 @@ process.demo = cms.EDAnalyzer('DemoAnalyzer',
                               )
 process.TFileService = cms.Service("TFileService", fileName = cms.string('testEle.root'))
 
-process.p = cms.Path(process.egammaPostRecoSeq * process.demo)
+#process.p = cms.Path(process.egammaPostRecoSeq * process.demo)
+process.p = cms.Path(process.demo)

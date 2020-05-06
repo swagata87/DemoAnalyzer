@@ -270,8 +270,8 @@ private:
   edm::EDGetTokenT<edm::View<pat::Photon> > phoToken_;
   edm::EDGetTokenT<EcalRecHitCollection> EBRecHitCollectionT_;
   edm::EDGetTokenT<EcalRecHitCollection> EERecHitCollectionT_;
-  edm::ESHandle<CaloTopology> theCaloTopology;
-  edm::ESHandle<CaloGeometry> theCaloGeometry;
+  // edm::ESHandle<CaloTopology> theCaloTopology;
+  //  edm::ESHandle<CaloGeometry> theCaloGeometry;
   edm::EDGetTokenT<std::vector<PileupSummaryInfo> >     puCollection_;
   edm::EDGetTokenT<std::vector<reco::GenParticle> >     genParticlesCollection_;
   edm::EDGetTokenT<reco::BeamHaloSummary> beamHaloSummaryToken_;
@@ -750,19 +750,19 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	ootphoSeedTime.push_back(999);
       }
 
-      iSetup.get<CaloTopologyRecord>().get(theCaloTopology);
-      const CaloTopology* ootcaloTopology = theCaloTopology.product();
+      //      iSetup.get<CaloTopologyRecord>().get(theCaloTopology);
+      //  const CaloTopology* ootcaloTopology = theCaloTopology.product();
       
       //    std::cout << "will do iSetup.get<CaloGeometryRecord>().get(theCaloGeometry) \n";
-      iSetup.get<CaloGeometryRecord>().get(theCaloGeometry);
+      //      iSetup.get<CaloGeometryRecord>().get(theCaloGeometry);
       // std::cout << "ok have theCaloGeometry now--> get the product now \n" ;
-      const CaloGeometry* caloGeometry;
-      if (theCaloGeometry)  caloGeometry = theCaloGeometry.product();
+      //      const CaloGeometry* caloGeometry;
+      // if (theCaloGeometry)  caloGeometry = theCaloGeometry.product();
       
-      using ClusterTools = noZS::EcalClusterTools;     
+      //      using ClusterTools = noZS::EcalClusterTools;     
       
-      std::vector<float> ootmylocalCovariances = ClusterTools::localCovariances(ootseedCluster, ootrecHits, ootcaloTopology,4.7,0,0 ) ;
-      
+      //      std::vector<float> ootmylocalCovariances = ClusterTools::localCovariances(ootseedCluster, ootrecHits, ootcaloTopology,4.7,0,0 ) ;
+      /*      
       std::vector<float> ootmylocalCovariances_per_rechit ;
       std::vector<float> ootmylocalCovariances_per_rechit_m1p1 ;
       std::vector<float> ootmylocalCovariances_per_rechit_m1p2 ;
@@ -778,9 +778,11 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	
       }
       
+
       float ootsigmaIetaIeta = sqrt(ootmylocalCovariances[0]);
       my_ootphoSigmaIetaIeta.push_back(ootsigmaIetaIeta);
-      
+      */
+      /*      
       float ootsigmaIetaIeta_per_rechit = sqrt(ootmylocalCovariances_per_rechit[0]);
       my_ootphoSigmaIetaIeta_per_rechit.push_back(ootsigmaIetaIeta_per_rechit);
 
@@ -797,9 +799,11 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       my_ootphoSigmaIetaIeta_per_rechit_m1p5.push_back(ootsigmaIetaIeta_per_rechit_m1p5);
       //
       
+
       float ootsigmaIetaIphi = sqrt(ootmylocalCovariances[1]);
       my_ootphoSigmaIetaIphi.push_back(ootsigmaIetaIphi);
-      
+      */
+      /*      
       float ootsigmaIetaIphi_per_rechit = sqrt(ootmylocalCovariances_per_rechit[1]);
       my_ootphoSigmaIetaIphi_per_rechit.push_back(ootsigmaIetaIphi_per_rechit);
       
@@ -816,9 +820,11 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       my_ootphoSigmaIetaIphi_per_rechit_m1p5.push_back(ootsigmaIetaIphi_per_rechit_m1p5);
       
       //
+
       float ootsigmaIphiIphi = sqrt(ootmylocalCovariances[2]);
       my_ootphoSigmaIphiIphi.push_back(ootsigmaIphiIphi);
-      
+      */
+      /*      
       float ootsigmaIphiIphi_per_rechit = sqrt(ootmylocalCovariances_per_rechit[2]);
       my_ootphoSigmaIphiIphi_per_rechit.push_back(ootsigmaIphiIphi_per_rechit);
       
@@ -833,7 +839,7 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       
       float ootsigmaIphiIphi_per_rechit_m1p5 = sqrt(ootmylocalCovariances_per_rechit_m1p5[2]);
       my_ootphoSigmaIphiIphi_per_rechit_m1p5.push_back(ootsigmaIphiIphi_per_rechit_m1p5);
-      
+      */
     }
   } // real data check
   
@@ -898,9 +904,9 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       phoEtaWidth.push_back(pho.superCluster()->etaWidth());
       phoPhiWidth.push_back(pho.superCluster()->phiWidth());
       //
-      phoPhotonIso.push_back(pho.photonIso());  
-      phoChargedHadronIso.push_back(pho.chargedHadronIso());  
-      phoChargedHadronWorstVtxIso.push_back(pho.chargedHadronWorstVtxIso());
+      // phoPhotonIso.push_back(pho.photonIso());  
+      // phoChargedHadronIso.push_back(pho.chargedHadronIso());  
+      //      phoChargedHadronWorstVtxIso.push_back(pho.chargedHadronWorstVtxIso());
       //
       //      phoPhotonIso.push_back(pho.userFloat("phoPhotonIsolation"));  
       //phoChargedHadronIso.push_back(pho.userFloat("phoChargedIsolation"));  
@@ -912,24 +918,26 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       //      std::cout << "chH/ chHWorst " << pho.chargedHadronIso() << " / " << pho.chargedHadronWorstVtxIso() << " " << pho.userFloat("phoWorstChargedIsolation") << std::endl;
 
       const reco::SuperCluster& phosuperClus = *pho.superCluster();
-      const reco::CaloCluster &phoseedCluster = *phosuperClus.seed();
-      const bool phoiseb = phoseedCluster.hitsAndFractions()[0].first.subdetId() == EcalBarrel;
-      edm::Handle<EcalRecHitCollection> phoEBRecHits_;
-      edm::Handle<EcalRecHitCollection> phoEERecHits_;
-      iEvent.getByToken(EBRecHitCollectionT_, phoEBRecHits_);
-      iEvent.getByToken(EERecHitCollectionT_, phoEERecHits_);
-      const EcalRecHitCollection *phorecHits = phoiseb ? phoEBRecHits_.product() : phoEERecHits_.product();
+            const reco::CaloCluster &phoseedCluster = *phosuperClus.seed();
+      //      const bool phoiseb = phoseedCluster.hitsAndFractions()[0].first.subdetId() == EcalBarrel;
+      // edm::Handle<EcalRecHitCollection> phoEBRecHits_;
+      // edm::Handle<EcalRecHitCollection> phoEERecHits_;
+      // iEvent.getByToken(EBRecHitCollectionT_, phoEBRecHits_);
+      // iEvent.getByToken(EERecHitCollectionT_, phoEERecHits_);
+      //      const EcalRecHitCollection *phorecHits = phoiseb ? phoEBRecHits_.product() : phoEERecHits_.product();
       
-      iSetup.get<CaloTopologyRecord>().get(theCaloTopology);
-      const CaloTopology* phocaloTopology = theCaloTopology.product();
+      //      iSetup.get<CaloTopologyRecord>().get(theCaloTopology);
+      // const CaloTopology* phocaloTopology = theCaloTopology.product();
       
-      iSetup.get<CaloGeometryRecord>().get(theCaloGeometry);
-      const CaloGeometry* caloGeometry;
-      if (theCaloGeometry)  caloGeometry = theCaloGeometry.product();
+      //      iSetup.get<CaloGeometryRecord>().get(theCaloGeometry);
+      // const CaloGeometry* caloGeometry;
+      // if (theCaloGeometry)  caloGeometry = theCaloGeometry.product();
       
-      using ClusterTools = noZS::EcalClusterTools;     
+      //      using ClusterTools = noZS::EcalClusterTools;     
       
-      std::vector<float> phomylocalCovariances = ClusterTools::localCovariances(phoseedCluster, phorecHits, phocaloTopology,4.7,0,0 ) ;
+      // std::vector<float> phomylocalCovariances = ClusterTools::localCovariances(phoseedCluster, phorecHits, phocaloTopology,4.7,0,0 ) ;
+
+      /*
       std::vector<float> phomylocalCovariances_per_rechit ;
       std::vector<float> phomylocalCovariances_per_rechit_m1p1 ;
       std::vector<float> phomylocalCovariances_per_rechit_m0p8 ;
@@ -946,10 +954,11 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	phomylocalCovariances_per_rechit_m1p5 = ClusterTools::localCovariancesnew(phoseedCluster, phorecHits, phocaloTopology, caloGeometry, &iSetup, 4.7, 1.5).cov;
 	
       }
+      */
+      //      float phosigmaIetaIeta = sqrt(phomylocalCovariances[0]);
+      //my_phoSigmaIetaIeta.push_back(phosigmaIetaIeta);
       
-      float phosigmaIetaIeta = sqrt(phomylocalCovariances[0]);
-      my_phoSigmaIetaIeta.push_back(phosigmaIetaIeta);
-      
+      /*
       float phosigmaIetaIeta_per_rechit = sqrt(phomylocalCovariances_per_rechit[0]);
       my_phoSigmaIetaIeta_per_rechit.push_back(phosigmaIetaIeta_per_rechit);
       
@@ -968,10 +977,12 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       float phosigmaIetaIeta_per_rechit_m1p5 = sqrt(phomylocalCovariances_per_rechit_m1p5[0]);
       my_phoSigmaIetaIeta_per_rechit_m1p5.push_back(phosigmaIetaIeta_per_rechit_m1p5);
       //
-      
-      float phosigmaIetaIphi = sqrt(phomylocalCovariances[1]);
-      my_phoSigmaIetaIphi.push_back(phosigmaIetaIphi);
-      
+      */
+
+      //      float phosigmaIetaIphi = sqrt(phomylocalCovariances[1]);
+      //  my_phoSigmaIetaIphi.push_back(phosigmaIetaIphi);
+
+      /*      
       float phosigmaIetaIphi_per_rechit = sqrt(phomylocalCovariances_per_rechit[1]);
       my_phoSigmaIetaIphi_per_rechit.push_back(phosigmaIetaIphi_per_rechit);
       
@@ -986,11 +997,13 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       
       float phosigmaIetaIphi_per_rechit_m1p5 = sqrt(phomylocalCovariances_per_rechit_m1p5[1]);
       my_phoSigmaIetaIphi_per_rechit_m1p5.push_back(phosigmaIetaIphi_per_rechit_m1p5);
-      
+      */
       //
-      float phosigmaIphiIphi = sqrt(phomylocalCovariances[2]);
-      my_phoSigmaIphiIphi.push_back(phosigmaIphiIphi);
+
+      //      float phosigmaIphiIphi = sqrt(phomylocalCovariances[2]);
+      // my_phoSigmaIphiIphi.push_back(phosigmaIphiIphi);
       
+      /*
       float phosigmaIphiIphi_per_rechit = sqrt(phomylocalCovariances_per_rechit[2]);
       my_phoSigmaIphiIphi_per_rechit.push_back(phosigmaIphiIphi_per_rechit);
       
@@ -1005,7 +1018,7 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       
       float phosigmaIphiIphi_per_rechit_m1p5 = sqrt(phomylocalCovariances_per_rechit_m1p5[2]);
       my_phoSigmaIphiIphi_per_rechit_m1p5.push_back(phosigmaIphiIphi_per_rechit_m1p5);
-      
+      */
     }
     
   }
@@ -1032,22 +1045,6 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
        eleIDMedium.push_back(isPassMedium);
        eleIDTight.push_back(isPassTight);
        eleIDMVAiso90.push_back(isPassMVAiso90);
-
-      //  if (isPassVeto)   setbit(tmpeleIDbit, 0);    
-
-      //      bool isPassLoose  = ele->electronID("cutBasedElectronID-Fall17-94X-V2-loose");
-      // if (isPassLoose)  setbit(tmpeleIDbit, 1);
-   
-      //      bool isPassMedium = ele->electronID("cutBasedElectronID-Fall17-94X-V2-medium");
-      // if (isPassMedium) setbit(tmpeleIDbit, 2);    
-
-      //      bool isPassTight  = ele->electronID("cutBasedElectronID-Fall17-94X-V2-tight");
-      // if (isPassTight)  setbit(tmpeleIDbit, 3);    
-
-      //      bool isPassHEEP   = ele->electronID("heepElectronID-HEEPV70");
-      // if (isPassHEEP)   setbit(tmpeleIDbit, 4);
-
-      //      eleIDbit.push_back(tmpeleIDbit);
 
        eleIDbits.push_back({          
             ele.userInt("cutBasedElectronID-Fall17-94X-V2-veto"),
@@ -1104,8 +1101,8 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       ele_1mE1x5oE5x5.push_back(1-(ele.full5x5_e1x5()/ele.full5x5_e5x5()));      
       ele_etaWidth.push_back(ele.superCluster()->etaWidth());
       ele_phiWidth.push_back(ele.superCluster()->phiWidth());
-      ele_closestCtfTrackNLayers.push_back(ele.closestCtfTrackNLayers());
-      ele_closestCtfTrackNormChi2.push_back(ele.closestCtfTrackNormChi2());
+      //ele_closestCtfTrackNLayers.push_back(ele.closestCtfTrackNLayers());
+      //ele_closestCtfTrackNormChi2.push_back(ele.closestCtfTrackNormChi2());
       ele_deltaEtaSuperClusterTrackAtVtx.push_back(ele.deltaEtaSuperClusterTrackAtVtx());
       ele_deltaPhiSuperClusterTrackAtVtx.push_back(ele.deltaPhiSuperClusterTrackAtVtx());
       ele_deltaEtaSeedClusterTrackAtCalo.push_back(ele.deltaEtaSeedClusterTrackAtCalo());
@@ -1113,7 +1110,7 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       ele_missingHit.push_back(ele.gsfTrack()->hitPattern().numberOfLostHits(reco::HitPattern::MISSING_INNER_HITS));
       ele_nHit.push_back(ele.gsfTrack()->hitPattern().trackerLayersWithMeasurement());
       ele_gsfTrackChi2.push_back(ele.gsfTrack()->normalizedChi2());
-      ele_convVtxFitProb.push_back(ele.convVtxFitProb());
+      //    ele_convVtxFitProb.push_back(ele.convVtxFitProb());
       ele_eSCoP.push_back(ele.eSuperClusterOverP());
       ele_eSCoPout.push_back(ele.eEleClusterOverPout());
       ele_1oEm1op.push_back( (1.0/ele.ecalEnergy()) - (1.0/ele.trackMomentumAtVtx().r()) );
@@ -1125,23 +1122,24 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       elePFNeuIso.push_back(pfIso.sumNeutralHadronEt);
 
       const reco::SuperCluster& superClus = *ele.superCluster();
-      const reco::CaloCluster &seedCluster = *superClus.seed();
-      const bool iseb = seedCluster.hitsAndFractions()[0].first.subdetId() == EcalBarrel;
-      edm::Handle<EcalRecHitCollection> EBRecHits_;
-      edm::Handle<EcalRecHitCollection> EERecHits_;
-      iEvent.getByToken(EBRecHitCollectionT_, EBRecHits_);
-      iEvent.getByToken(EERecHitCollectionT_, EERecHits_);
-      const EcalRecHitCollection *recHits = iseb ? EBRecHits_.product() : EERecHits_.product();
+      //      const reco::CaloCluster &seedCluster = *superClus.seed();
+      // const bool iseb = seedCluster.hitsAndFractions()[0].first.subdetId() == EcalBarrel;
+      // edm::Handle<EcalRecHitCollection> EBRecHits_;
+      // edm::Handle<EcalRecHitCollection> EERecHits_;
+      //iEvent.getByToken(EBRecHitCollectionT_, EBRecHits_);
+      // iEvent.getByToken(EERecHitCollectionT_, EERecHits_);
+      //      const EcalRecHitCollection *recHits = iseb ? EBRecHits_.product() : EERecHits_.product();
       
-      iSetup.get<CaloTopologyRecord>().get(theCaloTopology);
-      const CaloTopology* caloTopology = theCaloTopology.product();
+      //      iSetup.get<CaloTopologyRecord>().get(theCaloTopology);
+      //  const CaloTopology* caloTopology = theCaloTopology.product();
       
-      iSetup.get<CaloGeometryRecord>().get(theCaloGeometry);
-      const CaloGeometry* caloGeometry;
-      if (theCaloGeometry)  caloGeometry = theCaloGeometry.product();
-      using ClusterTools = noZS::EcalClusterTools;     
-      std::vector<float> mylocalCovariances = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.7,0,0 ) ;
+      //      iSetup.get<CaloGeometryRecord>().get(theCaloGeometry);
+      // const CaloGeometry* caloGeometry;
+      // if (theCaloGeometry)  caloGeometry = theCaloGeometry.product();
+      //  using ClusterTools = noZS::EcalClusterTools;     
+      // std::vector<float> mylocalCovariances = ClusterTools::localCovariances(seedCluster, recHits, caloTopology,4.7,0,0 ) ;
       //
+      /*
       std::vector<float> mylocalCovariances_per_rechit ;
       //
       std::vector<float> mylocalCovariances_per_rechit_m0p9 ;
@@ -1159,7 +1157,8 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       std::vector<float> mylocalCovariances_per_rechit_m1p25 ;
       std::vector<float> mylocalCovariances_per_rechit_m1p5 ;
       //
-      
+      */
+      /*
       if (theCaloGeometry) {
 	
 	mylocalCovariances_per_rechit = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1).cov;
@@ -1180,15 +1179,18 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
 	mylocalCovariances_per_rechit_m1p5 = ClusterTools::localCovariancesnew(seedCluster, recHits, caloTopology, caloGeometry, &iSetup, 4.7, 1.5).cov;
 	
       }
-      
-      float sigmaIetaIeta = sqrt(mylocalCovariances[0]);
-      my_eleSigmaIetaIeta.push_back(sigmaIetaIeta);
-      float sigmaIetaIphi = sqrt(mylocalCovariances[1]);
-      my_eleSigmaIetaIphi.push_back(sigmaIetaIphi);
-      float sigmaIphiIphi = sqrt(mylocalCovariances[2]);
-      my_eleSigmaIphiIphi.push_back(sigmaIphiIphi);
+      */
+
+      //      float sigmaIetaIeta = sqrt(mylocalCovariances[0]);
+      // my_eleSigmaIetaIeta.push_back(sigmaIetaIeta);
+      // float sigmaIetaIphi = sqrt(mylocalCovariances[1]);
+      // my_eleSigmaIetaIphi.push_back(sigmaIetaIphi);
+      //float sigmaIphiIphi = sqrt(mylocalCovariances[2]);
+      // my_eleSigmaIphiIphi.push_back(sigmaIphiIphi);
       //
+
       //ietaiphi
+      /*
       //
       float sigmaIetaIeta_per_rechit = sqrt(mylocalCovariances_per_rechit[0]); 
       my_eleSigmaIetaIeta_per_rechit.push_back(sigmaIetaIeta_per_rechit);
@@ -1265,9 +1267,9 @@ DemoAnalyzer::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup)
       
       float sigmaIphiIphi_per_rechit_m1p5 = sqrt(mylocalCovariances_per_rechit_m1p5[2]); 
       my_eleSigmaIphiIphi_per_rechit_m1p5.push_back(sigmaIphiIphi_per_rechit_m1p5);
+      */
+     }
       
-    }
-    
   }
   
   tree->Fill();
